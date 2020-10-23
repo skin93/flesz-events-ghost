@@ -10,6 +10,7 @@ const api = new GhostContentAPI({
 export async function getPosts() {
   return await api.posts
     .browse({
+      include: 'tags,authors',
       limit: 'all',
     })
     .catch((err) => {
@@ -19,9 +20,12 @@ export async function getPosts() {
 
 export async function getSinglePost(postSlug) {
   return await api.posts
-    .read({
-      slug: postSlug,
-    })
+    .read(
+      {
+        slug: postSlug,
+      },
+      { include: 'tags,authors' }
+    )
     .catch((err) => {
       console.error(err)
     })

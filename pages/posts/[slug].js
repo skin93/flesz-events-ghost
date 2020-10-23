@@ -1,20 +1,17 @@
-// Import getSinglePost function
 import { getSinglePost } from '../api/posts'
 
-// PostPage page component
-const PostPage = (props) => {
-  // Render post title and content in the page from props
+const PostPage = ({ post }) => {
   return (
     <div>
-      <h1>{props.post.title}</h1>
-      <div dangerouslySetInnerHTML={{ __html: props.post.html }} />
+      <h1>{post.title}</h1>
+      <div dangerouslySetInnerHTML={{ __html: post.html }} />
     </div>
   )
 }
 
-export default PostPage
-
-PostPage.getInitialProps = async (params) => {
-  const post = await getSinglePost(params.query.slug)
-  return { post: post }
+export const getServerSideProps = async ({ query: { slug } }) => {
+  const post = await getSinglePost(slug)
+  return { props: { post } }
 }
+
+export default PostPage
