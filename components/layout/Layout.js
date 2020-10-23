@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { listPostsFeatured } from '../../store/actions/postActions'
+import { getPostsFeatured } from '../../store/actions/postActions'
 import Header from './Header'
 import Footer from './Footer'
 import FeaturedPosts from '../posts/FeaturedPosts'
@@ -13,7 +13,7 @@ const Layout = ({ children }) => {
   )
 
   useEffect(() => {
-    dispatch(listPostsFeatured())
+    dispatch(getPostsFeatured())
   }, [dispatch])
   return (
     <>

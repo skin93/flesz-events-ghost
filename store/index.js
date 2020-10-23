@@ -4,6 +4,7 @@ import thunk from 'redux-thunk'
 import {
   postListReducer,
   postListFeaturedReducer,
+  postSingleReducer,
 } from './reducers/postReducers'
 
 const initialState = {}
@@ -11,6 +12,7 @@ const initialState = {}
 const reducer = combineReducers({
   postList: postListReducer,
   postListFeatured: postListFeaturedReducer,
+  postSingle: postSingleReducer,
 })
 
 const middleware = [thunk]

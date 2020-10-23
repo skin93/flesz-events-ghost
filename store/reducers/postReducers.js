@@ -5,6 +5,9 @@ import {
   POST_LIST_FEATURED_REQUEST,
   POST_LIST_FEATURED_SUCCESS,
   POST_LIST_FEATURED_FAIL,
+  POST_SINGLE_REQUEST,
+  POST_SINGLE_SUCCESS,
+  POST_SINGLE_FAIL,
 } from '../constants/postConstants'
 
 export const postListReducer = (state = { posts: [] }, action) => {
@@ -37,6 +40,24 @@ export const postListFeaturedReducer = (state = { featured: [] }, action) => {
         //   page: action.payload.page,
       }
     case POST_LIST_FEATURED_FAIL:
+      return { loading: false, error: action.payload }
+    default:
+      return state
+  }
+}
+
+export const postSingleReducer = (state = { post: {} }, action) => {
+  switch (action.type) {
+    case POST_SINGLE_REQUEST:
+      return { loading: true, post: {} }
+    case POST_SINGLE_SUCCESS:
+      return {
+        loading: false,
+        post: action.payload,
+        //   pages: action.payload.pages,
+        //   page: action.payload.page,
+      }
+    case POST_SINGLE_FAIL:
       return { loading: false, error: action.payload }
     default:
       return state
