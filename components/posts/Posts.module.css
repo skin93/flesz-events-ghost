@@ -16,8 +16,8 @@
   }
 }
 
-@media (min-width: 1201px) {
+/* @media (min-width: 1201px) {
   .posts {
     grid-template-columns: repeat(3, 1fr);
   }
-}
+} */
