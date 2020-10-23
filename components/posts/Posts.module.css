@@ -1,0 +1,23 @@
+.posts {
+  display: grid;
+  gap: 10px;
+  place-items: center;
+}
+
+@media only screen and (max-width: 739px) {
+  .posts {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+@media (min-width: 740px) {
+  .posts {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1201px) {
+  .posts {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
