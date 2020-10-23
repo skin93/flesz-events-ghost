@@ -15,7 +15,7 @@ const PostPage = () => {
 
   useEffect(() => {
     dispatch(getSinglePost(slug))
-  }, [dispatch])
+  }, [dispatch, slug])
   return (
     <article className={styles.postPage}>
       {loading ? (
