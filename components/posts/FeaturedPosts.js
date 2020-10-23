@@ -1,7 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
-import styles from './Featured.module.css'
-import PostItem from './PostItem'
+import FeaturedPostItem from './FeaturedPostItem'
 
 const FeaturedPosts = ({ featured }) => {
   return (
@@ -11,7 +10,7 @@ const FeaturedPosts = ({ featured }) => {
         <div key={feat.id}>
           <Link href={`/posts/[slug]`} as={`/posts/${feat.slug}`}>
             <a>
-              <PostItem post={feat} />
+              <FeaturedPostItem featured={feat} />
             </a>
           </Link>
         </div>
