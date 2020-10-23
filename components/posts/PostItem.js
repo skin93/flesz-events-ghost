@@ -11,7 +11,6 @@ const PostItem = ({ post }) => {
       />
       <div className={styles.cardBody}>
         <h4 className={styles.cardTitle}>{post.title}</h4>
-        {/* <small>{post.excerpt}</small> */}
       </div>
     </div>
   )

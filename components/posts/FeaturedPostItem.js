@@ -3,15 +3,14 @@ import styles from './FeaturedPostItem.module.css'
 
 const FeaturedPostItem = ({ featured }) => {
   return (
-    <div className={styles.featCard}>
-      <div
-        className={styles.featImg}
-        style={{
-          backgroundImage: `url(${featured.feature_image})`,
-        }}
-      >
-        <h3 className={styles.featTitle}>{featured.title}</h3>
-        <div className={styles.featImgOverlay} />
+    <div className={styles.card}>
+      <img
+        className={styles.imgTop}
+        src={featured.feature_image}
+        alt='Feature image'
+      />
+      <div className={styles.cardBody}>
+        <h4 className={styles.cardTitle}>{featured.title}</h4>
       </div>
     </div>
   )

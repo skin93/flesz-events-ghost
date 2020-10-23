@@ -1,8 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
-import PostItem from './PostItem'
-
 import styles from './Posts.module.css'
+import PostItem from './PostItem'
 
 const Posts = ({ posts }) => {
   return (

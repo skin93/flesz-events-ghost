@@ -19,14 +19,17 @@ const Layout = ({ children }) => {
     <>
       <Header />
       <main className={styles.mainContainer}>
-        <section className={styles.content}>{children}</section>
-        <section className={styles.featuredPosts}>
+        <section className={styles.mainContent}>{children}</section>
+        <section className={styles.asideContent}>
           {loading ? (
             <div>Loading...</div>
           ) : error ? (
             <div>{error}</div>
           ) : (
-            <FeaturedPosts featured={featured} />
+            <>
+              <h3>Zobacz także</h3>
+              <FeaturedPosts featured={featured} />
+            </>
           )}
         </section>
       </main>
