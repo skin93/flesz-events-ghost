@@ -30,3 +30,16 @@ export async function getSinglePost(postSlug) {
       console.error(err)
     })
 }
+
+export async function getFeaturedPosts() {
+  return await api.posts
+    .browse(
+      {
+        filter: ['featured:true'],
+      },
+      { include: 'tags,authors' }
+    )
+    .catch((err) => {
+      console.error(err)
+    })
+}
