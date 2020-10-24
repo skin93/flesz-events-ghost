@@ -38,7 +38,7 @@ const Tag = () => {
             <h2 className={styles.tagName}>{tag.name}</h2>
             <div className={styles.postsContainer}>
               {postsByTag.map((post) => (
-                <div key={post.id}>
+                <div className={styles.post} key={post.id}>
                   <Link href={`/posts/[slug]`} as={`/posts/${post.slug}`}>
                     <a>
                       <PostItem post={post} />
