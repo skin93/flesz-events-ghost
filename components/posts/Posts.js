@@ -7,7 +7,7 @@ const Posts = ({ posts }) => {
   return (
     <section className={styles.posts}>
       {posts?.map((post) => (
-        <div key={post.id}>
+        <div key={post.id} className={styles.post}>
           <Link href={`/posts/[slug]`} as={`/posts/${post.slug}`}>
             <a>
               <PostItem post={post} />

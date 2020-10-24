@@ -1,7 +1,8 @@
 .posts {
   display: grid;
-  gap: 10px;
+  gap: 5px;
   place-items: center;
+  grid-auto-flow: row dense;
 }
 
 @media only screen and (max-width: 767px) {
@@ -19,5 +20,21 @@
 @media (min-width: 1200px) {
   .posts {
     grid-template-columns: repeat(3, 1fr);
+  }
+
+  .posts .post:nth-child(4n + 1) {
+    grid-column: 1 / span 2;
+  }
+
+  .posts .post:nth-child(4n + 2) {
+    grid-column: 2 / span 2;
+  }
+
+  .posts .post:nth-child(4n + 5) {
+    grid-column: 1 / span 3;
+  }
+
+  .posts .post:nth-child(4n + 6) {
+    grid-column: 1 / span 2;
   }
 }
