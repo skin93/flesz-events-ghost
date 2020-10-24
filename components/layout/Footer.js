@@ -6,9 +6,11 @@ const Footer = () => {
   return (
     <footer className={styles.footer}>
       <Container>
-        <div className={styles.info}>Informacje</div>
-        <div className={styles.contact}>Kontakt</div>
-        <div className={styles.tags}>Tagi</div>
+        <ul className={styles.footerContent}>
+          <li className={styles.info}>Informacje</li>
+          <li className={styles.contact}>Kontakt</li>
+          <li className={styles.tags}>Tagi</li>
+        </ul>
       </Container>
     </footer>
   )
