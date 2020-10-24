@@ -1,49 +1,8 @@
-/* .featCard {
-  min-width: 300px;
-  height: 200px;
-  margin: 30px;
-}
-
-.featImgTop {
-  position: relative;
-  width: 100%;
-  height: 300px;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-}
-
-.featImgOverlay {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.466);
-  z-index: 99;
-}
-
-.featTitle {
-  position: absolute;
-  width: 100%;
-  text-align: center;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 100;
-  color: white;
-  margin: 0;
-  font-size: 1rem;
-
-} */
-
 .card {
   max-width: 400px;
   height: 200px;
   margin: 30px;
-  background-color: #f0a500;
+  background-color: var(--orange);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -61,10 +20,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* min-height: 100px; */
   width: 100%;
   height: 50px;
-}
-
-.cardTitle {
 }

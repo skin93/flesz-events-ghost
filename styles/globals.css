@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Montserrat:wght@400;700&display=swap');
 
+:root {
+  --light: #f4f4f4;
+  --orange: #f0a500;
+  --darkOrange: #cf7500;
+  --black: #1a1c20;
+}
+
 html,
 body {
   padding: 0;
