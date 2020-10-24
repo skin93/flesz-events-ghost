@@ -10,28 +10,27 @@ import {
   POST_SINGLE_FAIL,
 } from '../constants/postConstants'
 
-import api from '../../pages/api/index'
+import axios from 'axios'
 
 export const getPosts = () => async (dispatch) => {
   try {
     dispatch({
       type: POST_LIST_REQUEST,
     })
-    const data = await api.posts.browse({
-      include: 'tags,authors',
-      limit: 'all',
-    })
+    const { data } = await axios.get(
+      `http://${process.env.NEXT_PUBLIC_DEV_DOMAIN}/ghost/api/v3/content/posts/?key=${process.env.NEXT_PUBLIC_API_KEY}`
+    )
 
     dispatch({
       type: POST_LIST_SUCCESS,
-      payload: data,
+      payload: { posts: data.posts, meta: data.meta },
     })
   } catch (error) {
     dispatch({
       type: POST_LIST_FAIL,
       payload:
-        error.response && error.response.data.errors[0].message
-          ? error.response.data.errors[0].message
+        error.response && error.response.data.message
+          ? error.response.data.message
           : error.message,
     })
   }
@@ -42,23 +41,20 @@ export const getSinglePost = (postSlug) => async (dispatch) => {
     dispatch({
       type: POST_SINGLE_REQUEST,
     })
-    const data = await api.posts.read(
-      {
-        slug: postSlug,
-      },
-      { include: 'tags,authors' }
+    const { data } = await axios.get(
+      `http://${process.env.NEXT_PUBLIC_DEV_DOMAIN}/ghost/api/v3/content/posts/slug/${postSlug}/?key=${process.env.NEXT_PUBLIC_API_KEY}`
     )
 
     dispatch({
       type: POST_SINGLE_SUCCESS,
-      payload: data,
+      payload: data.posts[0],
     })
   } catch (error) {
     dispatch({
       type: POST_SINGLE_FAIL,
       payload:
-        error.response && error.response.data.errors[0].message
-          ? error.response.data.errors[0].message
+        error.response && error.response.data.message
+          ? error.response.data.message
           : error.message,
     })
   }
@@ -69,23 +65,20 @@ export const getPostsFeatured = () => async (dispatch) => {
     dispatch({
       type: POST_LIST_FEATURED_REQUEST,
     })
-    const data = await api.posts.browse(
-      {
-        filter: ['featured:true'],
-      },
-      { include: 'tags,authors' }
+    const { data } = await axios.get(
+      `http://${process.env.NEXT_PUBLIC_DEV_DOMAIN}/ghost/api/v3/content/posts/?key=${process.env.NEXT_PUBLIC_API_KEY}&filter=featured:true`
     )
 
     dispatch({
       type: POST_LIST_FEATURED_SUCCESS,
-      payload: data,
+      payload: { posts: data.posts, meta: data.meta },
     })
   } catch (error) {
     dispatch({
       type: POST_LIST_FEATURED_FAIL,
       payload:
-        error.response && error.response.data.errors[0].message
-          ? error.response.data.errors[0].message
+        error.response && error.response.data.message
+          ? error.response.data.message
           : error.message,
     })
   }

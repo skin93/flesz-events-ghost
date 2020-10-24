@@ -17,9 +17,7 @@ export const postListReducer = (state = { posts: [] }, action) => {
     case POST_LIST_SUCCESS:
       return {
         loading: false,
-        posts: action.payload,
-        //   pages: action.payload.pages,
-        //   page: action.payload.page,
+        posts: action.payload.posts,
       }
     case POST_LIST_FAIL:
       return { loading: false, error: action.payload }
@@ -35,9 +33,7 @@ export const postListFeaturedReducer = (state = { featured: [] }, action) => {
     case POST_LIST_FEATURED_SUCCESS:
       return {
         loading: false,
-        featured: action.payload,
-        //   pages: action.payload.pages,
-        //   page: action.payload.page,
+        featured: action.payload.posts,
       }
     case POST_LIST_FEATURED_FAIL:
       return { loading: false, error: action.payload }
@@ -54,8 +50,6 @@ export const postSingleReducer = (state = { post: {} }, action) => {
       return {
         loading: false,
         post: action.payload,
-        //   pages: action.payload.pages,
-        //   page: action.payload.page,
       }
     case POST_SINGLE_FAIL:
       return { loading: false, error: action.payload }

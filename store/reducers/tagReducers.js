@@ -14,7 +14,7 @@ export const tagListReducer = (state = { tags: [] }, action) => {
     case TAG_LIST_SUCCESS:
       return {
         loading: false,
-        post: action.payload,
+        post: action.payload.tags,
       }
     case TAG_LIST_FAIL:
       return { loading: false, error: action.payload }
@@ -30,7 +30,7 @@ export const tagSingleReducer = (state = { tag: {} }, action) => {
     case TAG_SINGLE_SUCCESS:
       return {
         loading: false,
-        post: action.payload,
+        tag: action.payload,
       }
     case TAG_SINGLE_FAIL:
       return { loading: false, error: action.payload }
