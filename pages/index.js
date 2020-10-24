@@ -13,7 +13,7 @@ const IndexPage = () => {
   }, [dispatch])
   return (
     <>
-      <h3 className={styles.postsHeader}>Ostatnio dodane</h3>
+      <h2 className={styles.postsHeader}>Najnowsze wpisy</h2>
       {loading ? (
         <div>Loading...</div>
       ) : error ? (

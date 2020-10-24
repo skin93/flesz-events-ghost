@@ -27,7 +27,7 @@ const Layout = ({ children }) => {
             <div>{error}</div>
           ) : (
             <>
-              <h3>Zobacz także</h3>
+              <h3 className={styles.asideHeader}>Zobacz także</h3>
               <FeaturedPosts featured={featured} />
             </>
           )}

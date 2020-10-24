@@ -25,12 +25,18 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1rem;
+  font-size: 0.8rem;
   color: #000;
   height: 50px;
   width: 200px;
   overflow: hidden;
   padding: 10px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.navItem {
+  border-left: 5px solid #f0a500;
 }
 
 .socialItem {
