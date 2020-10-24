@@ -1,23 +1,39 @@
-.tagsContainer {
+.tagContainer {
+  margin: 30;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.tagHeader {
+  text-align: center;
+}
+
+.tagName {
+  text-transform: uppercase;
+}
+
+.postsContainer {
   display: grid;
   gap: 10px;
   place-items: center;
 }
 
 @media only screen and (max-width: 767px) {
-  .tagsContainer {
+  .postsContainer {
     grid-template-columns: repeat(1, 1fr);
   }
 }
 
 @media (min-width: 768px) {
-  .tagsContainer {
+  .postsContainer {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (min-width: 1200px) {
-  .tagsContainer {
+  .postsContainer {
     grid-template-columns: repeat(3, 1fr);
   }
 }

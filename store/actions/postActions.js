@@ -5,6 +5,9 @@ import {
   POST_LIST_FEATURED_REQUEST,
   POST_LIST_FEATURED_SUCCESS,
   POST_LIST_FEATURED_FAIL,
+  POST_LIST_BY_TAG_REQUEST,
+  POST_LIST_BY_TAG_SUCCESS,
+  POST_LIST_BY_TAG_FAIL,
   POST_SINGLE_REQUEST,
   POST_SINGLE_SUCCESS,
   POST_SINGLE_FAIL,
@@ -28,6 +31,30 @@ export const getPosts = () => async (dispatch) => {
   } catch (error) {
     dispatch({
       type: POST_LIST_FAIL,
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
+    })
+  }
+}
+
+export const getPostsByTag = (tagSlug) => async (dispatch) => {
+  try {
+    dispatch({
+      type: POST_LIST_BY_TAG_REQUEST,
+    })
+    const { data } = await axios.get(
+      `http://${process.env.NEXT_PUBLIC_DEV_DOMAIN}/ghost/api/v3/content/posts/?key=${process.env.NEXT_PUBLIC_API_KEY}&filter=tag:${tagSlug}`
+    )
+
+    dispatch({
+      type: POST_LIST_BY_TAG_SUCCESS,
+      payload: { posts: data.posts, meta: data.meta },
+    })
+  } catch (error) {
+    dispatch({
+      type: POST_LIST_BY_TAG_FAIL,
       payload:
         error.response && error.response.data.message
           ? error.response.data.message

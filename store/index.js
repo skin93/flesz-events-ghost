@@ -5,6 +5,7 @@ import {
   postListReducer,
   postListFeaturedReducer,
   postSingleReducer,
+  postListByTagReducer,
 } from './reducers/postReducers'
 import { tagListReducer, tagSingleReducer } from './reducers/tagReducers'
 
@@ -14,6 +15,8 @@ const reducer = combineReducers({
   postList: postListReducer,
   postListFeatured: postListFeaturedReducer,
   postSingle: postSingleReducer,
+  postListByTag: postListByTagReducer,
+
   tagList: tagListReducer,
   tagSingle: tagSingleReducer,
 })

@@ -5,6 +5,9 @@ import {
   POST_LIST_FEATURED_REQUEST,
   POST_LIST_FEATURED_SUCCESS,
   POST_LIST_FEATURED_FAIL,
+  POST_LIST_BY_TAG_REQUEST,
+  POST_LIST_BY_TAG_SUCCESS,
+  POST_LIST_BY_TAG_FAIL,
   POST_SINGLE_REQUEST,
   POST_SINGLE_SUCCESS,
   POST_SINGLE_FAIL,
@@ -36,6 +39,22 @@ export const postListFeaturedReducer = (state = { featured: [] }, action) => {
         featured: action.payload.posts,
       }
     case POST_LIST_FEATURED_FAIL:
+      return { loading: false, error: action.payload }
+    default:
+      return state
+  }
+}
+
+export const postListByTagReducer = (state = { postsByTag: [] }, action) => {
+  switch (action.type) {
+    case POST_LIST_BY_TAG_REQUEST:
+      return { loading: true, posts: [] }
+    case POST_LIST_BY_TAG_SUCCESS:
+      return {
+        loading: false,
+        postsByTag: action.payload.posts,
+      }
+    case POST_LIST_BY_TAG_FAIL:
       return { loading: false, error: action.payload }
     default:
       return state
