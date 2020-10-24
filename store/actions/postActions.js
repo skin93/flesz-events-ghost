@@ -21,7 +21,7 @@ export const getPosts = () => async (dispatch) => {
       type: POST_LIST_REQUEST,
     })
     const { data } = await axios.get(
-      `http://${process.env.NEXT_PUBLIC_DEV_DOMAIN}/ghost/api/v3/content/posts/?key=${process.env.NEXT_PUBLIC_API_KEY}`
+      `http://${process.env.NEXT_PUBLIC_DEV_DOMAIN}/ghost/api/v3/content/posts/?key=${process.env.NEXT_PUBLIC_API_KEY}&limit=7`
     )
 
     dispatch({
