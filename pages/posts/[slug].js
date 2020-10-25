@@ -16,6 +16,7 @@ const ArticleImg = styled.div`
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  border-radius: 10px;
 `
 
 const ArticleTitle = styled.h1`
@@ -44,9 +45,19 @@ const ImgOverlay = styled.div`
 
 const ArticleExcerpt = styled.p`
   font-size: 1.2rem;
+  color: var(--light);
 `
 
-const ArticleContent = styled.div``
+const ArticleContent = styled.div`
+  color: var(--light);
+
+  & > p {
+    font-size: 1.3rem;
+    & > strong {
+      color: var(--orange);
+    }
+  }
+`
 
 const PostPage = () => {
   const dispatch = useDispatch()
