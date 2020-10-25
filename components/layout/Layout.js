@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getPostsFeatured } from '../../store/actions/postActions'
-import Header from './Header'
-import Footer from './Footer'
+import TheHeader from './TheHeader'
+import TheFooter from './TheFooter'
 import FeaturedPosts from '../posts/FeaturedPosts'
 import styles from './Layout.module.css'
 
@@ -17,7 +17,7 @@ const Layout = ({ children }) => {
   }, [dispatch])
   return (
     <>
-      <Header />
+      <TheHeader />
       <main className={styles.mainContainer}>
         <section className={styles.mainContent}>{children}</section>
         <section className={styles.asideContent}>
@@ -33,7 +33,7 @@ const Layout = ({ children }) => {
           )}
         </section>
       </main>
-      <Footer />
+      <TheFooter />
     </>
   )
 }
