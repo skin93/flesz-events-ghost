@@ -28,10 +28,12 @@ const Children = styled.section`
 
 const AsideContainer = styled.section`
   display: flex;
-
   flex-direction: column;
+  flex: 1;
+  overflow: hidden;
+  min-height: 100vh;
 
-  & > h3 {
+  & > h2 {
     text-align: center;
   }
 
@@ -55,16 +57,16 @@ const Layout = ({ children }) => {
       <TheHeader />
       <MainContainer>
         <Children>{children}</Children>
-        {loading ? (
+        {/* {loading ? (
           <div>Loading...</div>
         ) : error ? (
           <div>{error}</div>
         ) : (
           <AsideContainer>
-            <h3>Zobacz także</h3>
+            <h2>Zobacz także</h2>
             <FeaturedPosts featured={featured} />
           </AsideContainer>
-        )}
+        )} */}
       </MainContainer>
       <TheFooter />
     </>
