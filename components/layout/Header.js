@@ -3,6 +3,8 @@ import React from 'react'
 import Container from './Container'
 import BaseLink from '../UI/BaseLink'
 import styles from './Header.module.css'
+import { faFacebook } from '@fortawesome/free-brands-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const Header = () => {
   return (
@@ -20,11 +22,13 @@ const Header = () => {
           <BaseLink to='polecamy' label='Polecamy' style={styles.navItem} />
           <BaseLink to='patronat' label='Patronat' style={styles.navItem} />
         </ul>
-        <ul className={styles.social}>
-          <li className={styles.socialItem}>
-            <i className='fab fa-facebook'></i>
-          </li>
-        </ul>
+        <div className={styles.social}>
+          <Link href='https://facebook.com/flesz-events'>
+            <a>
+              <FontAwesomeIcon icon={faFacebook} />
+            </a>
+          </Link>
+        </div>
       </Container>
     </header>
   )
