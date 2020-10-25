@@ -13,6 +13,7 @@ const PostsByTag = styled.section``
 const TagName = styled.h2`
   text-align: center;
   text-transform: uppercase;
+  color: var(--light);
 `
 
 const Tag = () => {

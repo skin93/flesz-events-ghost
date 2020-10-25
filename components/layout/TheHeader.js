@@ -10,7 +10,7 @@ import styled from 'styled-components'
 
 const Header = styled.header`
   width: 100%;
-  background-color: var(--black);
+  background-color: var(--gray);
   position: sticky;
 `
 

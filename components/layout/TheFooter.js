@@ -4,7 +4,7 @@ import { device } from '../../constants/device'
 
 const Footer = styled.footer`
   width: 100%;
-  background-color: var(--black);
+  background-color: var(--gray);
   min-height: 7vh;
 `
 
