@@ -25,13 +25,4 @@ const IndexPage = () => {
   )
 }
 
-// export const getServerSideProps = async () => {
-//   const dispatch = useDispatch()
-//   const postList = useSelector((state) => state.postList)
-//   const { posts, loading, error } = postList
-//   dispatch(listPosts())
-//   // const posts = await getPosts()
-//   return { props: { posts, loading, error } }
-// }
-
 export default IndexPage
