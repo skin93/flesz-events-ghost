@@ -15,7 +15,6 @@ const FooterContent = styled.div`
   padding: 0 15px;
   min-width: 250px;
   overflow: hidden;
-  flex-wrap: wrap;
 
   @media ${device.tablet} {
     max-width: 1440px;
@@ -26,10 +25,10 @@ const FooterItem = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  flex: 1;
   font-size: 0.8rem;
   color: var(--light);
   height: 50px;
-  width: 200px;
   overflow: hidden;
   padding: 10px;
   text-transform: uppercase;
