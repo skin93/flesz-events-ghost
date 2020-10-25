@@ -4,7 +4,7 @@ import BaseLink from '../UI/BaseLink'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 import { faFacebook } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { device } from '../../styles/device'
+import { device } from '../../constants/device'
 
 import styled from 'styled-components'
 

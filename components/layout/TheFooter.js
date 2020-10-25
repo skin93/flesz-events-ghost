@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { device } from '../../styles/device'
+import { device } from '../../constants/device'
 
 const Footer = styled.footer`
   width: 100%;

@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { device } from '../../styles/device'
+import { device } from '../../constants/device'
 
 export default styled.div`
   display: grid;

@@ -5,7 +5,7 @@ import TheHeader from './TheHeader'
 import TheFooter from './TheFooter'
 import FeaturedPosts from '../posts/FeaturedPosts'
 import styled from 'styled-components'
-import { device } from '../../styles/device'
+import { device } from '../../constants/device'
 
 const MainContainer = styled.main`
   padding: 20px;
