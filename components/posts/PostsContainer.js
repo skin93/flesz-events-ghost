@@ -27,7 +27,7 @@ export default styled.div`
     }
 
     & > :nth-child(4n + 5) {
-      grid-column: 1 / span 3;
+      grid-column: 2 / span 2;
     }
 
     & > :nth-child(4n + 6) {
