@@ -1,12 +1,19 @@
 import React, { useEffect } from 'react'
-import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useDispatch, useSelector } from 'react-redux'
 import { getTag } from '../../store/actions/tagActions'
 import { getPostsByTag } from '../../store/actions/postActions'
-import PostItem from '../../components/posts/PostItem'
 
-import styles from './[slug].module.css'
+import Posts from '../../components/posts/Posts'
+
+import styled from 'styled-components'
+
+const PostsByTag = styled.section``
+
+const TagName = styled.h2`
+  text-align: center;
+  text-transform: uppercase;
+`
 
 const Tag = () => {
   const dispatch = useDispatch()
@@ -27,30 +34,18 @@ const Tag = () => {
   }, [dispatch, slug])
 
   return (
-    <section className={styles.tagContainer}>
-      <div className={styles.tagHeader}>
-        {loading || loadingPostListByTag ? (
-          <div>Loading...</div>
-        ) : error || errorPostListByTag ? (
-          <div>{error}</div>
-        ) : (
-          <>
-            <h2 className={styles.tagName}>{tag.name}</h2>
-            <div className={styles.postsContainer}>
-              {postsByTag.map((post) => (
-                <div className={styles.post} key={post.id}>
-                  <Link href={`/posts/[slug]`} as={`/posts/${post.slug}`}>
-                    <a>
-                      <PostItem post={post} />
-                    </a>
-                  </Link>
-                </div>
-              ))}
-            </div>
-          </>
-        )}
-      </div>
-    </section>
+    <PostsByTag>
+      <TagName>{tag.name}</TagName>
+      {loading || loadingPostListByTag ? (
+        <div>Loading...</div>
+      ) : error || errorPostListByTag ? (
+        <div>{error}</div>
+      ) : (
+        <>
+          <Posts posts={postsByTag} />
+        </>
+      )}
+    </PostsByTag>
   )
 }
 

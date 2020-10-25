@@ -2,8 +2,14 @@ import { useEffect } from 'react'
 import { getPosts } from '../store/actions/postActions'
 import { useDispatch, useSelector } from 'react-redux'
 import Posts from '../components/posts/Posts'
+import styled from 'styled-components'
 
-import styles from './IndexPage.module.css'
+const LatestPosts = styled.section``
+
+const Header = styled.h2`
+  text-align: center;
+  text-transform: uppercase;
+`
 
 const IndexPage = () => {
   const dispatch = useDispatch()
@@ -12,8 +18,8 @@ const IndexPage = () => {
     dispatch(getPosts())
   }, [dispatch])
   return (
-    <>
-      <h2 className={styles.postsHeader}>Najnowsze wpisy</h2>
+    <LatestPosts>
+      <Header>Najnowsze wpisy</Header>
       {loading ? (
         <div>Loading...</div>
       ) : error ? (
@@ -21,7 +27,7 @@ const IndexPage = () => {
       ) : (
         <Posts posts={posts} />
       )}
-    </>
+    </LatestPosts>
   )
 }
 
