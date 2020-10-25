@@ -28,6 +28,8 @@ const ArticleTitle = styled.h1`
   transform: translate(-50%, -50%);
   z-index: 100;
   color: var(--light);
+  text-transform: uppercase;
+
   margin: 0;
 `
 
