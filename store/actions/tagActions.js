@@ -15,7 +15,7 @@ export const getTags = () => async (dispatch) => {
       type: TAG_LIST_REQUEST,
     })
     const { data } = await axios.get(
-      `http://${process.env.NEXT_PUBLIC_DEV_DOMAIN}/ghost/api/v3/content/tags/?key=${process.env.NEXT_PUBLIC_API_KEY}`
+      `http://${process.env.NEXT_PUBLIC_API}/tags/?key=${process.env.NEXT_PUBLIC_API_KEY}`
     )
 
     dispatch({
@@ -39,7 +39,7 @@ export const getTag = (tagSlug) => async (dispatch) => {
       type: TAG_SINGLE_REQUEST,
     })
     const { data } = await axios.get(
-      `http://${process.env.NEXT_PUBLIC_DEV_DOMAIN}/ghost/api/v3/content/tags/slug/${tagSlug}/?key=${process.env.NEXT_PUBLIC_API_KEY}`
+      `http://${process.env.NEXT_PUBLIC_API}/tags/slug/${tagSlug}/?key=${process.env.NEXT_PUBLIC_API_KEY}`
     )
 
     dispatch({

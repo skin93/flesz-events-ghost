@@ -21,7 +21,7 @@ export const getPosts = () => async (dispatch) => {
       type: POST_LIST_REQUEST,
     })
     const { data } = await axios.get(
-      `http://${process.env.NEXT_PUBLIC_DEV_DOMAIN}/ghost/api/v3/content/posts/?key=${process.env.NEXT_PUBLIC_API_KEY}&limit=7`
+      `http://${process.env.NEXT_PUBLIC_API}/posts/?key=${process.env.NEXT_PUBLIC_API_KEY}`
     )
 
     dispatch({
@@ -45,7 +45,7 @@ export const getPostsByTag = (tagSlug) => async (dispatch) => {
       type: POST_LIST_BY_TAG_REQUEST,
     })
     const { data } = await axios.get(
-      `http://${process.env.NEXT_PUBLIC_DEV_DOMAIN}/ghost/api/v3/content/posts/?key=${process.env.NEXT_PUBLIC_API_KEY}&filter=tag:${tagSlug}`
+      `http://${process.env.NEXT_PUBLIC_API}/posts/?key=${process.env.NEXT_PUBLIC_API_KEY}&filter=tag:${tagSlug}`
     )
 
     dispatch({
@@ -69,7 +69,7 @@ export const getSinglePost = (postSlug) => async (dispatch) => {
       type: POST_SINGLE_REQUEST,
     })
     const { data } = await axios.get(
-      `http://${process.env.NEXT_PUBLIC_DEV_DOMAIN}/ghost/api/v3/content/posts/slug/${postSlug}/?key=${process.env.NEXT_PUBLIC_API_KEY}`
+      `http://${process.env.NEXT_PUBLIC_API}/posts/slug/${postSlug}/?key=${process.env.NEXT_PUBLIC_API_KEY}`
     )
 
     dispatch({
@@ -93,7 +93,7 @@ export const getPostsFeatured = () => async (dispatch) => {
       type: POST_LIST_FEATURED_REQUEST,
     })
     const { data } = await axios.get(
-      `http://${process.env.NEXT_PUBLIC_DEV_DOMAIN}/ghost/api/v3/content/posts/?key=${process.env.NEXT_PUBLIC_API_KEY}&filter=featured:true`
+      `http://${process.env.NEXT_PUBLIC_API}/posts/?key=${process.env.NEXT_PUBLIC_API_KEY}&filter=featured:true`
     )
 
     dispatch({
