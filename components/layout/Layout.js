@@ -22,10 +22,13 @@ const MainContainer = styled.main`
   }
 `
 
-const Children = styled.section``
+const Children = styled.section`
+  flex: 3;
+`
 
 const AsideContainer = styled.section`
   display: flex;
+
   flex-direction: column;
 
   & > h3 {
@@ -34,6 +37,7 @@ const AsideContainer = styled.section`
 
   @media ${device.laptopL} {
     flex-direction: column;
+    flex: 1;
   }
 `
 
