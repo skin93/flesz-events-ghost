@@ -7,6 +7,7 @@ import { getPostsByTag } from '../../store/actions/postActions'
 import Posts from '../../components/posts/Posts'
 
 import styled from 'styled-components'
+import BaseLoader from '../../components/UI/BaseLoader'
 
 const PostsByTag = styled.section``
 
@@ -22,7 +23,7 @@ const Tag = () => {
   const {
     loading: loadingPostListByTag,
     error: errorPostListByTag,
-    postsByTag,
+    postsByTag
   } = useSelector((state) => state.postListByTag)
 
   const router = useRouter()
@@ -38,7 +39,7 @@ const Tag = () => {
     <PostsByTag>
       <TagName>{tag.name}</TagName>
       {loading || loadingPostListByTag ? (
-        <div>Loading...</div>
+        <BaseLoader />
       ) : error || errorPostListByTag ? (
         <div>{error}</div>
       ) : (

@@ -3,6 +3,7 @@ import { getPosts } from '../store/actions/postActions'
 import { useDispatch, useSelector } from 'react-redux'
 import Posts from '../components/posts/Posts'
 import styled from 'styled-components'
+import BaseLoader from '../components/UI/BaseLoader'
 
 const LatestPosts = styled.section``
 
@@ -23,7 +24,7 @@ const IndexPage = () => {
     <LatestPosts>
       <Header>Najnowsze wpisy</Header>
       {loading ? (
-        <div>Loading...</div>
+        <BaseLoader />
       ) : error ? (
         <div>{error}</div>
       ) : (

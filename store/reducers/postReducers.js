@@ -10,7 +10,7 @@ import {
   POST_LIST_BY_TAG_FAIL,
   POST_SINGLE_REQUEST,
   POST_SINGLE_SUCCESS,
-  POST_SINGLE_FAIL,
+  POST_SINGLE_FAIL
 } from '../constants/postConstants'
 
 export const postListReducer = (state = { posts: [] }, action) => {
@@ -20,7 +20,7 @@ export const postListReducer = (state = { posts: [] }, action) => {
     case POST_LIST_SUCCESS:
       return {
         loading: false,
-        posts: action.payload.posts,
+        posts: action.payload.posts
       }
     case POST_LIST_FAIL:
       return { loading: false, error: action.payload }
@@ -36,7 +36,7 @@ export const postListFeaturedReducer = (state = { featured: [] }, action) => {
     case POST_LIST_FEATURED_SUCCESS:
       return {
         loading: false,
-        featured: action.payload.posts,
+        featured: action.payload.posts
       }
     case POST_LIST_FEATURED_FAIL:
       return { loading: false, error: action.payload }
@@ -52,7 +52,7 @@ export const postListByTagReducer = (state = { postsByTag: [] }, action) => {
     case POST_LIST_BY_TAG_SUCCESS:
       return {
         loading: false,
-        postsByTag: action.payload.posts,
+        postsByTag: action.payload.posts
       }
     case POST_LIST_BY_TAG_FAIL:
       return { loading: false, error: action.payload }
@@ -68,7 +68,7 @@ export const postSingleReducer = (state = { post: {} }, action) => {
     case POST_SINGLE_SUCCESS:
       return {
         loading: false,
-        post: action.payload,
+        post: action.payload
       }
     case POST_SINGLE_FAIL:
       return { loading: false, error: action.payload }

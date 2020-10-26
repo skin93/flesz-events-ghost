@@ -10,7 +10,7 @@ import {
   POST_LIST_BY_TAG_FAIL,
   POST_SINGLE_REQUEST,
   POST_SINGLE_SUCCESS,
-  POST_SINGLE_FAIL,
+  POST_SINGLE_FAIL
 } from '../constants/postConstants'
 
 import axios from 'axios'
@@ -18,7 +18,7 @@ import axios from 'axios'
 export const getPosts = () => async (dispatch) => {
   try {
     dispatch({
-      type: POST_LIST_REQUEST,
+      type: POST_LIST_REQUEST
     })
     const { data } = await axios.get(
       `http://${process.env.NEXT_PUBLIC_API}/posts/?key=${process.env.NEXT_PUBLIC_API_KEY}`
@@ -26,7 +26,7 @@ export const getPosts = () => async (dispatch) => {
 
     dispatch({
       type: POST_LIST_SUCCESS,
-      payload: { posts: data.posts, meta: data.meta },
+      payload: { posts: data.posts, meta: data.meta }
     })
   } catch (error) {
     dispatch({
@@ -34,7 +34,7 @@ export const getPosts = () => async (dispatch) => {
       payload:
         error.response && error.response.data.message
           ? error.response.data.message
-          : error.message,
+          : error.message
     })
   }
 }
@@ -42,7 +42,7 @@ export const getPosts = () => async (dispatch) => {
 export const getPostsByTag = (tagSlug) => async (dispatch) => {
   try {
     dispatch({
-      type: POST_LIST_BY_TAG_REQUEST,
+      type: POST_LIST_BY_TAG_REQUEST
     })
     const { data } = await axios.get(
       `http://${process.env.NEXT_PUBLIC_API}/posts/?key=${process.env.NEXT_PUBLIC_API_KEY}&filter=tag:${tagSlug}`
@@ -50,7 +50,7 @@ export const getPostsByTag = (tagSlug) => async (dispatch) => {
 
     dispatch({
       type: POST_LIST_BY_TAG_SUCCESS,
-      payload: { posts: data.posts, meta: data.meta },
+      payload: { posts: data.posts, meta: data.meta }
     })
   } catch (error) {
     dispatch({
@@ -58,7 +58,7 @@ export const getPostsByTag = (tagSlug) => async (dispatch) => {
       payload:
         error.response && error.response.data.message
           ? error.response.data.message
-          : error.message,
+          : error.message
     })
   }
 }
@@ -66,7 +66,7 @@ export const getPostsByTag = (tagSlug) => async (dispatch) => {
 export const getSinglePost = (postSlug) => async (dispatch) => {
   try {
     dispatch({
-      type: POST_SINGLE_REQUEST,
+      type: POST_SINGLE_REQUEST
     })
     const { data } = await axios.get(
       `http://${process.env.NEXT_PUBLIC_API}/posts/slug/${postSlug}/?key=${process.env.NEXT_PUBLIC_API_KEY}`
@@ -74,7 +74,7 @@ export const getSinglePost = (postSlug) => async (dispatch) => {
 
     dispatch({
       type: POST_SINGLE_SUCCESS,
-      payload: data.posts[0],
+      payload: data.posts[0]
     })
   } catch (error) {
     dispatch({
@@ -82,7 +82,7 @@ export const getSinglePost = (postSlug) => async (dispatch) => {
       payload:
         error.response && error.response.data.message
           ? error.response.data.message
-          : error.message,
+          : error.message
     })
   }
 }
@@ -90,7 +90,7 @@ export const getSinglePost = (postSlug) => async (dispatch) => {
 export const getPostsFeatured = () => async (dispatch) => {
   try {
     dispatch({
-      type: POST_LIST_FEATURED_REQUEST,
+      type: POST_LIST_FEATURED_REQUEST
     })
     const { data } = await axios.get(
       `http://${process.env.NEXT_PUBLIC_API}/posts/?key=${process.env.NEXT_PUBLIC_API_KEY}&filter=featured:true`
@@ -98,7 +98,7 @@ export const getPostsFeatured = () => async (dispatch) => {
 
     dispatch({
       type: POST_LIST_FEATURED_SUCCESS,
-      payload: { posts: data.posts, meta: data.meta },
+      payload: { posts: data.posts, meta: data.meta }
     })
   } catch (error) {
     dispatch({
@@ -106,7 +106,7 @@ export const getPostsFeatured = () => async (dispatch) => {
       payload:
         error.response && error.response.data.message
           ? error.response.data.message
-          : error.message,
+          : error.message
     })
   }
 }

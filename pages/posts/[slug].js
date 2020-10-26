@@ -4,6 +4,7 @@ import { useRouter } from 'next/router'
 import { getSinglePost } from '../../store/actions/postActions'
 
 import styled from 'styled-components'
+import BaseLoader from '../../components/UI/BaseLoader'
 
 const Article = styled.article`
   margin: 30px;
@@ -76,14 +77,14 @@ const PostPage = () => {
   return (
     <Article>
       {loading ? (
-        <div>Loading...</div>
+        <BaseLoader />
       ) : error ? (
         <div>{error}</div>
       ) : (
         <>
           <ArticleImg
             style={{
-              backgroundImage: `url(${post.feature_image})`,
+              backgroundImage: `url(${post.feature_image})`
             }}
           >
             <ArticleTitle>{post.title}</ArticleTitle>
