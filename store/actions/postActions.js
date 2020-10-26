@@ -22,7 +22,7 @@ export const getPosts = () => async (dispatch) => {
       type: POST_LIST_REQUEST
     })
     const { data } = await axios.get(
-      `http://${process.env.NEXT_PUBLIC_API}/poss/?key=${process.env.NEXT_PUBLIC_API_KEY}`
+      `http://${process.env.NEXT_PUBLIC_API}/posts/?key=${process.env.NEXT_PUBLIC_API_KEY}`
     )
 
     dispatch({
