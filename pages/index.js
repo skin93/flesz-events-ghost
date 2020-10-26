@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import Posts from '../components/posts/Posts'
 import styled from 'styled-components'
 import BaseLoader from '../components/UI/BaseLoader'
+import BaseError from '../components/UI/BaseError'
 
 const LatestPosts = styled.section``
 
@@ -21,16 +22,18 @@ const IndexPage = () => {
     dispatch(getPosts())
   }, [dispatch])
   return (
-    <LatestPosts>
-      <Header>Najnowsze wpisy</Header>
+    <>
       {loading ? (
         <BaseLoader />
       ) : error ? (
-        <div>{error}</div>
+        <BaseError error={error} />
       ) : (
-        <Posts posts={posts} />
+        <LatestPosts>
+          <Header>Najnowsze wpisy</Header>
+          <Posts posts={posts} />
+        </LatestPosts>
       )}
-    </LatestPosts>
+    </>
   )
 }
 

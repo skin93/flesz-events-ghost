@@ -14,6 +14,7 @@ import {
 } from '../constants/postConstants'
 
 import axios from 'axios'
+import { errorMessage } from '../../constants/errorMessage'
 
 export const getPosts = () => async (dispatch) => {
   try {
@@ -21,7 +22,7 @@ export const getPosts = () => async (dispatch) => {
       type: POST_LIST_REQUEST
     })
     const { data } = await axios.get(
-      `http://${process.env.NEXT_PUBLIC_API}/posts/?key=${process.env.NEXT_PUBLIC_API_KEY}`
+      `http://${process.env.NEXT_PUBLIC_API}/poss/?key=${process.env.NEXT_PUBLIC_API_KEY}`
     )
 
     dispatch({
@@ -31,10 +32,7 @@ export const getPosts = () => async (dispatch) => {
   } catch (error) {
     dispatch({
       type: POST_LIST_FAIL,
-      payload:
-        error.response && error.response.data.message
-          ? error.response.data.message
-          : error.message
+      payload: errorMessage
     })
   }
 }
@@ -55,10 +53,7 @@ export const getPostsByTag = (tagSlug) => async (dispatch) => {
   } catch (error) {
     dispatch({
       type: POST_LIST_BY_TAG_FAIL,
-      payload:
-        error.response && error.response.data.message
-          ? error.response.data.message
-          : error.message
+      payload: errorMessage
     })
   }
 }
@@ -79,10 +74,7 @@ export const getSinglePost = (postSlug) => async (dispatch) => {
   } catch (error) {
     dispatch({
       type: POST_SINGLE_FAIL,
-      payload:
-        error.response && error.response.data.message
-          ? error.response.data.message
-          : error.message
+      payload: errorMessage
     })
   }
 }
@@ -103,10 +95,7 @@ export const getPostsFeatured = () => async (dispatch) => {
   } catch (error) {
     dispatch({
       type: POST_LIST_FEATURED_FAIL,
-      payload:
-        error.response && error.response.data.message
-          ? error.response.data.message
-          : error.message
+      payload: errorMessage
     })
   }
 }

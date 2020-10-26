@@ -7,6 +7,7 @@ import BaseLoader from '../../components/UI/BaseLoader'
 import Article from '../../components/article/Article'
 import Aside from '../../components/layout/Aside'
 import PageContainer from '../../components/layout/PageContainer'
+import BaseError from '../../components/UI/BaseError'
 
 const PostPage = () => {
   const dispatch = useDispatch()
