@@ -5,6 +5,8 @@ import { getSinglePost } from '../../store/actions/postActions'
 
 import BaseLoader from '../../components/UI/BaseLoader'
 import Article from '../../components/article/Article'
+import Aside from '../../components/layout/Aside'
+import PageContainer from '../../components/layout/PageContainer'
 
 const PostPage = () => {
   const dispatch = useDispatch()
@@ -25,7 +27,10 @@ const PostPage = () => {
       ) : error ? (
         <div>{error}</div>
       ) : (
-        <Article data={post} />
+        <PageContainer>
+          <Article data={post} />
+          <Aside />
+        </PageContainer>
       )}
     </>
   )
