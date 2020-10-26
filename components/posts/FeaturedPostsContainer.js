@@ -4,7 +4,6 @@ import { device } from '../../constants/device'
 export default styled.div`
   display: grid;
   gap: 10px;
-  place-items: center;
 
   @media ${device.mobileS} {
     grid-template-columns: repeat(1, 1fr);

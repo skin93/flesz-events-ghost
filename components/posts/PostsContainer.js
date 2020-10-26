@@ -4,7 +4,6 @@ import { device } from '../../constants/device'
 export default styled.div`
   display: grid;
   gap: 5px;
-  place-items: center;
   grid-auto-flow: row dense;
 
   @media ${device.mobileS} {
