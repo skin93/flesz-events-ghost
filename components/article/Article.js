@@ -8,12 +8,13 @@ const ArticleImg = styled.div`
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  overflow: hidden;
   border-radius: 10px;
 `
 
 const ArticleTitle = styled.h1`
   position: absolute;
-  width: 100%;
+  /* width: 100%; */
   text-align: center;
   top: 50%;
   left: 50%;
@@ -21,7 +22,6 @@ const ArticleTitle = styled.h1`
   z-index: 100;
   color: var(--light);
   text-transform: uppercase;
-
   margin: 0;
 `
 
@@ -33,7 +33,7 @@ const ImgOverlay = styled.div`
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.466);
+  background-color: rgba(0, 0, 0, 0.6);
   z-index: 99;
 `
 
