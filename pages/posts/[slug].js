@@ -1,8 +1,5 @@
-import { useEffect } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
 import { useRouter } from 'next/router'
-import { getSinglePost } from '../../store/actions/postActions'
-
+import { useSinglePost } from '../../requests/posts/index'
 import BaseLoader from '../../components/UI/BaseLoader'
 import Article from '../../components/article/Article'
 import Aside from '../../components/layout/Aside'
@@ -10,26 +7,18 @@ import PageContainer from '../../components/layout/PageContainer'
 import BaseError from '../../components/UI/BaseError'
 
 const PostPage = () => {
-  const dispatch = useDispatch()
-
-  const { loading, error, post } = useSelector((state) => state.postSingle)
-
   const router = useRouter()
-
   const { slug } = router.query
-
-  useEffect(() => {
-    dispatch(getSinglePost(slug))
-  }, [dispatch, slug])
+  const { data, isLoading, isError } = useSinglePost(slug)
   return (
     <>
-      {loading ? (
+      {isLoading ? (
         <BaseLoader />
-      ) : error ? (
-        <div>{error}</div>
+      ) : isError ? (
+        <BaseError>{isError}</BaseError>
       ) : (
         <PageContainer>
-          <Article data={post} />
+          <Article data={data.posts[0]} />
           <Aside />
         </PageContainer>
       )}

@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { useRouter } from 'next/router'
-import { useDispatch, useSelector } from 'react-redux'
-import { getTag } from '../../store/actions/tagActions'
-import { getPostsByTag } from '../../store/actions/postActions'
+
+import { usePostsByTagSlug, useSinglePost } from '../../requests/posts/index'
+import { useSingleTag } from '../../requests/tags/index'
 
 import Posts from '../../components/posts/Posts'
 
@@ -17,33 +17,27 @@ const TagName = styled.h2`
 `
 
 const Tag = () => {
-  const dispatch = useDispatch()
-  const { loading, error, tag } = useSelector((state) => state.tagSingle)
-  const {
-    loading: loadingPostListByTag,
-    error: errorPostListByTag,
-    postsByTag
-  } = useSelector((state) => state.postListByTag)
-
   const router = useRouter()
 
   const { slug } = router.query
 
-  useEffect(() => {
-    dispatch(getTag(slug))
-    dispatch(getPostsByTag(slug))
-  }, [dispatch, slug])
+  const { data, isLoading, isError } = useSingleTag(slug)
+  const {
+    data: postsData,
+    isLoading: postsIsLoading,
+    isError: postsIsError
+  } = usePostsByTagSlug(slug)
 
   return (
     <PostsByTag>
-      <TagName>{tag.name}</TagName>
-      {loading || loadingPostListByTag ? (
+      <TagName>{slug}</TagName>
+      {isLoading || postsIsLoading ? (
         <div>Loading...</div>
-      ) : error || errorPostListByTag ? (
-        <div>{error}</div>
+      ) : isError || postsIsError ? (
+        <BaseError>{error}</BaseError>
       ) : (
         <>
-          <Posts posts={postsByTag} />
+          <Posts posts={postsData.posts} />
         </>
       )}
     </PostsByTag>

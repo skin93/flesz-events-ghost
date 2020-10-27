@@ -1,9 +1,8 @@
-import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { getPostsFeatured } from '../../store/actions/postActions'
+import React from 'react'
+import { useFeaturedPosts } from '../../requests/posts/index'
 
 import styled from 'styled-components'
-
+import BaseError from '../UI/BaseError'
 import FeaturedPosts from '../posts/FeaturedPosts'
 
 const AsideContainer = styled.section`
@@ -21,24 +20,19 @@ const AsideContainer = styled.section`
 `
 
 const Aside = () => {
-  const dispatch = useDispatch()
-  const { featured, loading, error } = useSelector(
-    (state) => state.postListFeatured
-  )
+  const { data, isLoading, isError } = useFeaturedPosts()
+  console.log(data)
 
-  useEffect(() => {
-    dispatch(getPostsFeatured())
-  }, [dispatch])
   return (
     <>
-      {loading ? (
+      {isLoading ? (
         <div>Loading...</div>
-      ) : error ? (
-        <div>{error}</div>
+      ) : isError ? (
+        <BaseError>{isError}</BaseError>
       ) : (
         <AsideContainer>
           <h2>Zobacz także</h2>
-          <FeaturedPosts featured={featured} />
+          <FeaturedPosts featured={data.posts} />
         </AsideContainer>
       )}{' '}
     </>
