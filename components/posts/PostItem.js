@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import React from 'react'
-import { Card, CardBody, CardTitle, ImgTop } from '../UI/BaseCard'
+import { Card, CardBody, CardTitle, ImgTop, Published } from '../UI/BaseCard'
+import moment from 'moment'
 
 const PostItem = ({ post }) => {
   return (
@@ -10,6 +11,9 @@ const PostItem = ({ post }) => {
           <ImgTop src={post.feature_image} alt='Feature image' />
           <CardBody>
             <CardTitle>{post.title}</CardTitle>
+            <Published>
+              {moment(post.published_at).format('YYYY-MM-DD')}
+            </Published>
           </CardBody>
         </Card>
       </a>

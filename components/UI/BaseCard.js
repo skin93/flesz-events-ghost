@@ -44,3 +44,8 @@ export const CardTitle = styled.h4`
     overflow: hidden;
   }
 `
+
+export const Published = styled.small`
+  font-weight: bold;
+  color: var(--light);
+`
