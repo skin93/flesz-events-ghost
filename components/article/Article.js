@@ -55,7 +55,7 @@ const ArticleContent = styled.div`
 
 const Article = ({ data }) => {
   return (
-    <div style={{ margin: '30px' }}>
+    <div style={{ padding: '30px' }}>
       <ArticleImg
         style={{
           backgroundImage: `url(${data.feature_image})`
