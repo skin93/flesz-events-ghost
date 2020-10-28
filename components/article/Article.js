@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { device } from '../../constants/device'
 
 const ArticleImg = styled.div`
   position: relative;
@@ -13,37 +14,31 @@ const ArticleImg = styled.div`
 `
 
 const ArticleTitle = styled.h1`
-  position: absolute;
-  /* width: 100%; */
   text-align: center;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 100;
+  font-size: 3rem;
+  min-width: 100%;
   color: var(--light);
   text-transform: uppercase;
-  margin: 0;
-`
 
-const ImgOverlay = styled.div`
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.6);
-  z-index: 99;
+  @media ${device.laptopL} {
+    font-size: 4rem;
+  }
 `
 
 const ArticleExcerpt = styled.p`
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   color: var(--light);
 `
 
 const ArticleContent = styled.div`
   color: var(--light);
+
+  & > h2 {
+    font-size: 2rem;
+    @media ${device.laptopL} {
+      font-size: 3rem;
+    }
+  }
 
   & > p {
     font-size: 1.3rem;
@@ -55,15 +50,14 @@ const ArticleContent = styled.div`
 
 const Article = ({ data }) => {
   return (
-    <div style={{ padding: '30px' }}>
+    <div>
+      <ArticleTitle>{data.title}</ArticleTitle>
+
       <ArticleImg
         style={{
           backgroundImage: `url(${data.feature_image})`
         }}
-      >
-        <ArticleTitle>{data.title}</ArticleTitle>
-        <ImgOverlay />
-      </ArticleImg>
+      ></ArticleImg>
       <ArticleExcerpt>{data.excerpt}</ArticleExcerpt>
       <ArticleContent dangerouslySetInnerHTML={{ __html: data.html }} />
     </div>
