@@ -8,14 +8,20 @@ import FeaturedPosts from '../posts/FeaturedPosts'
 const AsideContainer = styled.section`
   display: flex;
   flex-direction: column;
-  flex: 1;
+  margin: 0 auto;
+  /* justify-content: center; */
+  /* flex: 1; */
   overflow: hidden;
-  min-height: 100vh;
+  padding: 30px;
+  min-height: 200px;
   max-width: 100%;
 
   & > h2 {
     text-align: center;
     color: var(--light);
+    margin: 0;
+    font-size: 2rem;
+    padding: 10px;
   }
 `
 

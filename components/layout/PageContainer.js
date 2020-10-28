@@ -6,7 +6,12 @@ export default styled.div`
   grid-template-columns: 1fr;
 
   @media ${device.laptopL} {
-    grid-template-columns: 3fr 1fr;
+    grid-template-columns: 4fr 2fr;
     overflow: hidden;
+
+    & > :nth-child(2) {
+      position: fixed;
+      left: 70%;
+    }
   }
 `
