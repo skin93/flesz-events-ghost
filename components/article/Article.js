@@ -30,6 +30,12 @@ const ArticleExcerpt = styled.p`
   color: var(--light);
 `
 
+const BorderBottom = styled.div`
+  background-color: var(--orange);
+  height: 3px;
+  width: 100%;
+`
+
 const ArticleContent = styled.div`
   color: var(--light);
 
@@ -59,6 +65,7 @@ const Article = ({ data }) => {
         }}
       ></ArticleImg>
       <ArticleExcerpt>{data.excerpt}</ArticleExcerpt>
+      <BorderBottom />
       <ArticleContent dangerouslySetInnerHTML={{ __html: data.html }} />
     </div>
   )
