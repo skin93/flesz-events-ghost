@@ -71,13 +71,13 @@ const NavItem = styled.li`
   justify-content: center;
   align-items: center;
   font-size: 0.8rem;
-  color: var(--light);
   height: 50px;
   width: 100px;
   overflow: hidden;
   padding: 10px;
   text-transform: uppercase;
   font-weight: bold;
+  transition: color 0.2s ease-in-out;
 `
 
 const NavToggler = styled.button`
