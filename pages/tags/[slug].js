@@ -8,13 +8,12 @@ import Posts from '../../components/posts/Posts'
 
 import styled from 'styled-components'
 import BaseError from '../../components/UI/BaseError'
+import TagItem from '../../components/tags/TagItem'
 
-const PostsByTag = styled.section``
-
-const TagName = styled.h2`
-  text-align: center;
-  text-transform: uppercase;
-  color: var(--light);
+const PostsByTag = styled.section`
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 `
 
 const Tag = () => {
@@ -31,18 +30,18 @@ const Tag = () => {
   } = usePostsByTagSlug(slug)
 
   return (
-    <PostsByTag>
-      {/* <TagName>{tags[0].name}</TagName> */}
+    <>
       {isLoading || postsIsLoading ? (
         <div>Loading...</div>
       ) : isError || postsIsError ? (
         <BaseError error='Problem to fetch posts' />
       ) : (
-        <>
+        <PostsByTag>
+          <TagItem tag={tags[0]} />
           <Posts posts={posts} />
-        </>
+        </PostsByTag>
       )}
-    </PostsByTag>
+    </>
   )
 }
 
