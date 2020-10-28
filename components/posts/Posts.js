@@ -1,19 +1,31 @@
 import React from 'react'
-import Link from 'next/link'
 import PostItem from './PostItem'
-import PostsContainer from './PostsContainer'
+import styled from 'styled-components'
+import { device } from '../../constants/device'
+
+const PostsContainer = styled.div`
+  display: grid;
+  gap: 5px;
+  grid-auto-flow: row dense;
+
+  @media ${device.mobileS} {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  @media ${device.tablet} {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media ${device.laptopL} {
+    grid-template-columns: repeat(3, 1fr);
+  }
+`
 
 const Posts = ({ posts }) => {
   return (
     <PostsContainer>
       {posts?.map((post) => (
-        <div key={post.id}>
-          <Link href={`/posts/[slug]`} as={`/posts/${post.slug}`}>
-            <a>
-              <PostItem post={post} />
-            </a>
-          </Link>
-        </div>
+        <PostItem key={post.id} post={post} />
       ))}
     </PostsContainer>
   )
