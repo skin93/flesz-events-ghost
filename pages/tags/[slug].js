@@ -1,12 +1,11 @@
 import React from 'react'
+import styled from 'styled-components'
 import { useRouter } from 'next/router'
 
 import { usePostsByTagSlug } from '../../fetchers/posts/index'
 import { useSingleTag } from '../../fetchers/tags/index'
 
 import Posts from '../../components/posts/Posts'
-
-import styled from 'styled-components'
 import BaseError from '../../components/UI/BaseError'
 import TagItem from '../../components/tags/TagItem'
 

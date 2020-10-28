@@ -16,10 +16,7 @@ const BaseLink = ({ label, to }) => {
   console.log(router.query.slug)
   return (
     <StyledLink active={router.asPath === `/tags/${to}` ? true : false}>
-      <Link
-        href={`/tags/${to}`}
-        // as={`/tags/${to}`}
-      >
+      <Link href={`/tags/${to}`}>
         <a>{label}</a>
       </Link>
     </StyledLink>

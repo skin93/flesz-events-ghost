@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import React from 'react'
-
 import styled from 'styled-components'
 
 const FeaturedCard = styled.div`
@@ -9,7 +8,6 @@ const FeaturedCard = styled.div`
   padding: 10px;
   background-color: transparent;
   display: flex;
-  /* justify-content: center; */
   align-items: center;
   transition: transform 0.3s ease-in-out;
   &:hover {

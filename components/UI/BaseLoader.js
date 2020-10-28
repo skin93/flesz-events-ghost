@@ -24,9 +24,7 @@ const Loader = styled.div`
   width: 1em;
   height: 1em;
   border-radius: 50%;
-  /* margin: 72px auto; */
   position: absolute;
-  /* transform: translateZ(0); */
   animation: load6 1.7s infinite ease, round 1.7s infinite ease;
   @keyframes load6 {
     0% {
