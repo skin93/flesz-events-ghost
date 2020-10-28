@@ -19,6 +19,7 @@ const TagName = styled.h2`
 const TagDescription = styled.p`
   color: var(--light);
   font-size: 1.3rem;
+  text-align: center;
 `
 
 const TagItem = ({ tag }) => {
