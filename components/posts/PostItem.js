@@ -1,18 +1,24 @@
 import Link from 'next/link'
 import React from 'react'
-import { Card, CardBody, CardTitle, ImgTop, Published } from '../UI/BaseCard'
+import {
+  Card,
+  CardBody,
+  CardOverlay,
+  CardTitle,
+  Published
+} from '../UI/BaseCard'
 import moment from 'moment'
 
 const PostItem = ({ post }) => {
   return (
     <Link href={`/posts/${post.slug}`}>
       <a>
-        <Card>
-          <ImgTop src={post.feature_image} alt='Feature image' />
+        <Card src={post.feature_image}>
+          <CardOverlay />
           <CardBody>
             <CardTitle>{post.title}</CardTitle>
             <Published>
-              {moment(post.published_at).format('YYYY-MM-DD')}
+              Dodano: {moment(post.published_at).format('DD-MM-YYYY')}
             </Published>
           </CardBody>
         </Card>
