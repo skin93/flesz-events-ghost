@@ -19,7 +19,7 @@ export const ImgTop = styled.img`
   object-fit: cover;
   height: 250px;
   width: 100%;
-  border-radius: 10px;
+  border-radius: 5px;
 `
 
 export const CardBody = styled.div`
@@ -39,7 +39,7 @@ export const CardTitle = styled.h4`
   &::before {
     content: '';
     border-left: 3px solid var(--orange);
-    border-width: 10px;
+    border-width: 5px;
     margin-right: 10px;
     overflow: hidden;
   }
