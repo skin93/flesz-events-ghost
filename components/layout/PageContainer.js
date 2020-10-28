@@ -11,6 +11,7 @@ export default styled.div`
 
     & > :nth-child(2) {
       position: fixed;
+      top: 230px;
       left: 70%;
     }
   }
