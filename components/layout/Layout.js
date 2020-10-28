@@ -2,7 +2,7 @@ import React from 'react'
 import TheHeader from './TheHeader'
 import TheFooter from './TheFooter'
 import styled from 'styled-components'
-import { device } from '../../constants/device'
+import { device, size } from '../../constants/device'
 
 const MainContainer = styled.main`
   padding: 20px;
@@ -11,11 +11,34 @@ const MainContainer = styled.main`
   flex: 1;
   overflow: hidden;
   min-height: 100vh;
+  margin: 0 auto;
+
+  @media ${device.mobileS} {
+    max-width: ${size.mobileS};
+  }
+  @media ${device.mobileM} {
+    max-width: ${size.mobileM};
+  }
+
+  @media ${device.mobileL} {
+    max-width: ${size.mobileL};
+  }
+
+  @media ${device.tablet} {
+    max-width: ${size.tablet};
+  }
+
+  @media ${device.laptop} {
+    max-width: ${size.laptop};
+  }
 
   @media ${device.laptopL} {
     flex-direction: row;
-    max-width: 1440px;
-    margin: 0 auto;
+    max-width: ${size.laptopL};
+  }
+
+  @media ${device.desktop} {
+    max-width: ${size.desktop};
   }
 `
 
