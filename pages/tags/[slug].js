@@ -1,12 +1,13 @@
 import React from 'react'
 import { useRouter } from 'next/router'
 
-import { usePostsByTagSlug, useSinglePost } from '../../requests/posts/index'
-import { useSingleTag } from '../../requests/tags/index'
+import { usePostsByTagSlug } from '../../fetchers/posts/index'
+import { useSingleTag } from '../../fetchers/tags/index'
 
 import Posts from '../../components/posts/Posts'
 
 import styled from 'styled-components'
+import BaseError from '../../components/UI/BaseError'
 
 const PostsByTag = styled.section``
 
@@ -21,23 +22,24 @@ const Tag = () => {
 
   const { slug } = router.query
 
-  const { data, isLoading, isError } = useSingleTag(slug)
+  const { tags, isLoading, isError } = useSingleTag(slug)
+
   const {
-    data: postsData,
+    posts,
     isLoading: postsIsLoading,
     isError: postsIsError
   } = usePostsByTagSlug(slug)
 
   return (
     <PostsByTag>
-      <TagName>{slug}</TagName>
+      {/* <TagName>{tags[0].name}</TagName> */}
       {isLoading || postsIsLoading ? (
         <div>Loading...</div>
       ) : isError || postsIsError ? (
-        <BaseError>{error}</BaseError>
+        <BaseError error='Problem to fetch posts' />
       ) : (
         <>
-          <Posts posts={postsData.posts} />
+          <Posts posts={posts} />
         </>
       )}
     </PostsByTag>

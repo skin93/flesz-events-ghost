@@ -5,7 +5,7 @@ export const usePosts = () => {
     `${process.env.NEXT_PUBLIC_API}/posts/?key=${process.env.NEXT_PUBLIC_API_KEY}`
   )
   return {
-    data,
+    ...data,
     isLoading: !error && !data,
     isError: error
   }
@@ -16,7 +16,7 @@ export const useSinglePost = (postSlug) => {
     `${process.env.NEXT_PUBLIC_API}/posts/slug/${postSlug}?key=${process.env.NEXT_PUBLIC_API_KEY}`
   )
   return {
-    data,
+    ...data,
     isLoading: !error && !data,
     isError: error
   }
@@ -27,7 +27,7 @@ export const useFeaturedPosts = () => {
     `${process.env.NEXT_PUBLIC_API}/posts/?key=${process.env.NEXT_PUBLIC_API_KEY}&filter=featured:true`
   )
   return {
-    data,
+    ...data,
     isLoading: !error && !data,
     isError: error
   }
@@ -38,7 +38,7 @@ export const usePostsByTagSlug = (tagSlug) => {
     `${process.env.NEXT_PUBLIC_API}/posts/?key=${process.env.NEXT_PUBLIC_API_KEY}&filter=tag:${tagSlug}`
   )
   return {
-    data,
+    ...data,
     isLoading: !error && !data,
     isError: error
   }

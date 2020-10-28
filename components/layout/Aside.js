@@ -1,5 +1,5 @@
 import React from 'react'
-import { useFeaturedPosts } from '../../requests/posts/index'
+import { useFeaturedPosts } from '../../fetchers/posts/index'
 
 import styled from 'styled-components'
 import BaseError from '../UI/BaseError'
@@ -20,8 +20,7 @@ const AsideContainer = styled.section`
 `
 
 const Aside = () => {
-  const { data, isLoading, isError } = useFeaturedPosts()
-  console.log(data)
+  const { posts, isLoading, isError } = useFeaturedPosts()
 
   return (
     <>
@@ -32,7 +31,7 @@ const Aside = () => {
       ) : (
         <AsideContainer>
           <h2>Zobacz także</h2>
-          <FeaturedPosts featured={data.posts} />
+          <FeaturedPosts featured={posts} />
         </AsideContainer>
       )}{' '}
     </>
