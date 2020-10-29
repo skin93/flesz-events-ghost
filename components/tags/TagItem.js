@@ -14,11 +14,12 @@ const TagName = styled.h2`
   color: ${({ theme }) => theme.light};
   font-weight: bold;
   text-transform: uppercase;
+  font-size: 3rem;
 `
 
 const TagDescription = styled.p`
   color: ${({ theme }) => theme.light};
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   text-align: center;
 `
 

@@ -13,7 +13,6 @@ const StyledLink = styled.div`
 
 const BaseLink = ({ label, to }) => {
   const router = useRouter()
-  console.log(router.query.slug)
   return (
     <StyledLink active={router.asPath === `/tags/${to}` ? true : false}>
       <Link href={`/tags/${to}`}>

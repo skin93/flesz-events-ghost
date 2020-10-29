@@ -10,6 +10,7 @@ const Header = styled.h2`
   text-align: center;
   max-width: 100%;
   text-transform: uppercase;
+  font-size: 3rem;
   color: ${({ theme }) => theme.light};
 `
 
