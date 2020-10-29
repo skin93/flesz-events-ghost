@@ -26,7 +26,7 @@ export const FeatTitle = styled.h4`
   text-transform: uppercase;
   margin: 0;
   margin-left: 20px;
-  color: var(--light);
+  color: ${({ theme }) => theme.light};
   font-size: 1rem;
   transition: border 0.3s ease-out;
 `

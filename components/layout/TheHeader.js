@@ -10,7 +10,7 @@ import styled from 'styled-components'
 
 const Header = styled.header`
   width: 100%;
-  background-color: var(--gray);
+  background-color: ${({ theme }) => theme.gray};
   position: sticky;
 `
 
@@ -33,7 +33,7 @@ const NavbarBrand = styled.div`
   justify-content: center;
   align-items: center;
   font-size: 0.8rem;
-  color: var(--light);
+  color: ${({ theme }) => theme.light};
   height: 50px;
   width: 100px;
   overflow: hidden;

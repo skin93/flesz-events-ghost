@@ -1,10 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Roboto:wght@400;700&display=swap');
+import { createGlobalStyle } from 'styled-components'
 
-:root {
-  --light: #f4f4f4;
-  --orange: #ff7315;
-  --gray: #3a3535;
-  --black: #232020;
+export const GlobalStyles = createGlobalStyle`
+
+@font-face {
+     font-family: 'Oswald';
+	 src: url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap');
+  }
+
+  @font-face {
+     font-family: 'Roboto';
+	 src: url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+  }
+
+* {
+  box-sizing: border-box;
 }
 
 html,
@@ -12,7 +21,7 @@ body {
   padding: 0;
   margin: 0;
   font-family: 'Roboto', sans-serif;
-  background-color: var(--black);
+  background-color: ${({ theme }) => theme.black};
 }
 
 h1,
@@ -22,26 +31,12 @@ h4 {
   font-family: 'Oswald', sans-serif;
 }
 
-h1 {
-  font-size: 5rem;
-}
-
-h2 {
-  font-size: 3rem;
-}
-
-/* p {
-  font-family: 'Roboto', sans-serif;
-} */
-
 a {
   color: inherit;
   text-decoration: none;
 }
 
-* {
-  box-sizing: border-box;
-}
+
 
 .kg-card.kg-image-card {
   margin: 0;
@@ -106,3 +101,5 @@ a {
     height: 100%;
   } */
 }
+
+`

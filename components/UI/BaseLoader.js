@@ -17,7 +17,7 @@ const Loader = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%-50%);
-  color: var(--orange);
+  color: ${({ theme }) => theme.orange};
   font-size: 90px;
   text-indent: -9999em;
   overflow: hidden;

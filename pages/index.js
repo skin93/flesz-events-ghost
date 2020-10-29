@@ -10,7 +10,7 @@ const Header = styled.h2`
   text-align: center;
   max-width: 100%;
   text-transform: uppercase;
-  color: var(--light);
+  color: ${({ theme }) => theme.light};
 `
 
 const IndexPage = () => {

@@ -20,9 +20,9 @@ const ErrorContent = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
   padding: 50px;
-  background-color: var(--light);
+  background-color: ${({ theme }) => theme.light};
   border-radius: 10px;
-  color: var(--black);
+  color: ${({ theme }) => theme.black};
   font-size: 2rem;
   display: flex;
   flex-direction: column;

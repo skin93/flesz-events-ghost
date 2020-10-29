@@ -11,13 +11,13 @@ const TagBody = styled.div`
 `
 
 const TagName = styled.h2`
-  color: var(--light);
+  color: ${({ theme }) => theme.light};
   font-weight: bold;
   text-transform: uppercase;
 `
 
 const TagDescription = styled.p`
-  color: var(--light);
+  color: ${({ theme }) => theme.light};
   font-size: 1.3rem;
   text-align: center;
 `

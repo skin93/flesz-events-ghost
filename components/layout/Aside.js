@@ -16,7 +16,7 @@ const AsideContainer = styled.section`
 
   & > h2 {
     text-align: center;
-    color: var(--light);
+    color: ${({ theme }) => theme.light};
     margin: 0;
     font-size: 2rem;
     padding: 10px;

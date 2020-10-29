@@ -17,7 +17,7 @@ const ArticleTitle = styled.h1`
   text-align: center;
   font-size: 3rem;
   min-width: 100%;
-  color: var(--light);
+  color: ${({ theme }) => theme.light};
   text-transform: uppercase;
 
   @media ${device.laptopL} {
@@ -27,17 +27,17 @@ const ArticleTitle = styled.h1`
 
 const ArticleExcerpt = styled.p`
   font-size: 1.3rem;
-  color: var(--light);
+  color: ${({ theme }) => theme.light};
 `
 
 const BorderBottom = styled.div`
-  background-color: var(--orange);
+  background-color: ${({ theme }) => theme.orange};
   height: 3px;
   width: 100%;
 `
 
 const ArticleContent = styled.div`
-  color: var(--light);
+  color: ${({ theme }) => theme.light};
 
   & > h2 {
     font-size: 2rem;
@@ -49,7 +49,7 @@ const ArticleContent = styled.div`
   & > p {
     font-size: 1.3rem;
     & > strong {
-      color: var(--orange);
+      color: ${({ theme }) => theme.orange};
     }
   }
 `

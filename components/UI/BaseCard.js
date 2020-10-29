@@ -50,14 +50,14 @@ export const CardBody = styled.div`
 
 export const CardTitle = styled.h4`
   text-transform: uppercase;
-  color: var(--light);
+  color: ${({ theme }) => theme.light};
   font-size: 1.2rem;
   transition: border 0.3s ease-out;
   margin: 0;
   z-index: 100;
   &::before {
     content: '';
-    border-left: 3px solid var(--orange);
+    border-left: 3px solid ${({ theme }) => theme.orange};
     border-width: 5px;
     margin-right: 10px;
     overflow: hidden;
@@ -66,7 +66,7 @@ export const CardTitle = styled.h4`
 
 export const Published = styled.small`
   font-weight: bold;
-  color: var(--light);
+  color: ${({ theme }) => theme.light};
   z-index: 100;
   &::before {
     content: '';

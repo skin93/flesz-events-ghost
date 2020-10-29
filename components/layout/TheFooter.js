@@ -4,7 +4,7 @@ import { device } from '../../constants/device'
 
 const Footer = styled.footer`
   width: 100%;
-  background-color: var(--gray);
+  background-color: ${({ theme }) => theme.gray};
   min-height: 7vh;
 `
 
@@ -27,7 +27,7 @@ const FooterItem = styled.div`
   align-items: center;
   flex: 1;
   font-size: 0.8rem;
-  color: var(--light);
+  color: ${({ theme }) => theme.light};
   height: 50px;
   overflow: hidden;
   padding: 10px;
@@ -36,7 +36,7 @@ const FooterItem = styled.div`
 `
 
 const Copy = styled.div`
-  color: var(--light);
+  color: ${({ theme }) => theme.light};
   text-align: center;
   text-transform: uppercase;
   font-size: 0.8rem;

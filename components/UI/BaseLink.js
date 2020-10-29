@@ -4,10 +4,10 @@ import { useRouter } from 'next/router'
 import styled from 'styled-components'
 
 const StyledLink = styled.div`
-  color: ${(props) => (props.active ? 'var(--light)' : 'gray')};
+  color: ${(props) => (props.active ? props.theme.light : 'gray')};
   transition: color 0.2s ease-in;
   &:hover {
-    color: var(--light);
+    color: ${({ theme }) => theme.light};
   }
 `
 

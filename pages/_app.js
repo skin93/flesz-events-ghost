@@ -1,6 +1,9 @@
 import { SWRConfig } from 'swr'
-import '../styles/globals.css'
+import { GlobalStyles } from '../global'
+import { ThemeProvider } from 'styled-components'
+
 import Layout from '../components/layout/Layout'
+import { theme } from '../theme'
 
 const fetcher = async (url) => {
   const res = await fetch(url)
@@ -18,11 +21,14 @@ const fetcher = async (url) => {
 
 function MyApp({ Component, pageProps }) {
   return (
-    <SWRConfig value={{ fetcher }}>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
-    </SWRConfig>
+    <ThemeProvider theme={theme}>
+      <SWRConfig value={{ fetcher }}>
+        <GlobalStyles />
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </SWRConfig>
+    </ThemeProvider>
   )
 }
 
