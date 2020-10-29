@@ -24,7 +24,7 @@ const FeaturedPosts = ({ featured }) => {
   return (
     <FeaturedPostsContainer>
       {featured?.map((feat) => (
-        <FeaturedPostItem feat={feat} />
+        <FeaturedPostItem key={feat.title} feat={feat} />
       ))}
     </FeaturedPostsContainer>
   )

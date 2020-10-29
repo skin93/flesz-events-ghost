@@ -25,7 +25,7 @@ const Posts = ({ posts }) => {
   return (
     <PostsContainer>
       {posts?.map((post) => (
-        <PostItem key={post.id} post={post} />
+        <PostItem key={post.title} post={post} />
       ))}
     </PostsContainer>
   )
