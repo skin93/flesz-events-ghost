@@ -1,12 +1,12 @@
 import Link from 'next/link'
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import BaseLink from '../UI/BaseLink'
-import { faBars } from '@fortawesome/free-solid-svg-icons'
+import { device } from '../../constants/device'
 import { faFacebook } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { device } from '../../constants/device'
-
 import styled from 'styled-components'
+import Nav from './Nav'
+import NavToggler from './NavToggler'
 
 const Header = styled.header`
   width: 100%;
@@ -42,30 +42,6 @@ const NavbarBrand = styled.div`
   font-weight: bold;
 `
 
-const NavbarCollapse = styled.div`
-  display: none;
-  flex-direction: column;
-
-  @media ${device.tablet} {
-    display: flex;
-    flex-wrap: wrap;
-    /* max-width: 1024px; */
-    overflow: hidden;
-  }
-`
-
-const Nav = styled.ul`
-  display: flex;
-  flex: 5;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  list-style: none;
-  margin: 0 auto;
-  padding: 0;
-  overflow: hidden;
-`
-
 const NavItem = styled.li`
   display: flex;
   justify-content: center;
@@ -80,24 +56,9 @@ const NavItem = styled.li`
   transition: color 0.2s ease-in-out;
 `
 
-const NavToggler = styled.button`
-  display: block;
-  background-color: transparent;
-  border: none;
-  height: 50px;
-  width: 100px;
-  padding: 0 10px;
-
-  &:focus {
-    outline: none;
-  }
-
-  @media ${device.tablet} {
-    display: none;
-  }
-`
-
 const TheHeader = () => {
+  const [open, setOpen] = useState(false)
+
   return (
     <Header>
       <Navbar>
@@ -106,35 +67,31 @@ const TheHeader = () => {
             <a>Logo</a>
           </Link>
         </NavbarBrand>
-        <NavToggler>
-          <FontAwesomeIcon color='white' icon={faBars} />
-        </NavToggler>
-        <NavbarCollapse>
-          <Nav>
-            <NavItem>
-              <BaseLink to='newsy' label='Newsy' />
-            </NavItem>
-            <NavItem>
-              <BaseLink to='recenzje' label='Recenzje' />
-            </NavItem>
-            <NavItem>
-              <BaseLink to='relacje' label='Relacje' />
-            </NavItem>
-            <NavItem>
-              <BaseLink to='polecamy' label='Polecamy' />
-            </NavItem>
-            <NavItem>
-              <BaseLink to='patronat' label='Patronat' />
-            </NavItem>
-            <NavItem>
-              <Link href='https://facebook.com/flesz-events'>
-                <a>
-                  <FontAwesomeIcon color='white' icon={faFacebook} />
-                </a>
-              </Link>
-            </NavItem>
-          </Nav>
-        </NavbarCollapse>
+        <NavToggler open={open} setOpen={setOpen} />
+        <Nav open={open} setOpen={setOpen}>
+          <NavItem>
+            <BaseLink to='newsy' label='Newsy' />
+          </NavItem>
+          <NavItem>
+            <BaseLink to='recenzje' label='Recenzje' />
+          </NavItem>
+          <NavItem>
+            <BaseLink to='relacje' label='Relacje' />
+          </NavItem>
+          <NavItem>
+            <BaseLink to='polecamy' label='Polecamy' />
+          </NavItem>
+          <NavItem>
+            <BaseLink to='patronat' label='Patronat' />
+          </NavItem>
+          <NavItem>
+            <Link href='https://facebook.com/flesz-events'>
+              <a>
+                <FontAwesomeIcon color='white' icon={faFacebook} />
+              </a>
+            </Link>
+          </NavItem>
+        </Nav>
       </Navbar>
     </Header>
   )

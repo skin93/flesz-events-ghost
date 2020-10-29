@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import { device } from '../../constants/device'
 
 const ArticleImg = styled.div`
-  position: relative;
   width: 100%;
   height: 300px;
   background-repeat: no-repeat;
