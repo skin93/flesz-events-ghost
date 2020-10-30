@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React from 'react'
 import styled from 'styled-components'
 
@@ -14,21 +15,24 @@ const TagName = styled.h2`
   color: ${({ theme }) => theme.light};
   font-weight: bold;
   text-transform: uppercase;
-  font-size: 3rem;
+  font-size: 1.5rem;
 `
 
-const TagDescription = styled.p`
-  color: ${({ theme }) => theme.light};
-  font-size: 1.5rem;
-  text-align: center;
+const HashTag = styled.span`
+  color: ${({ theme }) => theme.orange};
 `
 
 const TagItem = ({ tag }) => {
   return (
-    <TagBody>
-      <TagName>{tag.name}</TagName>
-      <TagDescription>{tag.description}</TagDescription>
-    </TagBody>
+    <Link href={`/tags/${tag.slug}`}>
+      <a>
+        <TagBody>
+          <TagName>
+            <HashTag>#</HashTag> {tag.name}
+          </TagName>
+        </TagBody>
+      </a>
+    </Link>
   )
 }
 

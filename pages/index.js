@@ -24,7 +24,7 @@ const IndexPage = () => {
         <BaseError error='Problem to fetch posts' />
       ) : (
         <LatestPosts>
-          <Header>Najnowsze wpisy</Header>
+          <Header>Ostatnie wpisy</Header>
           <Posts posts={posts} />
         </LatestPosts>
       )}

@@ -7,20 +7,34 @@ import { useSingleTag } from '../../fetchers/tags/index'
 
 import Posts from '../../components/posts/Posts'
 import BaseError from '../../components/UI/BaseError'
+import BaseLoader from '../../components/UI/BaseError'
 import TagItem from '../../components/tags/TagItem'
 
 const PostsByTag = styled.section`
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+
+  h2 {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 3rem;
+    color: ${({ theme }) => theme.light};
+  }
 `
 
-const Tag = () => {
+const HashTag = styled.span`
+  color: ${({ theme }) => theme.orange};
+`
+
+const TagPage = () => {
   const router = useRouter()
 
   const { slug } = router.query
 
   const { tags, isLoading, isError } = useSingleTag(slug)
+
+  const name = tags && tags.length > 0 ? tags[0].name : null
 
   const {
     posts,
@@ -31,12 +45,14 @@ const Tag = () => {
   return (
     <>
       {isLoading || postsIsLoading ? (
-        <div>Loading...</div>
+        <BaseLoader />
       ) : isError || postsIsError ? (
         <BaseError error='Problem to fetch posts' />
       ) : (
         <PostsByTag>
-          <TagItem tag={tags[0]} />
+          <h2>
+            <HashTag>#</HashTag> {name}
+          </h2>
           <Posts posts={posts} />
         </PostsByTag>
       )}
@@ -44,4 +60,4 @@ const Tag = () => {
   )
 }
 
-export default Tag
+export default TagPage

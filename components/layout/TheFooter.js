@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React from 'react'
 import styled from 'styled-components'
 import { device } from '../../constants/device'
@@ -48,7 +49,11 @@ const TheFooter = () => {
       <FooterContent>
         <FooterItem>Informacje</FooterItem>
         <FooterItem>Kontakt</FooterItem>
-        <FooterItem>Tagi</FooterItem>
+        <FooterItem>
+          <Link href={'/tags'}>
+            <a>Tagi </a>
+          </Link>
+        </FooterItem>
       </FooterContent>
       <Copy>&copy;Flesz.Events 2020</Copy>
     </Footer>

@@ -2,7 +2,7 @@ import useSWR from 'swr'
 
 export const useTags = () => {
   const { data, error } = useSWR(
-    `${process.env.NEXT_PUBLIC_API}/tags/?key=${process.env.NEXT_PUBLIC_API_KEY}`
+    `${process.env.NEXT_PUBLIC_API}/tags/?key=${process.env.NEXT_PUBLIC_API_KEY}&order=name`
   )
   return {
     ...data,
