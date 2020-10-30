@@ -42,9 +42,9 @@ const FooterItem = styled.div`
 `
 
 const Copy = styled.div`
+  padding-bottom: 10px;
   color: ${({ theme }) => theme.light};
   text-align: center;
-  text-transform: uppercase;
   font-size: 0.8rem;
 `
 
@@ -60,7 +60,7 @@ const TheFooter = () => {
           </Link>
         </FooterItem>
       </FooterContent>
-      <Copy>&copy;Flesz.Events 2020</Copy>
+      <Copy>&copy; {new Date().getFullYear()} Flesz.Events</Copy>
     </Footer>
   )
 }
