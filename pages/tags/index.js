@@ -21,7 +21,7 @@ const TagsPage = () => {
       {isLoading ? (
         <BaseLoader />
       ) : isError ? (
-        <BaseError error='Problem to fetch tags' />
+        <BaseError error='Failed to fetch' />
       ) : (
         <LatestPosts>
           <Header>Tagi</Header>

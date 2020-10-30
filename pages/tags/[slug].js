@@ -6,9 +6,8 @@ import { usePostsByTagSlug } from '../../fetchers/posts/index'
 import { useSingleTag } from '../../fetchers/tags/index'
 
 import Posts from '../../components/posts/Posts'
+import BaseLoader from '../../components/UI/BaseLoader'
 import BaseError from '../../components/UI/BaseError'
-import BaseLoader from '../../components/UI/BaseError'
-import TagItem from '../../components/tags/TagItem'
 
 const PostsByTag = styled.section`
   display: flex;
@@ -21,10 +20,10 @@ const PostsByTag = styled.section`
     font-size: 3rem;
     color: ${({ theme }) => theme.light};
   }
-`
 
-const HashTag = styled.span`
-  color: ${({ theme }) => theme.orange};
+  span {
+    color: ${({ theme }) => theme.orange};
+  }
 `
 
 const TagPage = () => {
@@ -46,12 +45,12 @@ const TagPage = () => {
     <>
       {isLoading || postsIsLoading ? (
         <BaseLoader />
-      ) : isError || postsIsError ? (
-        <BaseError error='Problem to fetch posts' />
+      ) : isError | postsIsError ? (
+        <BaseError error='Failed to fetch' />
       ) : (
         <PostsByTag>
           <h2>
-            <HashTag>#</HashTag> {name}
+            <span>#</span> {name}
           </h2>
           <Posts posts={posts} />
         </PostsByTag>

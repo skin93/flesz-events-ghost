@@ -21,7 +21,7 @@ const IndexPage = () => {
       {isLoading ? (
         <BaseLoader />
       ) : isError ? (
-        <BaseError error='Problem to fetch posts' />
+        <BaseError error='Failed to fetch' />
       ) : (
         <LatestPosts>
           <Header>Ostatnie wpisy</Header>

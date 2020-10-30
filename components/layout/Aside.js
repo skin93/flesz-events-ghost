@@ -2,8 +2,9 @@ import React from 'react'
 import { useFeaturedPosts } from '../../fetchers/posts/index'
 
 import styled from 'styled-components'
-import BaseError from '../UI/BaseError'
 import FeaturedPosts from '../posts/FeaturedPosts'
+import BaseError from '../UI/BaseError'
+import BaseLoader from '../UI/BaseLoader'
 
 const AsideContainer = styled.section`
   display: flex;
@@ -29,9 +30,9 @@ const Aside = () => {
   return (
     <>
       {isLoading ? (
-        <div>Loading...</div>
+        <BaseLoader />
       ) : isError ? (
-        <BaseError>{isError}</BaseError>
+        <BaseError error='Failed to fetch' />
       ) : (
         <AsideContainer>
           <h2>Zobacz także</h2>

@@ -70,7 +70,7 @@ const Loader = styled.div`
 const BaseLoader = () => {
   return (
     <LoaderContainer>
-      <Loader>Loading...</Loader>
+      <Loader />
     </LoaderContainer>
   )
 }

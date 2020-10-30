@@ -1,10 +1,10 @@
 import { useRouter } from 'next/router'
 import { useSinglePost } from '../../fetchers/posts/index'
 import BaseLoader from '../../components/UI/BaseLoader'
+import BaseError from '../../components/UI/BaseError'
 import Article from '../../components/article/Article'
 import Aside from '../../components/layout/Aside'
 import PageContainer from '../../components/layout/PageContainer'
-import BaseError from '../../components/UI/BaseError'
 
 const PostPage = () => {
   const router = useRouter()
@@ -16,7 +16,7 @@ const PostPage = () => {
       {isLoading ? (
         <BaseLoader />
       ) : isError ? (
-        <BaseError>{isError}</BaseError>
+        <BaseError error='Failed to fetch' />
       ) : (
         <PageContainer>
           <Article data={posts[0]} />
