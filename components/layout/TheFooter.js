@@ -53,7 +53,11 @@ const TheFooter = () => {
     <Footer>
       <FooterContent>
         <FooterItem>Informacje</FooterItem>
-        <FooterItem>Kontakt</FooterItem>
+        <FooterItem>
+          <Link href={'/contact'}>
+            <a>Kontakt</a>
+          </Link>
+        </FooterItem>
         <FooterItem>
           <Link href={'/tags'}>
             <a>Tagi </a>
