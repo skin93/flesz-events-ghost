@@ -52,7 +52,11 @@ const TheFooter = () => {
   return (
     <Footer>
       <FooterContent>
-        <FooterItem>Informacje</FooterItem>
+        <FooterItem>
+          <Link href={'/about'}>
+            <a>O Nas</a>
+          </Link>
+        </FooterItem>
         <FooterItem>
           <Link href={'/contact'}>
             <a>Kontakt</a>
