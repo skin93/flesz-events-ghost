@@ -28,12 +28,17 @@ const FooterItem = styled.div`
   align-items: center;
   flex: 1;
   font-size: 0.8rem;
-  color: ${({ theme }) => theme.light};
+  color: gray;
   height: 50px;
   overflow: hidden;
   padding: 10px;
   text-transform: uppercase;
   font-weight: bold;
+  transition: color 0.3s ease-in-out;
+
+  &:hover {
+    color: ${({ theme }) => theme.light};
+  }
 `
 
 const Copy = styled.div`
