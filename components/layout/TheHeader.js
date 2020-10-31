@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import BaseLink from '../UI/BaseLink'
 import { device } from '../../constants/device'
 import { faFacebook } from '@fortawesome/free-brands-svg-icons'
@@ -32,13 +32,12 @@ const NavbarBrand = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 0.8rem;
-  color: ${({ theme }) => theme.light};
   height: 50px;
   width: 100px;
   overflow: hidden;
   padding: 0 10px;
   text-transform: uppercase;
+  color: ${({ theme }) => theme.light};
   font-weight: bold;
 `
 

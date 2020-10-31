@@ -1,13 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { useRouter } from 'next/router'
-
-import { usePostsByTagSlug } from '../../fetchers/posts/index'
-import { useSingleTag } from '../../fetchers/tags/index'
-
 import Posts from '../../components/posts/Posts'
-import BaseLoader from '../../components/UI/BaseLoader'
-import BaseError from '../../components/UI/BaseError'
 
 const PostsByTag = styled.section`
   display: flex;
@@ -26,37 +19,35 @@ const PostsByTag = styled.section`
   }
 `
 
-const TagPage = () => {
-  const router = useRouter()
-
-  const { slug } = router.query
-
-  const { tags, isLoading, isError } = useSingleTag(slug)
-
-  const name = tags && tags.length > 0 ? tags[0].name : null
-
-  const {
-    posts,
-    isLoading: postsIsLoading,
-    isError: postsIsError
-  } = usePostsByTagSlug(slug)
-
+const TagPage = ({ tag, posts, meta }) => {
   return (
-    <>
-      {isLoading || postsIsLoading ? (
-        <BaseLoader />
-      ) : isError | postsIsError ? (
-        <BaseError error='Failed to fetch' />
-      ) : (
-        <PostsByTag>
-          <h2>
-            <span>#</span> {name}
-          </h2>
-          <Posts posts={posts} />
-        </PostsByTag>
-      )}
-    </>
+    <PostsByTag>
+      <h2>
+        <span>#</span> {tag.name}
+      </h2>
+      <Posts posts={posts} />
+    </PostsByTag>
   )
+}
+
+export async function getServerSideProps({ params }) {
+  const res1 = await fetch(
+    `${process.env.NEXT_PUBLIC_API}/tags/slug/${params.slug}?key=${process.env.NEXT_PUBLIC_API_KEY}`
+  )
+  const data1 = await res1.json()
+
+  const res2 = await fetch(
+    `${process.env.NEXT_PUBLIC_API}/posts/?key=${process.env.NEXT_PUBLIC_API_KEY}&filter=primary_tag:${params.slug}`
+  )
+  const data2 = await res2.json()
+
+  return {
+    props: {
+      tag: data1.tags[0],
+      posts: data2.posts,
+      meta: data2.meta
+    }
+  }
 }
 
 export default TagPage

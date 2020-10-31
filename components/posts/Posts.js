@@ -24,7 +24,7 @@ const PostsContainer = styled.div`
 const Posts = ({ posts }) => {
   return (
     <PostsContainer>
-      {posts?.map((post) => (
+      {posts.map((post) => (
         <PostItem key={post.title} post={post} />
       ))}
     </PostsContainer>

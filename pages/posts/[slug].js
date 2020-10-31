@@ -1,30 +1,39 @@
-import { useRouter } from 'next/router'
-import { useSinglePost } from '../../fetchers/posts/index'
-import BaseLoader from '../../components/UI/BaseLoader'
-import BaseError from '../../components/UI/BaseError'
 import Article from '../../components/article/Article'
 import Aside from '../../components/layout/Aside'
+import FeaturedPosts from '../../components/posts/FeaturedPosts'
 import PageContainer from '../../components/layout/PageContainer'
 
-const PostPage = () => {
-  const router = useRouter()
-  const { slug } = router.query
-  const { posts, isLoading, isError } = useSinglePost(slug)
-
+const PostPage = ({ post, posts, meta }) => {
   return (
-    <>
-      {isLoading ? (
-        <BaseLoader />
-      ) : isError ? (
-        <BaseError error='Failed to fetch' />
-      ) : (
-        <PageContainer>
-          <Article data={posts[0]} />
-          <Aside />
-        </PageContainer>
+    <PageContainer>
+      <Article data={post} />
+      {data && (
+        <Aside>
+          <FeaturedPosts featured={posts} />
+        </Aside>
       )}
-    </>
+    </PageContainer>
   )
+}
+
+export async function getServerSideProps({ params }) {
+  const res1 = await fetch(
+    `${process.env.NEXT_PUBLIC_API}/posts/slug/${params.slug}?key=${process.env.NEXT_PUBLIC_API_KEY}`
+  )
+  const data1 = await res1.json()
+
+  const res2 = await fetch(
+    `${process.env.NEXT_PUBLIC_API}/posts/?key=${process.env.NEXT_PUBLIC_API_KEY}&filter=featured:true`
+  )
+  const data2 = await res2.json()
+
+  return {
+    props: {
+      post: data1.posts[0],
+      posts: data2.posts,
+      meta: data2.meta
+    }
+  }
 }
 
 export default PostPage

@@ -1,8 +1,6 @@
 import Posts from '../components/posts/Posts'
 import styled from 'styled-components'
-import BaseLoader from '../components/UI/BaseLoader'
-import BaseError from '../components/UI/BaseError'
-import { usePosts } from '../fetchers/posts/index'
+import useSWR from 'swr'
 
 const LatestPosts = styled.section``
 
@@ -15,17 +13,16 @@ const Header = styled.h2`
 `
 
 const IndexPage = () => {
-  const { posts, isLoading, isError } = usePosts()
+  const { data } = useSWR(
+    `${process.env.NEXT_PUBLIC_API}/posts/?key=${process.env.NEXT_PUBLIC_API_KEY}`
+  )
+
   return (
     <>
-      {isLoading ? (
-        <BaseLoader />
-      ) : isError ? (
-        <BaseError error='Failed to fetch' />
-      ) : (
+      {data && (
         <LatestPosts>
           <Header>Ostatnie wpisy</Header>
-          <Posts posts={posts} />
+          <Posts posts={data.posts} />
         </LatestPosts>
       )}
     </>

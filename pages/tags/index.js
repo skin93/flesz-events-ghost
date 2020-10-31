@@ -1,7 +1,4 @@
 import styled from 'styled-components'
-import BaseLoader from '../../components/UI/BaseLoader'
-import BaseError from '../../components/UI/BaseError'
-import { useTags } from '../../fetchers/tags/index'
 import Tags from '../../components/tags/Tags'
 
 const LatestPosts = styled.section``
@@ -14,22 +11,29 @@ const Header = styled.h2`
   color: ${({ theme }) => theme.light};
 `
 
-const TagsPage = () => {
-  const { tags, isLoading, isError } = useTags()
+const TagsPage = ({ tags, meta }) => {
   return (
     <>
-      {isLoading ? (
-        <BaseLoader />
-      ) : isError ? (
-        <BaseError error='Failed to fetch' />
-      ) : (
-        <LatestPosts>
-          <Header>Tagi</Header>
-          <Tags tags={tags} />
-        </LatestPosts>
-      )}
+      <LatestPosts>
+        <Header>Tagi</Header>
+        <Tags tags={tags} />
+      </LatestPosts>
     </>
   )
+}
+
+export async function getServerSideProps() {
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_API}/tags/?key=${process.env.NEXT_PUBLIC_API_KEY}`
+  )
+  const data = await res.json()
+
+  return {
+    props: {
+      tags: data.tags,
+      meta: data.meta
+    }
+  }
 }
 
 export default TagsPage
