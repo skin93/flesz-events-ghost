@@ -7,11 +7,9 @@ const PostPage = ({ post, posts, meta }) => {
   return (
     <PageContainer>
       <Article data={post} />
-      {data && (
-        <Aside>
-          <FeaturedPosts featured={posts} />
-        </Aside>
-      )}
+      <Aside>
+        <FeaturedPosts featured={posts} />
+      </Aside>
     </PageContainer>
   )
 }
