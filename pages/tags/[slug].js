@@ -23,13 +23,13 @@ const PostsByTag = styled.section`
 
 const TagPage = (props) => {
   const router = useRouter()
-  const { slug } = router.query
+  const { slug, page } = router.query
   const data1 = useSWR(
     `${process.env.NEXT_PUBLIC_API}/tags/slug/${slug}?key=${process.env.NEXT_PUBLIC_API_KEY}`,
     { initialData: props.data1 }
   )
   const data2 = useSWR(
-    `${process.env.NEXT_PUBLIC_API}/posts/?key=${process.env.NEXT_PUBLIC_API_KEY}&limit=6&filter=primary_tag:${slug}`,
+    `${process.env.NEXT_PUBLIC_API}/posts/?key=${process.env.NEXT_PUBLIC_API_KEY}&limit=6&filter=primary_tag:${slug}&page=${page}`,
     { initialData: props.data2 }
   )
 
@@ -48,14 +48,15 @@ const TagPage = (props) => {
   )
 }
 
-export async function getServerSideProps({ params }) {
+export async function getServerSideProps({ query, params }) {
+  const page = query.page || 1
   const res1 = await fetch(
     `${process.env.NEXT_PUBLIC_API}/tags/slug/${params.slug}?key=${process.env.NEXT_PUBLIC_API_KEY}`
   )
   const data1 = await res1.json()
 
   const res2 = await fetch(
-    `${process.env.NEXT_PUBLIC_API}/posts/?key=${process.env.NEXT_PUBLIC_API_KEY}&limit=6&filter=primary_tag:${params.slug}`
+    `${process.env.NEXT_PUBLIC_API}/posts/?key=${process.env.NEXT_PUBLIC_API_KEY}&limit=6&filter=primary_tag:${params.slug}&page=${page}`
   )
   const data2 = await res2.json()
 
