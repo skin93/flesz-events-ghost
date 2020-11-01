@@ -1,16 +1,68 @@
-import Article from '../../components/article/Article'
-import Aside from '../../components/layout/Aside'
+import { Article } from '../../components/index'
 import FeaturedPosts from '../../components/posts/FeaturedPosts'
-import PageContainer from '../../components/layout/PageContainer'
 
-const PostPage = ({ post, posts, meta }) => {
+import styled from 'styled-components'
+import { device } from '../../constants/device'
+import useSWR from 'swr'
+import { useRouter } from 'next/router'
+
+const StyledPageContainer = styled.div`
+  display: grid;
+  grid-template-columns: 1fr;
+
+  @media ${device.laptopL} {
+    grid-template-columns: 4fr 2fr;
+    overflow: hidden;
+
+    & > :nth-child(2) {
+      position: fixed;
+      top: 230px;
+      left: 70%;
+    }
+  }
+`
+
+const Aside = styled.section`
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  overflow: hidden;
+  padding: 30px;
+  min-height: 200px;
+  max-width: 100%;
+
+  & > h2 {
+    text-align: center;
+    color: ${({ theme }) => theme.light};
+    margin: 0;
+    font-size: 2rem;
+    padding: 10px;
+  }
+`
+
+const PostPage = (props) => {
+  const router = useRouter()
+  const { slug } = router.query
+
+  const postData = useSWR(
+    `${process.env.NEXT_PUBLIC_API}/posts/slug/${slug}?key=${process.env.NEXT_PUBLIC_API_KEY}`,
+    { initialData: props.data1 }
+  )
+  const post = postData.data.posts[0]
+
+  const featuredData = useSWR(
+    `${process.env.NEXT_PUBLIC_API}/posts/?key=${process.env.NEXT_PUBLIC_API_KEY}&filter=featured:true`,
+    { initialData: props.data2 }
+  )
+  const featured = featuredData.data.posts
+
   return (
-    <PageContainer>
+    <StyledPageContainer>
       <Article data={post} />
       <Aside>
-        <FeaturedPosts featured={posts} />
+        <FeaturedPosts featured={featured} />
       </Aside>
-    </PageContainer>
+    </StyledPageContainer>
   )
 }
 
@@ -27,9 +79,8 @@ export async function getServerSideProps({ params }) {
 
   return {
     props: {
-      post: data1.posts[0],
-      posts: data2.posts,
-      meta: data2.meta
+      data1,
+      data2
     }
   }
 }

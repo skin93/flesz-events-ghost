@@ -2,7 +2,7 @@ import { SWRConfig } from 'swr'
 import { GlobalStyles } from '../global'
 import { ThemeProvider } from 'styled-components'
 
-import Layout from '../components/layout/Layout'
+import { Layout } from '../components/index'
 import { theme } from '../theme'
 
 const fetcher = async (url) => {

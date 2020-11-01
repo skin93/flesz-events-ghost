@@ -1,59 +1,13 @@
 import Link from 'next/link'
-import React, { useState } from 'react'
-import BaseLink from '../UI/BaseLink'
-import { device } from '../../constants/device'
+import { useState } from 'react'
+import BaseLink from '../../UI/BaseLink'
+
 import { faFacebook } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import styled from 'styled-components'
-import Nav from './Nav'
-import NavToggler from './NavToggler'
 
-const Header = styled.header`
-  width: 100%;
-  background-color: ${({ theme }) => theme.gray};
-  position: sticky;
-`
-
-const Navbar = styled.nav`
-  display: flex;
-  margin: 0 auto;
-  justify-content: space-between;
-  padding: 0 15px;
-  min-width: 250px;
-  overflow: hidden;
-  flex-wrap: wrap;
-
-  @media ${device.tablet} {
-    max-width: 1440px;
-  }
-`
-
-const NavbarBrand = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 50px;
-  width: 100px;
-  overflow: hidden;
-  padding: 0 10px;
-  text-transform: uppercase;
-  color: ${({ theme }) => theme.light};
-  font-weight: bold;
-`
-
-const NavItem = styled.li`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 0.8rem;
-  height: 50px;
-  width: 100px;
-  overflow: hidden;
-  padding: 10px;
-  text-transform: uppercase;
-  font-weight: bold;
-  transition: color 0.2s ease-in-out;
-`
+import { Nav } from '../../index'
+import { NavToggler } from '../../index'
+import { Header, Navbar, NavbarBrand, NavItem } from './TheHeader.styled'
 
 const TheHeader = () => {
   const [open, setOpen] = useState(false)

@@ -1,8 +1,7 @@
-import React, { useEffect } from 'react'
 import styled from 'styled-components'
-import { device } from '../../constants/device'
+import { device } from '../../../constants/device'
 
-const StyledNav = styled.ul`
+export const StyledNav = styled.ul`
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
@@ -31,20 +30,3 @@ const StyledNav = styled.ul`
     overflow: hidden;
   }
 `
-
-const Nav = ({ open, setOpen, children, ...props }) => {
-  useEffect(() => {
-    if (typeof window !== undefined) {
-      window.addEventListener('click', (e) =>
-        e.target.nodeName == 'UL' ? setOpen(false) : null
-      )
-    }
-  }, [])
-  return (
-    <StyledNav open={open} setOpen={setOpen} {...props}>
-      {children}
-    </StyledNav>
-  )
-}
-
-export default Nav
