@@ -2,6 +2,7 @@ import { useRouter } from 'next/router'
 import styled from 'styled-components'
 import useSWR from 'swr'
 import Posts from '../../components/posts/Posts'
+import { Pagination } from '../../components/index'
 
 const PostsByTag = styled.section`
   display: flex;
@@ -28,12 +29,13 @@ const TagPage = (props) => {
     { initialData: props.data1 }
   )
   const data2 = useSWR(
-    `${process.env.NEXT_PUBLIC_API}/posts/?key=${process.env.NEXT_PUBLIC_API_KEY}&filter=primary_tag:${slug}`,
+    `${process.env.NEXT_PUBLIC_API}/posts/?key=${process.env.NEXT_PUBLIC_API_KEY}&limit=6&filter=primary_tag:${slug}`,
     { initialData: props.data2 }
   )
 
   const tag = data1.data.tags[0]
   const posts = data2.data.posts
+  const pagination = data2.data.meta.pagination
 
   return (
     <PostsByTag>
@@ -41,6 +43,7 @@ const TagPage = (props) => {
         <span>#</span> {tag.name}
       </h2>
       <Posts posts={posts} />
+      <Pagination pagination={pagination} location={`/tags/${slug}`} />
     </PostsByTag>
   )
 }
@@ -52,7 +55,7 @@ export async function getServerSideProps({ params }) {
   const data1 = await res1.json()
 
   const res2 = await fetch(
-    `${process.env.NEXT_PUBLIC_API}/posts/?key=${process.env.NEXT_PUBLIC_API_KEY}&filter=primary_tag:${params.slug}`
+    `${process.env.NEXT_PUBLIC_API}/posts/?key=${process.env.NEXT_PUBLIC_API_KEY}&limit=6&filter=primary_tag:${params.slug}`
   )
   const data2 = await res2.json()
 

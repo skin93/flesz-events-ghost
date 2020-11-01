@@ -20,7 +20,7 @@ const IndexPage = ({ content }) => {
   const {
     data
   } = useSWR(
-    `${process.env.NEXT_PUBLIC_API}/posts/?key=${process.env.NEXT_PUBLIC_API_KEY}&limit=3&page=${page}`,
+    `${process.env.NEXT_PUBLIC_API}/posts/?key=${process.env.NEXT_PUBLIC_API_KEY}&limit=6&page=${page}`,
     { initialData: content }
   )
 
@@ -39,7 +39,7 @@ const IndexPage = ({ content }) => {
 export async function getServerSideProps({ query }) {
   const page = query.page || 1
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API}/posts/?key=${process.env.NEXT_PUBLIC_API_KEY}&limit=3&page=${page}`
+    `${process.env.NEXT_PUBLIC_API}/posts/?key=${process.env.NEXT_PUBLIC_API_KEY}&limit=6&page=${page}`
   )
   const content = await res.json()
 
