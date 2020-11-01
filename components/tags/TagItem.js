@@ -9,6 +9,13 @@ const TagBody = styled.div`
   align-items: center;
   margin: 0 auto;
   max-width: 100%;
+  padding: 15px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease-in-out;
+
+  &:hover {
+    background-color: ${({ theme }) => theme.gray};
+  }
 `
 
 const TagName = styled.h2`
@@ -16,6 +23,7 @@ const TagName = styled.h2`
   font-weight: bold;
   text-transform: uppercase;
   font-size: 1.5rem;
+  margin: 0;
 `
 
 const HashTag = styled.span`

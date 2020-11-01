@@ -16,10 +16,6 @@ const TagsContainer = styled.div`
   @media ${device.tablet} {
     grid-template-columns: repeat(3, 1fr);
   }
-
-  @media ${device.laptopL} {
-    grid-template-columns: repeat(4, 1fr);
-  }
 `
 
 const Tags = ({ tags }) => {
