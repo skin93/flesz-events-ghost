@@ -2,7 +2,6 @@ import styled from 'styled-components'
 import { device, size } from '../../constants/device'
 
 export const MainContainer = styled.main`
-  padding: 20px;
   display: flex;
   flex-direction: column;
   flex: 1;
@@ -40,5 +39,6 @@ export const MainContainer = styled.main`
 `
 
 export const Children = styled.section`
-  flex: 3;
+  padding: 0 15px;
+  flex: 1;
 `
