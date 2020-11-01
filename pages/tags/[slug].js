@@ -1,5 +1,6 @@
-import React from 'react'
+import { useRouter } from 'next/router'
 import styled from 'styled-components'
+import useSWR from 'swr'
 import Posts from '../../components/posts/Posts'
 
 const PostsByTag = styled.section`
@@ -19,7 +20,21 @@ const PostsByTag = styled.section`
   }
 `
 
-const TagPage = ({ tag, posts, meta }) => {
+const TagPage = (props) => {
+  const router = useRouter()
+  const { slug } = router.query
+  const data1 = useSWR(
+    `${process.env.NEXT_PUBLIC_API}/tags/slug/${slug}?key=${process.env.NEXT_PUBLIC_API_KEY}`,
+    { initialData: props.data1 }
+  )
+  const data2 = useSWR(
+    `${process.env.NEXT_PUBLIC_API}/posts/?key=${process.env.NEXT_PUBLIC_API_KEY}&filter=primary_tag:${slug}`,
+    { initialData: props.data2 }
+  )
+
+  const tag = data1.data.tags[0]
+  const posts = data2.data.posts
+
   return (
     <PostsByTag>
       <h2>
@@ -43,9 +58,8 @@ export async function getServerSideProps({ params }) {
 
   return {
     props: {
-      tag: data1.tags[0],
-      posts: data2.posts,
-      meta: data2.meta
+      data1,
+      data2
     }
   }
 }

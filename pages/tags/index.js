@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import useSWR from 'swr'
 import Tags from '../../components/tags/Tags'
 
 const LatestPosts = styled.section``
@@ -11,7 +12,16 @@ const Header = styled.h2`
   color: ${({ theme }) => theme.light};
 `
 
-const TagsPage = ({ tags, meta }) => {
+const TagsPage = (props) => {
+  const {
+    data
+  } = useSWR(
+    `${process.env.NEXT_PUBLIC_API}/tags/?key=${process.env.NEXT_PUBLIC_API_KEY}`,
+    { initialData: props.data }
+  )
+
+  const tags = data.tags
+  const meta = data.meta
   return (
     <>
       <LatestPosts>
@@ -22,7 +32,7 @@ const TagsPage = ({ tags, meta }) => {
   )
 }
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_API}/tags/?key=${process.env.NEXT_PUBLIC_API_KEY}`
   )
@@ -30,8 +40,7 @@ export async function getServerSideProps() {
 
   return {
     props: {
-      tags: data.tags,
-      meta: data.meta
+      data
     }
   }
 }

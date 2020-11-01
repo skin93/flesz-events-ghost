@@ -12,9 +12,12 @@ const Header = styled.h2`
   color: ${({ theme }) => theme.light};
 `
 
-const IndexPage = () => {
-  const { data } = useSWR(
-    `${process.env.NEXT_PUBLIC_API}/posts/?key=${process.env.NEXT_PUBLIC_API_KEY}`
+const IndexPage = (props) => {
+  const {
+    data
+  } = useSWR(
+    `${process.env.NEXT_PUBLIC_API}/posts/?key=${process.env.NEXT_PUBLIC_API_KEY}`,
+    { initialData: props.data }
   )
 
   return (
@@ -27,6 +30,19 @@ const IndexPage = () => {
       )}
     </>
   )
+}
+
+export async function getStaticProps() {
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_API}/posts/?key=${process.env.NEXT_PUBLIC_API_KEY}`
+  )
+  const data = await res.json()
+
+  return {
+    props: {
+      data
+    }
+  }
 }
 
 export default IndexPage
