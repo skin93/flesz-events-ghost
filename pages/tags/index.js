@@ -30,7 +30,7 @@ const TagsPage = ({ content }) => {
     <>
       <Header>Tagi</Header>
       <Tags tags={tags} />
-      <Pagination pagination={pagination} location='tags' />
+      <Pagination pagination={pagination} location='/tags' />
     </>
   )
 }

@@ -13,7 +13,7 @@ const Pagination = ({
       <Button
         style={{ display: prev ? 'block' : 'none' }}
         onClick={() => {
-          router.push(`/${location}?page=${prev}`)
+          router.push(`${location}?page=${prev}`)
         }}
       >
         Cofnij
@@ -22,7 +22,7 @@ const Pagination = ({
         <PaginationItem
           active={x + 1 === page}
           onClick={() => {
-            router.push(`/${location}?page=${x + 1}`)
+            router.push(`${location}?page=${x + 1}`)
           }}
           key={x}
         >
@@ -32,7 +32,7 @@ const Pagination = ({
       <Button
         style={{ display: next ? 'block' : 'none' }}
         onClick={() => {
-          router.push(`/${location}?page=${next}`)
+          router.push(`${location}?page=${next}`)
         }}
       >
         Dalej

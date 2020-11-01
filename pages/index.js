@@ -31,7 +31,7 @@ const IndexPage = ({ content }) => {
     <LatestPosts>
       <Header>Ostatnie wpisy</Header>
       <Posts posts={posts} />
-      <Pagination pagination={pagination} location='' />
+      <Pagination pagination={pagination} location='/' />
     </LatestPosts>
   )
 }
