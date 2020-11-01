@@ -16,7 +16,7 @@ const TheHeader = () => {
     <Header>
       <Navbar>
         <NavbarBrand>
-          <Link href='/'>
+          <Link href='/?page=1'>
             <a>Logo</a>
           </Link>
         </NavbarBrand>

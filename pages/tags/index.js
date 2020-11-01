@@ -1,8 +1,9 @@
+import { useRouter } from 'next/router'
 import styled from 'styled-components'
 import useSWR from 'swr'
-import Tags from '../../components/tags/Tags'
 
-const LatestPosts = styled.section``
+import Tags from '../../components/tags/Tags'
+import { Pagination } from '../../components/index'
 
 const Header = styled.h2`
   text-align: center;
@@ -12,35 +13,38 @@ const Header = styled.h2`
   color: ${({ theme }) => theme.light};
 `
 
-const TagsPage = (props) => {
+const TagsPage = ({ content }) => {
+  const router = useRouter()
+  const { page } = router.query
   const {
     data
   } = useSWR(
-    `${process.env.NEXT_PUBLIC_API}/tags/?key=${process.env.NEXT_PUBLIC_API_KEY}`,
-    { initialData: props.data }
+    `${process.env.NEXT_PUBLIC_API}/tags/?key=${process.env.NEXT_PUBLIC_API_KEY}&limit=4&page=${page}`,
+    { initialData: content }
   )
 
   const tags = data.tags
-  const meta = data.meta
+  const pagination = data.meta.pagination
+
   return (
     <>
-      <LatestPosts>
-        <Header>Tagi</Header>
-        <Tags tags={tags} />
-      </LatestPosts>
+      <Header>Tagi</Header>
+      <Tags tags={tags} />
+      <Pagination pagination={pagination} location='tags' />
     </>
   )
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps({ query }) {
+  const page = query.page || 1
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API}/tags/?key=${process.env.NEXT_PUBLIC_API_KEY}`
+    `${process.env.NEXT_PUBLIC_API}/tags/?key=${process.env.NEXT_PUBLIC_API_KEY}&limit=4&page=${page}`
   )
-  const data = await res.json()
+  const content = await res.json()
 
   return {
     props: {
-      data
+      content
     }
   }
 }
