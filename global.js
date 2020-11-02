@@ -35,7 +35,15 @@ a {
   text-decoration: none;
 }
 
+.kg-card.kg-embed-card {
 
+  margin: 30px auto;
+}
+
+.kg-card.kg-embed-card iframe {
+  height: 400px;
+  width: 100%;
+}
 
 .kg-card.kg-image-card {
   margin: 0;
