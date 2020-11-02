@@ -4,7 +4,6 @@ import { device } from '../../../constants/device'
 export const Header = styled.header`
   width: 100%;
   background-color: ${({ theme }) => theme.gray};
-  position: sticky;
 `
 
 export const Navbar = styled.nav`
@@ -27,7 +26,7 @@ export const NavbarBrand = styled.div`
   align-items: center;
   font-size: 0.7rem;
   height: 50px;
-  width: 100px;
+  width: auto;
   overflow: hidden;
   padding: 0 10px;
   text-transform: uppercase;
@@ -37,14 +36,21 @@ export const NavbarBrand = styled.div`
 
 export const NavItem = styled.li`
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
-  font-size: 0.7rem;
-  height: 50px;
+  font-size: 1.5rem;
+  padding: 15px;
+  margin: 20px 0;
+  height: auto;
   width: auto;
   overflow: hidden;
-  padding: 15px;
   text-transform: uppercase;
   font-weight: bold;
   transition: color 0.2s ease-in-out;
+
+  @media ${device.tablet} {
+    font-size: 0.7rem;
+    margin: 0;
+    padding: 15px;
+  }
 `

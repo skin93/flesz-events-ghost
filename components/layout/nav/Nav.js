@@ -5,7 +5,7 @@ const Nav = ({ open, setOpen, children, ...props }) => {
   useEffect(() => {
     if (typeof window !== undefined) {
       window.addEventListener('click', (e) =>
-        e.target.nodeName == 'UL' ? setOpen(false) : null
+        e.target.nodeName == 'A' ? setOpen(false) : null
       )
     }
   }, [])

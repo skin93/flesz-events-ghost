@@ -5,9 +5,9 @@ export const StyledNavToggler = styled.button`
   display: block;
   background-color: transparent;
   border: none;
-  height: 50px;
-  width: 100px;
-  padding: 0 10px;
+  height: auto;
+  width: auto;
+  padding: 15px;
   z-index: 100;
 
   &:focus {

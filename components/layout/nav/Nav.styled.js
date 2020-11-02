@@ -2,25 +2,21 @@ import styled from 'styled-components'
 import { device } from '../../../constants/device'
 
 export const StyledNav = styled.ul`
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
   list-style: none;
-  top: 0;
-  left: 0;
-  height: auto;
-  display: block;
-  position: absolute;
   width: 100%;
   background-color: ${({ theme }) => theme.gray};
   overflow: hidden;
-  transform: ${(props) => (props.open ? 'translateY(0)' : 'translateY(-100%)')};
-  transition: transform 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: ${(props) => (props.open ? '100vh' : 0)};
   margin: 0;
+  padding: 0;
+  transition: all 0.8s ease-in-out;
 
   @media ${device.tablet} {
-    transform: translateY(0);
-    position: static;
+    height: auto;
     display: flex;
     flex: 5;
     flex-direction: row;
