@@ -5,6 +5,16 @@ export const GlobalStyles = createGlobalStyle`
   box-sizing: border-box;
 }
 
+@font-face {
+  font-family: 'Roboto';
+  src: url('/fonts/Roboto.ttf');
+}
+
+@font-face {
+  font-family: 'Oswald';
+  src: url('/fonts/Oswald.ttf');
+}
+
 html,
 body {
   padding: 0;
