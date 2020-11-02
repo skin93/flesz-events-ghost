@@ -40,7 +40,7 @@ const TheHeader = () => {
           <NavItem>
             <Link href='https://facebook.com/flesz-events'>
               <a>
-                <FontAwesomeIcon color='white' icon={faFacebook} />
+                <FontAwesomeIcon size='lg' color='white' icon={faFacebook} />
               </a>
             </Link>
           </NavItem>

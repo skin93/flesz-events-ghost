@@ -25,6 +25,7 @@ export const NavbarBrand = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 0.7rem;
   height: 50px;
   width: 100px;
   overflow: hidden;
@@ -38,7 +39,7 @@ export const NavItem = styled.li`
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   height: 50px;
   width: 100px;
   overflow: hidden;
