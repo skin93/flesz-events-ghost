@@ -27,7 +27,7 @@ const TagName = styled.h2`
 `
 
 const HashTag = styled.span`
-  color: ${({ theme }) => theme.orange};
+  color: ${({ theme }) => theme.accent};
 `
 
 const TagItem = ({ tag }) => {

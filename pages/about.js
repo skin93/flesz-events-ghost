@@ -17,7 +17,7 @@ const InfoBody = styled.div`
   font-size: 1.5rem;
 
   span {
-    color: ${({ theme }) => theme.orange};
+    color: ${({ theme }) => theme.accent};
   }
 `
 

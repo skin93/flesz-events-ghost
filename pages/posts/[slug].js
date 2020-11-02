@@ -27,10 +27,9 @@ const Aside = styled.section`
   flex-direction: column;
   margin: 0 auto;
   overflow: hidden;
-  padding: 30px;
+  padding: 15px 0;
   min-height: 200px;
   max-width: 100%;
-
   & > h2 {
     text-align: center;
     color: ${({ theme }) => theme.light};
@@ -60,6 +59,7 @@ const PostPage = (props) => {
     <StyledPageContainer>
       <Article data={post} />
       <Aside>
+        <h2>Zobacz także: </h2>
         <FeaturedPosts featured={featured} />
       </Aside>
     </StyledPageContainer>

@@ -38,7 +38,7 @@ export const Button = styled.button`
 
 export const PaginationItem = styled(Button)`
   background-color: ${(props) =>
-    props.active ? props.theme.orange : props.theme.gray};
+    props.active ? props.theme.accent : props.theme.gray};
   border: none;
 
   @media (max-width: ${size.mobileL}) {

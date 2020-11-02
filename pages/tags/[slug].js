@@ -17,7 +17,7 @@ const PostsByTag = styled.section`
   }
 
   span {
-    color: ${({ theme }) => theme.orange};
+    color: ${({ theme }) => theme.accent};
   }
 `
 

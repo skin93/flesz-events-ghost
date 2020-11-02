@@ -3,16 +3,17 @@ import { device } from '../../constants/device'
 
 export const ArticleImg = styled.div`
   width: 100%;
-  height: 300px;
+  height: 400px;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   overflow: hidden;
+  margin-top: 30px;
   border-radius: 10px;
 `
 
 export const ArticleTitle = styled.h1`
-  text-align: center;
+  text-align: left;
   font-size: 3rem;
   min-width: 100%;
   color: ${({ theme }) => theme.light};
@@ -28,7 +29,7 @@ export const ArticleExcerpt = styled.p`
 `
 
 export const BorderBottom = styled.div`
-  background-color: ${({ theme }) => theme.orange};
+  background-color: ${({ theme }) => theme.accent};
   height: 3px;
   width: 100%;
 `
@@ -46,7 +47,7 @@ export const ArticleContent = styled.div`
   & > p {
     font-size: 1.3rem;
     & > strong {
-      color: ${({ theme }) => theme.orange};
+      color: ${({ theme }) => theme.accent};
     }
   }
 `

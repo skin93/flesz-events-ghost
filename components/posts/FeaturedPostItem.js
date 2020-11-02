@@ -6,7 +6,8 @@ const FeaturedCard = styled.div`
   width: 100%;
   min-height: 100px;
   padding: 10px;
-  background-color: transparent;
+  background: ${({ theme }) => theme.gray};
+
   display: flex;
   align-items: center;
   transition: transform 0.3s ease-in-out;
@@ -26,8 +27,14 @@ export const FeatTitle = styled.h4`
   margin: 0;
   margin-left: 20px;
   color: ${({ theme }) => theme.light};
-  font-size: 1rem;
+  font-size: 1.2rem;
   transition: border 0.3s ease-out;
+  &::before {
+    content: '';
+    border-left: 3px solid ${({ theme }) => theme.accent};
+    margin-right: 10px;
+    overflow: hidden;
+  }
 `
 
 const FeaturedPostItem = ({ feat }) => {

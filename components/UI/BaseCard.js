@@ -7,7 +7,7 @@ export const Card = styled.div`
   flex-direction: column;
   position: relative;
   max-width: 100%;
-  min-height: 200px;
+  min-height: 250px;
   margin: 30px;
   background: url(${(props) => props.src});
   background-repeat: no-repeat;
@@ -35,7 +35,7 @@ export const BadgeName = styled.small`
   color: ${({ theme }) => theme.light};
   text-transform: uppercase;
   font-weight: bold;
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   margin: 0;
   font-family: 'Oswald';
 `
@@ -63,35 +63,26 @@ export const CardBody = styled.div`
   justify-content: space-around;
   align-items: flex-start;
   width: 100%;
-  min-height: 50px;
+  min-height: auto;
   background: rgba(0, 0, 0, 0.8);
+  overflow: hidden;
+  z-index: 100;
 `
 
 export const CardTitle = styled.p`
   color: ${({ theme }) => theme.light};
-  font-size: 1rem;
+  font-size: 1.3rem;
   font-weight: bold;
   font-family: 'Oswald';
   transition: border 0.3s ease-out;
   margin: 0;
-  z-index: 100;
-  &::before {
-    content: '';
-    border-left: 5px solid ${({ theme }) => theme.orange};
-    margin-right: 10px;
-    overflow: hidden;
-  }
+  padding-left: 10px;
+  border-left: 3px solid ${({ theme }) => theme.accent};
 `
 
 export const Published = styled.small`
   font-weight: bold;
   color: ${({ theme }) => theme.light};
-  z-index: 100;
-  &::before {
-    content: '';
-    border-left: 3px solid transparent;
-    border-width: 5px;
-    margin-right: 10px;
-    overflow: hidden;
-  }
+  padding-left: 15px;
+  margin-top: 10px;
 `
