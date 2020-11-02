@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 
-const SEO = ({ title, description, slug }) => {
+const SEO = ({ title, description }) => {
   const router = useRouter()
   return (
     <Head>
@@ -11,7 +11,11 @@ const SEO = ({ title, description, slug }) => {
       <meta name='description' content={description} />
       <link
         rel='canonical'
-        href={`${process.env.APP_DOMAIN}${router.asPath}`}
+        href={
+          process.env.NODE_ENV === 'production'
+            ? `${process.env.NEXT_PUBLIC_APP_DOMAIN_PROD}${router.asPath}`
+            : `${process.env.NEXT_PUBLIC_APP_DOMAIN_DEV}${router.asPath}`
+        }
       />
       <meta
         property='og:title'
@@ -21,17 +25,21 @@ const SEO = ({ title, description, slug }) => {
       <meta property='og:type' content='webiste' />
       <meta
         property='og:url'
-        content={`${process.env.NEXT_PUBLIC_APP_DOMAIN}${router.asPath}`}
+        content={
+          process.env.NODE_ENV === 'production'
+            ? `${process.env.NEXT_PUBLIC_APP_DOMAIN_PROD}${router.asPath}`
+            : `${process.env.NEXT_PUBLIC_APP_DOMAIN_DEV}${router.asPath}`
+        }
       />
       <meta
         property='og:site_name'
         content={`${process.env.NEXT_PUBLIC_APP_NAME}`}
       />
 
-      {/* <meta property='og:image' content={`${process.env.APP_DOMAIN}/static/images/seoblog.jpg`} />
+      {/* <meta property='og:image' content={`${process.env.APP_DOMAIN_DEV}/static/images/seoblog.jpg`} />
 	  <meta
 		property='og:image:secure_url'
-		content={`${process.env.APP_DOMAIN}/static/images/seoblog.jpg`}
+		content={`${process.env.APP_DOMAIN_DEV}/static/images/seoblog.jpg`}
 	  /> */}
       <meta property='og:image:type' content='image/jpg' />
       <meta property='fb:app_id' content={`${process.env.NEXT_PUBLIC_FB_ID}`} />
