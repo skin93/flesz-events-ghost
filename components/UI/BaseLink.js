@@ -4,7 +4,8 @@ import { useRouter } from 'next/router'
 import styled from 'styled-components'
 
 const StyledLink = styled.div`
-  color: ${(props) => (props.active ? props.theme.light : 'gray')};
+  color: ${(props) =>
+    props.active ? props.theme.light : 'rgba(219, 219, 219, 0.8)'};
   transition: color 0.2s ease-in;
   &:hover {
     color: ${({ theme }) => theme.light};
@@ -15,7 +16,7 @@ const BaseLink = ({ label, to }) => {
   const router = useRouter()
   return (
     <StyledLink active={router.asPath === `/tags/${to}` ? true : false}>
-      <Link href={`/tags/${to}`}>
+      <Link href={`/tags/${to}?page=1`}>
         <a>{label}</a>
       </Link>
     </StyledLink>
