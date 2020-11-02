@@ -16,7 +16,7 @@ const Header = styled.h2`
 
 const IndexPage = ({ content }) => {
   const router = useRouter()
-  const { page } = router.query
+  const page = router.query.page || 1
   const {
     data
   } = useSWR(
@@ -25,7 +25,9 @@ const IndexPage = ({ content }) => {
   )
 
   const posts = data.posts
-  const pagination = data.meta.pagination
+  const meta = data.meta
+
+  const { pagination } = meta
 
   return (
     <LatestPosts>

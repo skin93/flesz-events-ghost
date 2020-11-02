@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { useState } from 'react'
+import { useRouter } from 'next/router'
 import BaseLink from '../../UI/BaseLink'
 
 import { faFacebook } from '@fortawesome/free-brands-svg-icons'
@@ -11,12 +12,13 @@ import { Header, Navbar, NavbarBrand, NavItem } from './TheHeader.styled'
 
 const TheHeader = () => {
   const [open, setOpen] = useState(false)
+  const router = useRouter()
 
   return (
     <Header>
       <Navbar>
         <NavbarBrand>
-          <Link href='/?page=1'>
+          <Link href='/'>
             <a>Logo</a>
           </Link>
         </NavbarBrand>
@@ -38,11 +40,13 @@ const TheHeader = () => {
             <BaseLink to='patronat' label='Patronat' />
           </NavItem>
           <NavItem>
-            <Link href='https://facebook.com/flesz-events'>
-              <a>
-                <FontAwesomeIcon size='lg' color='white' icon={faFacebook} />
-              </a>
-            </Link>
+            <FontAwesomeIcon
+              style={{ cursor: 'pointer' }}
+              onClick={() => router.push('https://facebook.com/flesz-events')}
+              size='lg'
+              color='white'
+              icon={faFacebook}
+            />
           </NavItem>
         </Nav>
       </Navbar>
