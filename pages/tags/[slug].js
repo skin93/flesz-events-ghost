@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import useSWR from 'swr'
 import Posts from '../../components/posts/Posts'
 import { Pagination } from '../../components/index'
+import SEO from '../../components/seo/SEO'
 
 const PostsByTag = styled.section`
   display: flex;
@@ -23,7 +24,8 @@ const PostsByTag = styled.section`
 
 const TagPage = (props) => {
   const router = useRouter()
-  const { slug, page } = router.query
+  const page = router.query.page || 1
+  const { slug } = router.query
   const data1 = useSWR(
     `${process.env.NEXT_PUBLIC_API}/tags/slug/${slug}?key=${process.env.NEXT_PUBLIC_API_KEY}`,
     { initialData: props.data1 }
@@ -35,16 +37,21 @@ const TagPage = (props) => {
 
   const tag = data1.data.tags[0]
   const posts = data2.data.posts
-  const pagination = data2.data.meta.pagination
+
+  const meta = data2.data.meta
+  const { pagination } = meta
 
   return (
-    <PostsByTag>
-      <h2>
-        <span>#</span> {tag.name}
-      </h2>
-      <Posts posts={posts} />
-      <Pagination pagination={pagination} location={`/tags/${slug}`} />
-    </PostsByTag>
+    <>
+      <SEO title={tag.name} description={tag.description} />
+      <PostsByTag>
+        <h2>
+          <span>#</span> {tag.name}
+        </h2>
+        <Posts posts={posts} />
+        <Pagination pagination={pagination} location={`/tags/${slug}`} />
+      </PostsByTag>
+    </>
   )
 }
 

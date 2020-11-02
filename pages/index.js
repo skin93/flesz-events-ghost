@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import useSWR from 'swr'
 import { useRouter } from 'next/router'
 import { Pagination } from '../components/index'
+import SEO from '../components/seo/SEO'
 
 const LatestPosts = styled.section``
 
@@ -30,11 +31,17 @@ const IndexPage = ({ content }) => {
   const { pagination } = meta
 
   return (
-    <LatestPosts>
-      <Header>Ostatnie wpisy</Header>
-      <Posts posts={posts} />
-      <Pagination pagination={pagination} location='/' />
-    </LatestPosts>
+    <>
+      <SEO
+        title={process.env.NEXT_PUBLIC_APP_NAME}
+        description='Jesteśmy sKoncertowani na muzyce!'
+      />
+      <LatestPosts>
+        <Header>Ostatnie wpisy</Header>
+        <Posts posts={posts} />
+        <Pagination pagination={pagination} location='/' />
+      </LatestPosts>
+    </>
   )
 }
 

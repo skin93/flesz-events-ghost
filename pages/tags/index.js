@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router'
 import styled from 'styled-components'
 import useSWR from 'swr'
+import SEO from '../../components/seo/SEO'
 
 import Tags from '../../components/tags/Tags'
 import { Pagination } from '../../components/index'
@@ -15,7 +16,7 @@ const Header = styled.h2`
 
 const TagsPage = ({ content }) => {
   const router = useRouter()
-  const { page } = router.query
+  const page = router.query.page || 1
   const {
     data
   } = useSWR(
@@ -28,6 +29,7 @@ const TagsPage = ({ content }) => {
 
   return (
     <>
+      <SEO title='Tagi' description='Zbiór wszystkich tagów.' />
       <Header>Tagi</Header>
       <Tags tags={tags} />
       <Pagination pagination={pagination} location='/tags' />

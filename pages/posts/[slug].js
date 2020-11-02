@@ -5,6 +5,7 @@ import styled from 'styled-components'
 import { device } from '../../constants/device'
 import useSWR from 'swr'
 import { useRouter } from 'next/router'
+import SEO from '../../components/seo/SEO'
 
 const StyledPageContainer = styled.div`
   display: grid;
@@ -56,13 +57,16 @@ const PostPage = (props) => {
   const featured = featuredData.data.posts
 
   return (
-    <StyledPageContainer>
-      <Article data={post} />
-      <Aside>
-        <h2>Zobacz także: </h2>
-        <FeaturedPosts featured={featured} />
-      </Aside>
-    </StyledPageContainer>
+    <>
+      <SEO title={post.title} description={post.excerpt} />
+      <StyledPageContainer>
+        <Article data={post} />
+        <Aside>
+          <h2>Zobacz także: </h2>
+          <FeaturedPosts featured={featured} />
+        </Aside>
+      </StyledPageContainer>
+    </>
   )
 }
 
