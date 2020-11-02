@@ -29,7 +29,7 @@ const TagPage = (props) => {
     { initialData: props.data1 }
   )
   const data2 = useSWR(
-    `${process.env.NEXT_PUBLIC_API}/posts/?key=${process.env.NEXT_PUBLIC_API_KEY}&limit=6&filter=primary_tag:${slug}&page=${page}`,
+    `${process.env.NEXT_PUBLIC_API}/posts/?key=${process.env.NEXT_PUBLIC_API_KEY}&limit=6&filter=primary_tag:${slug}&include=tags&page=${page}`,
     { initialData: props.data2 }
   )
 
@@ -56,7 +56,7 @@ export async function getServerSideProps({ query, params }) {
   const data1 = await res1.json()
 
   const res2 = await fetch(
-    `${process.env.NEXT_PUBLIC_API}/posts/?key=${process.env.NEXT_PUBLIC_API_KEY}&limit=6&filter=primary_tag:${params.slug}&page=${page}`
+    `${process.env.NEXT_PUBLIC_API}/posts/?key=${process.env.NEXT_PUBLIC_API_KEY}&limit=6&filter=primary_tag:${params.slug}&include=tags&page=${page}`
   )
   const data2 = await res2.json()
 

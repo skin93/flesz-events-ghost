@@ -7,7 +7,7 @@ export const Card = styled.div`
   flex-direction: column;
   position: relative;
   max-width: 100%;
-  min-height: 250px;
+  min-height: 200px;
   margin: 30px;
   background: url(${(props) => props.src});
   background-repeat: no-repeat;
@@ -19,6 +19,25 @@ export const Card = styled.div`
   &:hover {
     transform: translateY(-10px);
   }
+`
+export const Badge = styled.div`
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: auto;
+  height: auto;
+  padding: 5px;
+  border-radius: 5px;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 100;
+`
+
+export const BadgeName = styled.h4`
+  color: ${({ theme }) => theme.light};
+  text-transform: uppercase;
+  font-weight: bold;
+  margin: 0;
+  font-size: 0.8rem;
 `
 
 export const CardOverlay = styled.div`
@@ -45,20 +64,19 @@ export const CardBody = styled.div`
   align-items: flex-start;
   width: 100%;
   min-height: 50px;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.8);
 `
 
 export const CardTitle = styled.h4`
   text-transform: uppercase;
   color: ${({ theme }) => theme.light};
-  font-size: 1.2rem;
+  font-size: 1rem;
   transition: border 0.3s ease-out;
   margin: 0;
   z-index: 100;
   &::before {
     content: '';
-    border-left: 3px solid ${({ theme }) => theme.orange};
-    border-width: 5px;
+    border-left: 5px solid ${({ theme }) => theme.orange};
     margin-right: 10px;
     overflow: hidden;
   }

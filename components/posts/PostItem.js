@@ -5,7 +5,9 @@ import {
   CardBody,
   CardOverlay,
   CardTitle,
-  Published
+  Published,
+  Badge,
+  BadgeName
 } from '../UI/BaseCard'
 import moment from 'moment'
 
@@ -14,6 +16,9 @@ const PostItem = ({ post }) => {
     <Link href={`/posts/${post.slug}`}>
       <a>
         <Card src={post.feature_image}>
+          <Badge>
+            <BadgeName>{post.primary_tag.name}</BadgeName>
+          </Badge>
           <CardOverlay />
           <CardBody>
             <CardTitle>{post.title}</CardTitle>
