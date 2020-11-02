@@ -23,7 +23,6 @@ export const FeaturedImg = styled.img`
 `
 
 export const FeatTitle = styled.h4`
-  text-transform: uppercase;
   margin: 0;
   margin-left: 20px;
   color: ${({ theme }) => theme.light};

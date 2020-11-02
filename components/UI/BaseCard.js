@@ -13,7 +13,7 @@ export const Card = styled.div`
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  border-radius: 10px;
+  border-top-right-radius: 15px;
   overflow: hidden;
   transition: transform 0.3s ease-in-out;
   &:hover {
@@ -22,22 +22,22 @@ export const Card = styled.div`
 `
 export const Badge = styled.div`
   position: absolute;
-  top: 5px;
-  left: 5px;
+  top: 0;
+  left: 0;
   width: auto;
   height: auto;
   padding: 5px;
-  border-radius: 5px;
   background: rgba(0, 0, 0, 0.8);
   z-index: 100;
 `
 
-export const BadgeName = styled.h4`
+export const BadgeName = styled.small`
   color: ${({ theme }) => theme.light};
   text-transform: uppercase;
   font-weight: bold;
+  font-size: 0.7rem;
   margin: 0;
-  font-size: 0.8rem;
+  font-family: 'Oswald';
 `
 
 export const CardOverlay = styled.div`
@@ -67,10 +67,11 @@ export const CardBody = styled.div`
   background: rgba(0, 0, 0, 0.8);
 `
 
-export const CardTitle = styled.h4`
-  text-transform: uppercase;
+export const CardTitle = styled.p`
   color: ${({ theme }) => theme.light};
   font-size: 1rem;
+  font-weight: bold;
+  font-family: 'Oswald';
   transition: border 0.3s ease-out;
   margin: 0;
   z-index: 100;

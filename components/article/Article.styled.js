@@ -16,7 +16,6 @@ export const ArticleTitle = styled.h1`
   font-size: 3rem;
   min-width: 100%;
   color: ${({ theme }) => theme.light};
-  text-transform: uppercase;
 
   @media ${device.laptopL} {
     font-size: 4rem;
