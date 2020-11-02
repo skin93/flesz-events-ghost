@@ -19,7 +19,7 @@ const PostItem = ({ post }) => {
           <Badge>
             <BadgeName>{post.primary_tag.name}</BadgeName>
           </Badge>
-          <CardOverlay />
+          {/* <CardOverlay /> */}
           <CardBody>
             <CardTitle>{post.title}</CardTitle>
             <Published>

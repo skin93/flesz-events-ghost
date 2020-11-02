@@ -37,13 +37,13 @@ export const NavbarBrand = styled.div`
 
 export const NavItem = styled.li`
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
   font-size: 0.7rem;
   height: 50px;
-  width: 100px;
+  width: auto;
   overflow: hidden;
-  padding: 10px;
+  padding: 15px;
   text-transform: uppercase;
   font-weight: bold;
   transition: color 0.2s ease-in-out;
