@@ -7,3 +7,4 @@ export { default as TheHeader } from './layout/the-header/index'
 
 // UI
 export { default as Pagination } from './UI/pagination/index'
+export { default as ScrollToTopButton } from './UI/scroll-to-top-button/index'

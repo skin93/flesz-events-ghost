@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react'
 import { Article } from '../../components/index'
 import FeaturedPosts from '../../components/posts/FeaturedPosts'
 
@@ -7,6 +8,10 @@ import useSWR from 'swr'
 import { useRouter } from 'next/router'
 import SEO from '../../components/seo/SEO'
 import DisqusComments from '../../components/UI/Disqus'
+import { ScrollToTopButton } from '../../components/index'
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowUp } from '@fortawesome/free-solid-svg-icons'
 
 const StyledPageContainer = styled.div`
   display: grid;
@@ -46,6 +51,7 @@ const Aside = styled.section`
 
 const PostPage = (props) => {
   const router = useRouter()
+  const [showButton, setShowButton] = useState(false)
   const { slug } = router.query
 
   const postData = useSWR(
@@ -60,6 +66,44 @@ const PostPage = (props) => {
   )
   const featured = featuredData.data.posts
 
+  useEffect(() => {
+    if (typeof window !== undefined) {
+      const scrollButton = document.getElementById('scrollButton')
+
+      window.addEventListener('scroll', () => {
+        if (
+          document.body.scrollTop > 20 ||
+          document.documentElement.scrollTop > 20
+        ) {
+          setShowButton(true)
+        } else {
+          setShowButton(false)
+        }
+      })
+
+      scrollButton.addEventListener('click', () => {
+        document.documentElement.scrollTo({ top: 0, behavior: 'smooth' })
+      })
+
+      return () => {
+        window.removeEventListener('scroll', () => {
+          if (
+            document.body.scrollTop > 20 ||
+            document.documentElement.scrollTop > 20
+          ) {
+            setShowButton(true)
+          } else {
+            setShowButton(false)
+          }
+        })
+
+        scrollButton.removeEventListener('click', () => {
+          document.documentElement.scrollTo({ top: 0, behavior: 'smooth' })
+        })
+      }
+    }
+  }, [])
+
   return (
     <>
       <SEO title={post.title} description={post.excerpt} />
@@ -73,6 +117,9 @@ const PostPage = (props) => {
           <FeaturedPosts featured={featured} />
         </Aside>
       </StyledPageContainer>
+      <ScrollToTopButton id='scrollButton' showButton={showButton}>
+        <FontAwesomeIcon color='white' size='sm' icon={faArrowUp} />
+      </ScrollToTopButton>
     </>
   )
 }
