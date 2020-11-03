@@ -6,10 +6,12 @@ import { device } from '../../constants/device'
 import useSWR from 'swr'
 import { useRouter } from 'next/router'
 import SEO from '../../components/seo/SEO'
+import DisqusComments from '../../components/UI/Disqus'
 
 const StyledPageContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr;
+  margin-bottom: 30px;
 
   @media ${device.laptopL} {
     grid-template-columns: 4fr 2fr;
@@ -22,6 +24,8 @@ const StyledPageContainer = styled.div`
     }
   }
 `
+
+const ArticleWrapper = styled.div``
 
 const Aside = styled.section`
   display: flex;
@@ -60,7 +64,10 @@ const PostPage = (props) => {
     <>
       <SEO title={post.title} description={post.excerpt} />
       <StyledPageContainer>
-        <Article data={post} />
+        <ArticleWrapper>
+          <Article data={post} />
+          <DisqusComments post={post} />
+        </ArticleWrapper>
         <Aside>
           <h2>Zobacz także: </h2>
           <FeaturedPosts featured={featured} />
