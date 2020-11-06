@@ -6,20 +6,34 @@ export const GlobalStyles = createGlobalStyle`
 }
 
 @font-face {
-  font-family: 'Roboto';
-  src: url('/fonts/Roboto.ttf');
+  font-family: 'Montserrat';
+  src: url('/fonts/Montserrat.ttf');
+  font-display: 'swap';
+}
+
+@font-face {
+  font-family: 'Montserrat-Bold';
+  src: url('/fonts/Montserrat-Bold.ttf');
+  font-display: 'swap';
 }
 
 @font-face {
   font-family: 'Oswald';
   src: url('/fonts/Oswald.ttf');
+  font-display: 'swap';
+}
+
+@font-face {
+  font-family: 'Oswald-Bold';
+  src: url('/fonts/Oswald-Bold.ttf');
+  font-display: 'swap';
 }
 
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   background-color: ${({ theme }) => theme.black};
 }
 
@@ -27,12 +41,20 @@ h1,
 h2,
 h3,
 h4 {
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Oswald-Bold', sans-serif;
+}
+
+h1 {
+  font-size: 4rem;
 }
 
 a {
   color: inherit;
   text-decoration: none;
+}
+
+strong {
+  font-family: 'Montserrat-Bold', sans-serif;
 }
 
 .kg-card.kg-embed-card {
@@ -107,6 +129,25 @@ a {
     width: 100%;
     height: 100%;
   } */
+}
+
+/* scrollbar */
+
+
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: ${({ theme }) => theme.light};
+  border-radius: 10px;
 }
 
 `

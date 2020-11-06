@@ -6,11 +6,10 @@ import SEO from '../../components/seo/SEO'
 import Tags from '../../components/tags/Tags'
 import { Pagination } from '../../components/index'
 
-const Header = styled.h2`
+const Header = styled.h1`
   text-align: center;
   max-width: 100%;
   text-transform: uppercase;
-  font-size: 3rem;
   color: ${({ theme }) => theme.light};
 `
 

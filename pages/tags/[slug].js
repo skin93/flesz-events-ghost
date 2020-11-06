@@ -10,10 +10,9 @@ const PostsByTag = styled.section`
   flex-direction: column;
   min-height: 100vh;
 
-  h2 {
+  h1 {
     text-align: center;
     text-transform: uppercase;
-    font-size: 3rem;
     color: ${({ theme }) => theme.light};
   }
 
@@ -45,9 +44,9 @@ const TagPage = (props) => {
     <>
       <SEO title={tag.name} description={tag.description} />
       <PostsByTag>
-        <h2>
+        <h1>
           <span>#</span> {tag.name}
-        </h2>
+        </h1>
         <Posts posts={posts} />
         <Pagination pagination={pagination} location={`/tags/${slug}`} />
       </PostsByTag>

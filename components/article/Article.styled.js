@@ -14,7 +14,6 @@ export const ArticleImg = styled.div`
 
 export const ArticleTitle = styled.h1`
   text-align: left;
-  font-size: 3rem;
   min-width: 100%;
   color: ${({ theme }) => theme.light};
 
@@ -24,8 +23,9 @@ export const ArticleTitle = styled.h1`
 `
 
 export const ArticleExcerpt = styled.p`
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   color: ${({ theme }) => theme.light};
+  font-weight: bold;
 `
 
 export const BorderBottom = styled.div`
@@ -45,7 +45,7 @@ export const ArticleContent = styled.div`
   }
 
   & > p {
-    font-size: 1.3rem;
+    font-size: 1rem;
     & > strong {
       color: ${({ theme }) => theme.accent};
     }

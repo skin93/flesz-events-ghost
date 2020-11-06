@@ -7,11 +7,10 @@ import SEO from '../components/seo/SEO'
 
 const LatestPosts = styled.section``
 
-const Header = styled.h2`
+const Header = styled.h1`
   text-align: center;
   max-width: 100%;
   text-transform: uppercase;
-  font-size: 3rem;
   color: ${({ theme }) => theme.light};
 `
 
