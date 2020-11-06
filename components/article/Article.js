@@ -9,16 +9,17 @@ import {
 const Article = ({ data }) => {
   return (
     <div>
+      <ArticleTitle>{data.title}</ArticleTitle>
       <ArticleImg
         style={{
           backgroundImage: `url(${data.feature_image})`
         }}
       ></ArticleImg>
-      <ArticleTitle>{data.title}</ArticleTitle>
 
       <ArticleExcerpt>{data.excerpt}</ArticleExcerpt>
       <BorderBottom />
       <ArticleContent dangerouslySetInnerHTML={{ __html: data.html }} />
+      <BorderBottom />
     </div>
   )
 }
