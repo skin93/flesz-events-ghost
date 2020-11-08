@@ -8,25 +8,25 @@ export const GlobalStyles = createGlobalStyle`
 @font-face {
   font-family: 'Montserrat';
   src: url('/fonts/Montserrat.ttf');
-  font-display: 'swap';
+  font-display: swap;
 }
 
 @font-face {
   font-family: 'Montserrat-Bold';
   src: url('/fonts/Montserrat-Bold.ttf');
-  font-display: 'swap';
+  font-display: swap;
 }
 
 @font-face {
   font-family: 'Oswald';
   src: url('/fonts/Oswald.ttf');
-  font-display: 'swap';
+  font-display: swap;
 }
 
 @font-face {
   font-family: 'Oswald-Bold';
   src: url('/fonts/Oswald-Bold.ttf');
-  font-display: 'swap';
+  font-display: swap;
 }
 
 html,
