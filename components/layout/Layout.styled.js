@@ -25,7 +25,7 @@ export const MainContainer = styled.main`
   }
 
   @media ${device.laptop} {
-    max-width: ${size.laptop};
+    max-width: ${size.tablet};
   }
 
   @media ${device.laptopL} {

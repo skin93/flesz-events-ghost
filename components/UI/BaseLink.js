@@ -5,17 +5,17 @@ import styled from 'styled-components'
 
 const StyledLink = styled.div`
   color: ${(props) =>
-    props.active ? props.theme.light : 'rgba(219, 219, 219, 0.8)'};
+    props.active ? props.theme.accent : 'rgba(219, 219, 219, 0.8)'};
   transition: color 0.2s ease-in;
   &:hover {
-    color: ${({ theme }) => theme.light};
+    color: ${({ theme }) => theme.accent};
   }
 `
 
 const BaseLink = ({ label, to }) => {
   const router = useRouter()
   return (
-    <StyledLink active={router.asPath === `/tags/${to}` ? true : false}>
+    <StyledLink active={router.asPath === `/tags/${to}?page=1` ? true : false}>
       <Link href={`/tags/${to}?page=1`}>
         <a>{label}</a>
       </Link>

@@ -24,14 +24,13 @@ export const NavbarBrand = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 0.7rem;
-  height: 50px;
-  width: auto;
   overflow: hidden;
-  padding: 0 10px;
-  text-transform: uppercase;
-  color: ${({ theme }) => theme.light};
-  font-weight: bold;
+  padding: 15px;
+`
+
+export const Logo = styled.img`
+  width: 150px;
+  height: auto;
 `
 
 export const NavItem = styled.li`

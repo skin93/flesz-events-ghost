@@ -26,11 +26,11 @@ const TagPage = (props) => {
   const page = router.query.page || 1
   const { slug } = router.query
   const data1 = useSWR(
-    `${process.env.API}/tags/slug/${slug}?key=${process.env.API_KEY}`,
+    `${process.env.NEXT_PUBLIC_API}/tags/slug/${slug}?key=${process.env.NEXT_PUBLIC_API_KEY}`,
     { initialData: props.data1 }
   )
   const data2 = useSWR(
-    `${process.env.API}/posts/?key=${process.env.API_KEY}&limit=6&filter=primary_tag:${slug}&include=tags&page=${page}`,
+    `${process.env.NEXT_PUBLIC_API}/posts/?key=${process.env.NEXT_PUBLIC_API_KEY}&limit=6&filter=primary_tag:${slug}&include=tags&page=${page}`,
     { initialData: props.data2 }
   )
 
@@ -45,7 +45,8 @@ const TagPage = (props) => {
       <SEO title={tag.name} description={tag.description} />
       <PostsByTag>
         <h1>
-          <span>#</span> {tag.name}
+          <span>#</span>
+          {tag.name}
         </h1>
         <Posts posts={posts} />
         <Pagination pagination={pagination} location={`/tags/${slug}`} />
@@ -57,12 +58,12 @@ const TagPage = (props) => {
 export async function getServerSideProps({ query, params }) {
   const page = query.page || 1
   const res1 = await fetch(
-    `${process.env.API}/tags/slug/${params.slug}?key=${process.env.API_KEY}`
+    `${process.env.NEXT_PUBLIC_API}/tags/slug/${params.slug}?key=${process.env.NEXT_PUBLIC_API_KEY}`
   )
   const data1 = await res1.json()
 
   const res2 = await fetch(
-    `${process.env.API}/posts/?key=${process.env.API_KEY}&limit=6&filter=primary_tag:${params.slug}&include=tags&page=${page}`
+    `${process.env.NEXT_PUBLIC_API}/posts/?key=${process.env.NEXT_PUBLIC_API_KEY}&limit=6&filter=primary_tag:${params.slug}&include=tags&page=${page}`
   )
   const data2 = await res2.json()
 

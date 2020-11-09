@@ -17,17 +17,16 @@ const upAndDown = keyframes`
 export default styled.div`
   opacity: ${(props) => (props.showButton ? 1 : 0)};
   position: fixed;
-  bottom: 50px;
-  right: 0;
+  bottom: 70px;
+  right: 20px;
   z-index: 99;
   border: none;
   outline: none;
   background-color: ${({ theme }) => theme.accent};
-  color: white;
   cursor: pointer;
   padding: 15px;
   border-radius: 10px;
   font-size: 18px;
-  transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
   animation: ${upAndDown} 3s infinite;
 `

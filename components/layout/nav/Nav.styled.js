@@ -4,7 +4,6 @@ import { device } from '../../../constants/device'
 export const StyledNav = styled.ul`
   list-style: none;
   width: 100%;
-  background-color: ${({ theme }) => theme.gray};
   overflow: hidden;
   display: flex;
   flex-direction: column;

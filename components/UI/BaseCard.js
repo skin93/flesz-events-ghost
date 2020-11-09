@@ -15,7 +15,7 @@ export const Card = styled.div`
   background-size: cover;
   border-top-right-radius: 15px;
   overflow: hidden;
-  transition: transform 0.3s ease-in-out;
+  transition: transform 0.2s ease-in-out;
   &:hover {
     transform: translateY(-10px);
   }
@@ -27,7 +27,7 @@ export const Badge = styled.div`
   width: auto;
   height: auto;
   padding: 5px;
-  background: rgba(0, 0, 0, 0.8);
+  background: ${({ theme }) => theme.black};
   z-index: 100;
 `
 
@@ -51,7 +51,7 @@ export const CardOverlay = styled.div`
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.6);
   z-index: 99;
-  transition: opacity 0.3s ease-out;
+  transition: opacity 0.2s ease-out;
   &:hover {
     opacity: 1;
   }
@@ -74,7 +74,7 @@ export const CardTitle = styled.p`
   font-size: 1.3rem;
   font-weight: bold;
   font-family: 'Oswald';
-  transition: border 0.3s ease-out;
+  transition: border 0.2s ease-out;
   margin: 0;
   padding-left: 10px;
   border-left: 3px solid ${({ theme }) => theme.accent};

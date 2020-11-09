@@ -9,7 +9,6 @@ import {
 const Article = ({ data }) => {
   return (
     <div>
-      <ArticleTitle>{data.title}</ArticleTitle>
       <ArticleImg
         style={{
           backgroundImage: `url(${data.feature_image})`

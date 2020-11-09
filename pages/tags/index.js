@@ -19,7 +19,7 @@ const TagsPage = ({ content }) => {
   const {
     data
   } = useSWR(
-    `${process.env.API}/tags/?key=${process.env.API_KEY}&limit=3&page=${page}`,
+    `${process.env.NEXT_PUBLIC_API}/tags/?key=${process.env.NEXT_PUBLIC_API_KEY}&limit=3&page=${page}`,
     { initialData: content }
   )
 
@@ -39,7 +39,7 @@ const TagsPage = ({ content }) => {
 export async function getServerSideProps({ query }) {
   const page = query.page || 1
   const res = await fetch(
-    `${process.env.API}/tags/?key=${process.env.API_KEY}&limit=3&page=${page}`
+    `${process.env.NEXT_PUBLIC_API}/tags/?key=${process.env.NEXT_PUBLIC_API_KEY}&limit=3&page=${page}`
   )
   const content = await res.json()
 

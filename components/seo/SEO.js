@@ -42,7 +42,7 @@ const SEO = ({ title, description }) => {
 		content={`${process.env.APP_DOMAIN_DEV}/static/images/seoblog.jpg`}
 	  /> */}
       <meta property='og:image:type' content='image/jpg' />
-      <meta property='fb:app_id' content={`${process.env.FB_ID}`} />
+      <meta property='fb:app_id' content={`${process.env.NEXT_PUBLIC_FB_ID}`} />
     </Head>
   )
 }

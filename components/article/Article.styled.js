@@ -12,16 +12,6 @@ export const ArticleImg = styled.div`
   border-radius: 10px;
 `
 
-export const ArticleTitle = styled.h1`
-  text-align: left;
-  min-width: 100%;
-  color: ${({ theme }) => theme.light};
-
-  @media ${device.laptopL} {
-    font-size: 4rem;
-  }
-`
-
 export const ArticleExcerpt = styled.p`
   font-size: 1.2rem;
   color: ${({ theme }) => theme.light};

@@ -21,25 +21,33 @@ const StyledPageContainer = styled.div`
   @media ${device.laptopL} {
     grid-template-columns: 4fr 2fr;
     overflow: hidden;
-
-    & > :nth-child(2) {
-      position: fixed;
-      top: 230px;
-      left: 70%;
-    }
   }
 `
 
 const ArticleWrapper = styled.div``
+
+export const ArticleTitle = styled.h1`
+  text-align: center;
+  width: 100%;
+  font-size: 2rem;
+  color: ${({ theme }) => theme.light};
+
+  @media ${device.laptopL} {
+    font-size: 4rem;
+  }
+`
 
 const Aside = styled.section`
   display: flex;
   flex-direction: column;
   margin: 0 auto;
   overflow: hidden;
-  padding: 15px 0;
+  padding: 15px;
   min-height: 200px;
   max-width: 100%;
+  @media ${device.laptop} {
+    margin-left: auto;
+  }
   & > h2 {
     text-align: center;
     color: ${({ theme }) => theme.light};
@@ -55,13 +63,13 @@ const PostPage = (props) => {
   const { slug } = router.query
 
   const postData = useSWR(
-    `${process.env.API}/posts/slug/${slug}?key=${process.env.API_KEY}`,
+    `${process.env.NEXT_PUBLIC_API}/posts/slug/${slug}?key=${process.env.NEXT_PUBLIC_API_KEY}`,
     { initialData: props.data1 }
   )
   const post = postData.data.posts[0]
 
   const featuredData = useSWR(
-    `${process.env.API}/posts/?key=${process.env.API_KEY}&filter=featured:true`,
+    `${process.env.NEXT_PUBLIC_API}/posts/?key=${process.env.NEXT_PUBLIC_API_KEY}&filter=featured:true`,
     { initialData: props.data2 }
   )
   const featured = featuredData.data.posts
@@ -70,7 +78,7 @@ const PostPage = (props) => {
     if (typeof window !== undefined) {
       const scrollButton = document.getElementById('scrollButton')
 
-      window.addEventListener('scroll', () => {
+      const showButton = () => {
         if (
           document.body.scrollTop > 20 ||
           document.documentElement.scrollTop > 20
@@ -79,34 +87,27 @@ const PostPage = (props) => {
         } else {
           setShowButton(false)
         }
-      })
+      }
 
-      scrollButton.addEventListener('click', () => {
+      window.addEventListener('scroll', showButton)
+
+      const scrollToTop = () => {
         document.documentElement.scrollTo({ top: 0, behavior: 'smooth' })
-      })
+      }
+
+      scrollButton.addEventListener('click', scrollToTop)
 
       return () => {
-        window.removeEventListener('scroll', () => {
-          if (
-            document.body.scrollTop > 20 ||
-            document.documentElement.scrollTop > 20
-          ) {
-            setShowButton(true)
-          } else {
-            setShowButton(false)
-          }
-        })
-
-        scrollButton.removeEventListener('click', () => {
-          document.documentElement.scrollTo({ top: 0, behavior: 'smooth' })
-        })
+        window.removeEventListener('scroll', showButton)
+        scrollButton.removeEventListener('click', scrollToTop)
       }
     }
-  }, [])
+  })
 
   return (
     <>
       <SEO title={post.title} description={post.excerpt} />
+      <ArticleTitle>{post.title}</ArticleTitle>
       <StyledPageContainer>
         <ArticleWrapper>
           <Article data={post} />
@@ -118,7 +119,7 @@ const PostPage = (props) => {
         </Aside>
       </StyledPageContainer>
       <ScrollToTopButton id='scrollButton' showButton={showButton}>
-        <FontAwesomeIcon color='white' size='sm' icon={faArrowUp} />
+        <FontAwesomeIcon color='#212121' size='sm' icon={faArrowUp} />
       </ScrollToTopButton>
     </>
   )
@@ -126,12 +127,12 @@ const PostPage = (props) => {
 
 export async function getServerSideProps({ params }) {
   const res1 = await fetch(
-    `${process.env.API}/posts/slug/${params.slug}?key=${process.env.API_KEY}`
+    `${process.env.NEXT_PUBLIC_API}/posts/slug/${params.slug}?key=${process.env.NEXT_PUBLIC_API_KEY}`
   )
   const data1 = await res1.json()
 
   const res2 = await fetch(
-    `${process.env.API}/posts/?key=${process.env.API_KEY}&filter=featured:true`
+    `${process.env.NEXT_PUBLIC_API}/posts/?key=${process.env.NEXT_PUBLIC_API_KEY}&filter=featured:true`
   )
   const data2 = await res2.json()
 

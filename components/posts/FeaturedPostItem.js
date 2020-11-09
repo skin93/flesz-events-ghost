@@ -10,7 +10,7 @@ const FeaturedCard = styled.div`
 
   display: flex;
   align-items: center;
-  transition: transform 0.3s ease-in-out;
+  transition: transform 0.2s ease-in-out;
   &:hover {
     transform: translateY(-10px);
   }
@@ -28,7 +28,7 @@ export const FeatTitle = styled.h4`
   margin-left: 20px;
   color: ${({ theme }) => theme.light};
   font-size: 1.2rem;
-  transition: border 0.3s ease-out;
+  transition: border 0.2s ease-out;
   &::before {
     content: '';
     border-left: 3px solid ${({ theme }) => theme.accent};

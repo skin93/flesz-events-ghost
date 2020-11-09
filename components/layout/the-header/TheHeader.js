@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import { Nav } from '../../index'
 import { NavToggler } from '../../index'
-import { Header, Navbar, NavbarBrand, NavItem } from './TheHeader.styled'
+import { Header, Logo, Navbar, NavbarBrand, NavItem } from './TheHeader.styled'
 
 const TheHeader = () => {
   const [open, setOpen] = useState(false)
@@ -19,7 +19,9 @@ const TheHeader = () => {
       <Navbar>
         <NavbarBrand>
           <Link href='/'>
-            <a>Logo</a>
+            <a>
+              <Logo src='/images/biale-logo-pelny-napis-akcent.png' />
+            </a>
           </Link>
         </NavbarBrand>
         <NavToggler open={open} setOpen={setOpen} />

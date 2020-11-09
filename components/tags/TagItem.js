@@ -11,7 +11,7 @@ const TagBody = styled.div`
   max-width: 100%;
   padding: 15px;
   border-radius: 5px;
-  transition: background-color 0.3s ease-in-out;
+  transition: background-color 0.2s ease-in-out;
 
   &:hover {
     background-color: ${({ theme }) => theme.gray};
