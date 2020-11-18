@@ -1,33 +1,9 @@
-import Posts from '../components/posts/Posts'
-import styled from 'styled-components'
-import useSWR from 'swr'
-import { useRouter } from 'next/router'
-import { Pagination } from '../components/index'
 import SEO from '../components/seo/SEO'
+import Posts from '../components/posts/Posts'
+import { Pagination } from '../components/index'
 
-const LatestPosts = styled.section``
-
-const Header = styled.h1`
-  text-align: center;
-  max-width: 100%;
-  text-transform: uppercase;
-  color: ${({ theme }) => theme.light};
-`
-
-const IndexPage = ({ content }) => {
-  const router = useRouter()
-  const page = router.query.page || 1
-  const {
-    data
-  } = useSWR(
-    `${process.env.NEXT_PUBLIC_API}/posts/?key=${process.env.NEXT_PUBLIC_API_KEY}&limit=6&include=tags&page=${page}`,
-    { initialData: content }
-  )
-
-  const posts = data.posts
-  const meta = data.meta
-
-  const { pagination } = meta
+const IndexPage = ({ posts, meta: { pagination }, errors }) => {
+  if (errors) return <Error message='Brak wpisów' />
 
   return (
     <>
@@ -35,25 +11,31 @@ const IndexPage = ({ content }) => {
         title={process.env.NEXT_PUBLIC_APP_NAME}
         description='Jesteśmy sKoncertowani na muzyce!'
       />
-      <LatestPosts>
-        <Header>Ostatnie wpisy</Header>
+      <section>
+        <h1>Ostatnie wpisy</h1>
         <Posts posts={posts} />
         <Pagination pagination={pagination} location='/' />
-      </LatestPosts>
+      </section>
     </>
   )
 }
 
 export async function getServerSideProps({ query }) {
   const page = query.page || 1
+
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_API}/posts/?key=${process.env.NEXT_PUBLIC_API_KEY}&limit=6&include=tags&page=${page}`
   )
-  const content = await res.json()
+  const data = await res.json()
 
   return {
     props: {
-      content
+      posts: data.posts && data.posts.length > 0 ? data.posts : null,
+      errors:
+        !data || (data.errors && data.errors.length > 0)
+          ? data.errors[0]
+          : null,
+      meta: data.meta
     }
   }
 }

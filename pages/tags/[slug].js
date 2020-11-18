@@ -1,44 +1,22 @@
-import { useRouter } from 'next/router'
 import styled from 'styled-components'
-import useSWR from 'swr'
+
+import SEO from '../../components/seo/SEO'
 import Posts from '../../components/posts/Posts'
 import { Pagination } from '../../components/index'
-import SEO from '../../components/seo/SEO'
+import { Error } from '../../components/index'
 
 const PostsByTag = styled.section`
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 
-  h1 {
-    text-align: center;
-    text-transform: uppercase;
-    color: ${({ theme }) => theme.light};
-  }
-
   span {
     color: ${({ theme }) => theme.accent};
   }
 `
 
-const TagPage = (props) => {
-  const router = useRouter()
-  const page = router.query.page || 1
-  const { slug } = router.query
-  const data1 = useSWR(
-    `${process.env.NEXT_PUBLIC_API}/tags/slug/${slug}?key=${process.env.NEXT_PUBLIC_API_KEY}`,
-    { initialData: props.data1 }
-  )
-  const data2 = useSWR(
-    `${process.env.NEXT_PUBLIC_API}/posts/?key=${process.env.NEXT_PUBLIC_API_KEY}&limit=6&filter=primary_tag:${slug}&include=tags&page=${page}`,
-    { initialData: props.data2 }
-  )
-
-  const tag = data1.data.tags[0]
-  const posts = data2.data.posts
-
-  const meta = data2.data.meta
-  const { pagination } = meta
+const TagPage = ({ tag, posts, meta: { pagination }, errors }) => {
+  if (errors) return <Error message='Brak postów' />
 
   return (
     <>
@@ -49,7 +27,7 @@ const TagPage = (props) => {
           {tag.name}
         </h1>
         <Posts posts={posts} />
-        <Pagination pagination={pagination} location={`/tags/${slug}`} />
+        <Pagination pagination={pagination} location={`/tags/${tag.slug}`} />
       </PostsByTag>
     </>
   )
@@ -69,8 +47,13 @@ export async function getServerSideProps({ query, params }) {
 
   return {
     props: {
-      data1,
-      data2
+      tag: data1.tags && data1.tags.length > 0 ? data1.tags[0] : null,
+      errors:
+        !data1 || (data1.errors && data1.errors.length > 0)
+          ? data1.errors[0]
+          : null,
+      posts: data2.posts,
+      meta: data2.meta
     }
   }
 }

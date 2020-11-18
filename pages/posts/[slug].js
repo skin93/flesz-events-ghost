@@ -1,17 +1,16 @@
 import { useEffect, useState } from 'react'
-import { Article } from '../../components/index'
-import FeaturedPosts from '../../components/posts/FeaturedPosts'
-
 import styled from 'styled-components'
 import { device } from '../../constants/device'
-import useSWR from 'swr'
-import { useRouter } from 'next/router'
-import SEO from '../../components/seo/SEO'
-import DisqusComments from '../../components/UI/Disqus'
-import { ScrollToTopButton } from '../../components/index'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowUp } from '@fortawesome/free-solid-svg-icons'
+
+import SEO from '../../components/seo/SEO'
+import DisqusComments from '../../components/UI/Disqus'
+
+import FeaturedPosts from '../../components/posts/FeaturedPosts'
+import { Article } from '../../components/index'
+import { ScrollToTopButton } from '../../components/index'
 
 const StyledPageContainer = styled.div`
   display: grid;
@@ -57,28 +56,14 @@ const Aside = styled.section`
   }
 `
 
-const PostPage = (props) => {
-  const router = useRouter()
+const PostPage = ({ post, featured, errors }) => {
   const [showButton, setShowButton] = useState(false)
-  const { slug } = router.query
-
-  const postData = useSWR(
-    `${process.env.NEXT_PUBLIC_API}/posts/slug/${slug}?key=${process.env.NEXT_PUBLIC_API_KEY}`,
-    { initialData: props.data1 }
-  )
-  const post = postData.data.posts[0]
-
-  const featuredData = useSWR(
-    `${process.env.NEXT_PUBLIC_API}/posts/?key=${process.env.NEXT_PUBLIC_API_KEY}&filter=featured:true`,
-    { initialData: props.data2 }
-  )
-  const featured = featuredData.data.posts
 
   useEffect(() => {
     if (typeof window !== undefined) {
       const scrollButton = document.getElementById('scrollButton')
 
-      const showButton = () => {
+      const showTopButton = () => {
         if (
           document.body.scrollTop > 20 ||
           document.documentElement.scrollTop > 20
@@ -89,7 +74,7 @@ const PostPage = (props) => {
         }
       }
 
-      window.addEventListener('scroll', showButton)
+      window.addEventListener('scroll', showTopButton)
 
       const scrollToTop = () => {
         document.documentElement.scrollTo({ top: 0, behavior: 'smooth' })
@@ -98,11 +83,13 @@ const PostPage = (props) => {
       scrollButton.addEventListener('click', scrollToTop)
 
       return () => {
-        window.removeEventListener('scroll', showButton)
+        window.removeEventListener('scroll', showTopButton)
         scrollButton.removeEventListener('click', scrollToTop)
       }
     }
   })
+
+  if (errors) return <Error message='Something went wrong' />
 
   return (
     <>
@@ -138,8 +125,12 @@ export async function getServerSideProps({ params }) {
 
   return {
     props: {
-      data1,
-      data2
+      post: data1.posts && data1.posts.length > 0 ? data1.posts[0] : null,
+      errors:
+        !data1 || (data1.errors && data1.errors.length > 0)
+          ? data1.errors[0]
+          : null,
+      featured: data2.posts
     }
   }
 }

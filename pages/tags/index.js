@@ -1,35 +1,13 @@
-import { useRouter } from 'next/router'
-import styled from 'styled-components'
-import useSWR from 'swr'
 import SEO from '../../components/seo/SEO'
-
 import Tags from '../../components/tags/Tags'
-import { Pagination } from '../../components/index'
+import { Error, Pagination } from '../../components/index'
 
-const Header = styled.h1`
-  text-align: center;
-  max-width: 100%;
-  text-transform: uppercase;
-  color: ${({ theme }) => theme.light};
-`
-
-const TagsPage = ({ content }) => {
-  const router = useRouter()
-  const page = router.query.page || 1
-  const {
-    data
-  } = useSWR(
-    `${process.env.NEXT_PUBLIC_API}/tags/?key=${process.env.NEXT_PUBLIC_API_KEY}&limit=3&page=${page}`,
-    { initialData: content }
-  )
-
-  const tags = data.tags
-  const pagination = data.meta.pagination
-
+const TagsPage = ({ tags, meta: { pagination }, errors }) => {
+  if (errors) return <Error message='Brak tagów' />
   return (
     <>
       <SEO title='Tagi' description='Zbiór wszystkich tagów.' />
-      <Header>Tagi</Header>
+      <h1>Tagi</h1>
       <Tags tags={tags} />
       <Pagination pagination={pagination} location='/tags' />
     </>
@@ -39,13 +17,18 @@ const TagsPage = ({ content }) => {
 export async function getServerSideProps({ query }) {
   const page = query.page || 1
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API}/tags/?key=${process.env.NEXT_PUBLIC_API_KEY}&limit=3&page=${page}`
+    `${process.env.NEXT_PUBLIC_API}/tags/?key=${process.env.NEXT_PUBLIC_API_KEY}&limit=6&page=${page}`
   )
-  const content = await res.json()
+  const data = await res.json()
 
   return {
     props: {
-      content
+      tags: data.tags && data.tags.length > 0 ? data.tags : null,
+      errors:
+        !data || (data.errors && data.errors.length > 0)
+          ? data.errors[0]
+          : null,
+      meta: data.meta
     }
   }
 }
