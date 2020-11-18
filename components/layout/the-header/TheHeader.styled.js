@@ -29,6 +29,9 @@ export const NavbarBrand = styled.div`
 `
 
 export const Logo = styled.img`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 150px;
   height: auto;
 `
