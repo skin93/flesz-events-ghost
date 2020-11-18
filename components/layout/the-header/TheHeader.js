@@ -20,7 +20,7 @@ const TheHeader = () => {
         <NavbarBrand>
           <Link href='/'>
             <a>
-              <Logo src='/logo/biale-logo-pelny-napis-akcent.png' />
+              <Logo src='/logo/biale-logo-pelny-napis-akcent.png' alt='Logo' />
             </a>
           </Link>
         </NavbarBrand>
