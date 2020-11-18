@@ -46,6 +46,10 @@ h4 {
 
 h1 {
   font-size: 4rem;
+  text-align: center;
+  max-width: 100%;
+  text-transform: uppercase;
+  color: ${({ theme }) => theme.light};
 }
 
 a {
@@ -103,10 +107,6 @@ strong {
     grid-template-columns: repeat(1, 1fr);
   }
 
-  /* .kg-gallery-image img:hover {
-    transform: scale(2);
-  } */
-
   .kg-gallery-image img {
     padding: 20px;
     width: 100%;
@@ -119,16 +119,6 @@ strong {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
   }
-
-  /* .kg-gallery-image img:hover {
-    transform: scale(2);
-  } */
-
-  /* .kg-gallery-image img {
-    padding: 20px;
-    width: 100%;
-    height: 100%;
-  } */
 }
 
 /* scrollbar */
