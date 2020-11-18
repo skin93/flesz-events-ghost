@@ -36,12 +36,23 @@ const SEO = ({ title, description }) => {
         content={`${process.env.NEXT_PUBLIC_APP_NAME}`}
       />
 
-      {/* <meta property='og:image' content={`${process.env.APP_DOMAIN_DEV}/static/images/seoblog.jpg`} />
-	  <meta
-		property='og:image:secure_url'
-		content={`${process.env.APP_DOMAIN_DEV}/static/images/seoblog.jpg`}
-	  /> */}
-      <meta property='og:image:type' content='image/jpg' />
+      <meta
+        property='og:image'
+        content={
+          process.env.NODE_ENV === 'production'
+            ? `${process.env.NEXT_PUBLIC_APP_DOMAIN_PROD}/logo/czarne-logo-pelny-napis-akcent.png`
+            : `${process.env.NEXT_PUBLIC_APP_DOMAIN_DEV}/logo/czarne-logo-pelny-napis-akcent.png`
+        }
+      />
+      <meta
+        property='og:image:secure_url'
+        content={
+          process.env.NODE_ENV === 'production'
+            ? `${process.env.NEXT_PUBLIC_APP_DOMAIN_PROD}/logo/czarne-logo-pelny-napis-akcent.png`
+            : `${process.env.NEXT_PUBLIC_APP_DOMAIN_DEV}/logo/czarne-logo-pelny-napis-akcent.png`
+        }
+      />
+      <meta property='og:image:type' content='image/png' />
       <meta property='fb:app_id' content={`${process.env.NEXT_PUBLIC_FB_ID}`} />
     </Head>
   )
