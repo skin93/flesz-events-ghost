@@ -39,6 +39,6 @@ export const MainContainer = styled.main`
 `
 
 export const Children = styled.section`
-  padding: 0 15px;
+  padding: 15px 0;
   flex: 1;
 `

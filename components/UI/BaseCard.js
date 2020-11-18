@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { device } from '../../constants/device'
 
 export const Card = styled.div`
   display: flex;
@@ -8,7 +9,8 @@ export const Card = styled.div`
   position: relative;
   max-width: 100%;
   min-height: 250px;
-  margin: 30px;
+  margin-top: 30px;
+  margin-bottom: 30px;
   background: url(${(props) => props.src});
   background-repeat: no-repeat;
   background-position: center;
@@ -18,6 +20,10 @@ export const Card = styled.div`
   transition: transform 0.2s ease-in-out;
   &:hover {
     transform: translateY(-10px);
+  }
+
+  @media ${device.tablet} {
+    margin: 30px;
   }
 `
 export const Badge = styled.div`
