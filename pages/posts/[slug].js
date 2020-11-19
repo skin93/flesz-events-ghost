@@ -93,7 +93,11 @@ const PostPage = ({ post, featured, errors }) => {
 
   return (
     <>
-      <SEO title={post.title} description={post.excerpt} />
+      <SEO
+        title={post.title}
+        description={post.excerpt}
+        image={post.feature_image}
+      />
       <ArticleTitle>{post.title}</ArticleTitle>
       <StyledPageContainer>
         <ArticleWrapper>

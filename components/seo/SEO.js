@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 
-const SEO = ({ title, description }) => {
+const SEO = ({ title, description, image }) => {
   const router = useRouter()
   return (
     <Head>
@@ -39,7 +39,9 @@ const SEO = ({ title, description }) => {
       <meta
         property='og:image'
         content={
-          process.env.NODE_ENV === 'production'
+          image
+            ? image
+            : process.env.NODE_ENV === 'production'
             ? `${process.env.NEXT_PUBLIC_APP_DOMAIN_PROD}/logo/czarne-logo-pelny-napis-akcent.png`
             : `${process.env.NEXT_PUBLIC_APP_DOMAIN_DEV}/logo/czarne-logo-pelny-napis-akcent.png`
         }
@@ -47,7 +49,9 @@ const SEO = ({ title, description }) => {
       <meta
         property='og:image:secure_url'
         content={
-          process.env.NODE_ENV === 'production'
+          image
+            ? image
+            : process.env.NODE_ENV === 'production'
             ? `${process.env.NEXT_PUBLIC_APP_DOMAIN_PROD}/logo/czarne-logo-pelny-napis-akcent.png`
             : `${process.env.NEXT_PUBLIC_APP_DOMAIN_DEV}/logo/czarne-logo-pelny-napis-akcent.png`
         }
