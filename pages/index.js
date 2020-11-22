@@ -24,7 +24,7 @@ export async function getServerSideProps({ query }) {
   const page = query.page || 1
 
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API}/posts/?key=${process.env.NEXT_PUBLIC_API_KEY}&limit=6&include=tags&page=${page}`
+    `${process.env.API}/posts/?key=${process.env.API_KEY}&limit=6&include=tags&page=${page}`
   )
   const data = await res.json()
 

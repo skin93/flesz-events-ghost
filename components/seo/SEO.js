@@ -11,11 +11,7 @@ const SEO = ({ title, description, image }) => {
       <meta name='description' content={description} />
       <link
         rel='canonical'
-        href={
-          process.env.NODE_ENV === 'production'
-            ? `${process.env.NEXT_PUBLIC_APP_DOMAIN_PROD}${router.asPath}`
-            : `${process.env.NEXT_PUBLIC_APP_DOMAIN_DEV}${router.asPath}`
-        }
+        href={`${process.env.NEXT_PUBLIC_APP_DOMAIN}${router.asPath}`}
       />
       <meta
         property='og:title'
@@ -25,11 +21,7 @@ const SEO = ({ title, description, image }) => {
       <meta property='og:type' content='webiste' />
       <meta
         property='og:url'
-        content={
-          process.env.NODE_ENV === 'production'
-            ? `${process.env.NEXT_PUBLIC_APP_DOMAIN_PROD}${router.asPath}`
-            : `${process.env.NEXT_PUBLIC_APP_DOMAIN_DEV}${router.asPath}`
-        }
+        content={`${process.env.NEXT_PUBLIC_APP_DOMAIN}${router.asPath}`}
       />
       <meta
         property='og:site_name'
@@ -41,9 +33,7 @@ const SEO = ({ title, description, image }) => {
         content={
           image
             ? image
-            : process.env.NODE_ENV === 'production'
-            ? `${process.env.NEXT_PUBLIC_APP_DOMAIN_PROD}/logo/czarne-logo-pelny-napis-akcent.png`
-            : `${process.env.NEXT_PUBLIC_APP_DOMAIN_DEV}/logo/czarne-logo-pelny-napis-akcent.png`
+            : `${process.env.NEXT_PUBLIC_APP_DOMAIN}/logo/czarne-logo-pelny-napis-akcent.png`
         }
       />
       <meta
@@ -51,9 +41,7 @@ const SEO = ({ title, description, image }) => {
         content={
           image
             ? image
-            : process.env.NODE_ENV === 'production'
-            ? `${process.env.NEXT_PUBLIC_APP_DOMAIN_PROD}/logo/czarne-logo-pelny-napis-akcent.png`
-            : `${process.env.NEXT_PUBLIC_APP_DOMAIN_DEV}/logo/czarne-logo-pelny-napis-akcent.png`
+            : `${process.env.NEXT_PUBLIC_APP_DOMAIN}/logo/czarne-logo-pelny-napis-akcent.png`
         }
       />
       <meta property='og:image:type' content='image/png' />

@@ -118,12 +118,12 @@ const PostPage = ({ post, featured, errors }) => {
 
 export async function getServerSideProps({ params }) {
   const res1 = await fetch(
-    `${process.env.NEXT_PUBLIC_API}/posts/slug/${params.slug}?key=${process.env.NEXT_PUBLIC_API_KEY}`
+    `${process.env.API}/posts/slug/${params.slug}?key=${process.env.API_KEY}`
   )
   const data1 = await res1.json()
 
   const res2 = await fetch(
-    `${process.env.NEXT_PUBLIC_API}/posts/?key=${process.env.NEXT_PUBLIC_API_KEY}&filter=featured:true`
+    `${process.env.API}/posts/?key=${process.env.API_KEY}&filter=featured:true`
   )
   const data2 = await res2.json()
 
