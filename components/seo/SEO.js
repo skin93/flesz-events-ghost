@@ -6,18 +6,38 @@ const SEO = ({ title, description, image }) => {
   return (
     <Head>
       <title>
-        {title} | {process.env.NEXT_PUBLIC_APP_NAME}
+        {title
+          ? `${title} | ${process.env.NEXT_PUBLIC_APP_NAME}`
+          : process.env.NEXT_PUBLIC_APP_NAME}
       </title>
-      <meta name='description' content={description} />
+
+      <meta
+        name='description'
+        content={
+          description ? description : 'Jesteśmy sKoncertowani na muzyce!'
+        }
+      />
+
       <link
         rel='canonical'
         href={`${process.env.NEXT_PUBLIC_APP_DOMAIN}${router.asPath}`}
       />
+
       <meta
         property='og:title'
-        content={`${title} | ${process.env.NEXT_PUBLIC_APP_NAME}`}
+        content={
+          title
+            ? `${title} | ${process.env.NEXT_PUBLIC_APP_NAME}`
+            : process.env.NEXT_PUBLIC_APP_NAME
+        }
       />
-      <meta property='og:description' content={description} />
+      <meta
+        property='og:description'
+        content={
+          description ? description : 'Jesteśmy sKoncertowani na muzyce!'
+        }
+      />
+
       <meta property='og:type' content='webiste' />
       <meta
         property='og:url'
@@ -33,7 +53,7 @@ const SEO = ({ title, description, image }) => {
         content={
           image
             ? image
-            : `${process.env.NEXT_PUBLIC_APP_DOMAIN}/logo/czarne-logo-pelny-napis-akcent.png`
+            : 'https://dashboard.flesz.events/content/images/2020/11/logo-publikacja-ghost.png'
         }
       />
       <meta
@@ -41,11 +61,11 @@ const SEO = ({ title, description, image }) => {
         content={
           image
             ? image
-            : `${process.env.NEXT_PUBLIC_APP_DOMAIN}/logo/czarne-logo-pelny-napis-akcent.png`
+            : 'https://dashboard.flesz.events/content/images/2020/11/logo-publikacja-ghost.png'
         }
       />
       <meta property='og:image:type' content='image/png' />
-      <meta property='fb:app_id' content={`${process.env.NEXT_PUBLIC_FB_ID}`} />
+      {/* <meta property='fb:app_id' content={`${process.env.NEXT_PUBLIC_FB_ID}`} /> */}
     </Head>
   )
 }

@@ -7,10 +7,7 @@ const IndexPage = ({ posts, meta: { pagination }, errors }) => {
 
   return (
     <>
-      <SEO
-        title={process.env.NEXT_PUBLIC_APP_NAME}
-        description='Jesteśmy sKoncertowani na muzyce!'
-      />
+      <SEO />
       <section>
         <h1>Ostatnie wpisy</h1>
         <Posts posts={posts} />
