@@ -36,7 +36,8 @@ const TagItem = ({ tag }) => {
       <a>
         <TagBody>
           <TagName>
-            <HashTag>#</HashTag> {tag.name}
+            <HashTag>#</HashTag>
+            {tag.name}
           </TagName>
         </TagBody>
       </a>
