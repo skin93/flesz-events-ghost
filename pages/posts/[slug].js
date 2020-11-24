@@ -94,9 +94,10 @@ const Aside = styled.section`
   max-width: 100%;
   @media ${device.laptop} {
     margin-left: auto;
+    border-left: 3px solid ${({ theme }) => theme.gray};
   }
-  & > h2 {
-    text-align: center;
+  h2 {
+    text-align: left;
     color: ${({ theme }) => theme.light};
     margin: 0;
     font-size: 2rem;
