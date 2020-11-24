@@ -3,13 +3,17 @@ import { device } from '../../constants/device'
 
 export const ArticleImg = styled.div`
   width: 100%;
-  height: 400px;
+  height: 200px;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   overflow: hidden;
   margin-top: 30px;
   border-radius: 10px;
+
+  @media ${device.tablet} {
+    height: 500px;
+  }
 `
 
 export const ArticleTitle = styled.h1`

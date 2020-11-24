@@ -7,7 +7,7 @@ export const MainContainer = styled.main`
   flex: 1;
   overflow: hidden;
   min-height: 100vh;
-  margin: 0 auto;
+  margin: 0 30px;
 
   @media ${device.mobileS} {
     max-width: ${size.mobileS};
@@ -26,6 +26,7 @@ export const MainContainer = styled.main`
 
   @media ${device.laptop} {
     max-width: ${size.tablet};
+    margin: 0 auto;
   }
 
   @media ${device.laptopL} {
