@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components'
+import { device } from './constants/device'
 
 export const GlobalStyles = createGlobalStyle`
 * {
@@ -74,13 +75,15 @@ ol, ul {
 }
 
 blockquote {
-  max-width: 80%;
-text-align: center;
-margin: 20px auto;
-padding: 20px;
-background-color: ${({ theme }) => theme.gray};
-font-family: 'Montserrat-Bold';
-font-style: italic;
+  background: ${({ theme }) => theme.gray};
+  font-family: 'Montserrat-Bold';
+  font-size: 1.2rem;
+  padding: 20px 30px;
+  margin: 50px auto;
+  width: 80%;
+  max-width: 500px;
+  border: solid 2px ${({ theme }) => theme.accent};
+  box-shadow: 15px 15px 0 0 ${({ theme }) => theme.accent};
 }
 
 
@@ -89,10 +92,20 @@ font-style: italic;
   margin: 30px auto;
 }
 
-.kg-card.kg-embed-card iframe {
-  height: 400px;
-  width: 100%;
+.kg-card.kg-embed-card {
+  display: flex;
+ flex: 1 1;
+ justify-content: center;
+ align-items: center;
 }
+
+
+
+.kg-card.kg-embed-card iframe  {
+ width: 100%;
+}
+
+
 
 .kg-card.kg-image-card {
   margin: 0;
@@ -124,7 +137,7 @@ font-style: italic;
   height: 100%;
 }
 
-@media only screen and (min-width: 600px) {
+@media ${device.tablet} {
   .kg-gallery-row {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
@@ -136,8 +149,14 @@ font-style: italic;
     height: 100%;
   }
 }
+@media ${device.tablet} {
+.kg-card.kg-embed-card iframe {
+    width: 80%;
+  }
+}
 
-@media (min-width: 1200px) {
+@media ${device.laptopL} {
+
   .kg-gallery-row {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
