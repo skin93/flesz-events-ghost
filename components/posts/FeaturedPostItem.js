@@ -6,7 +6,6 @@ const FeaturedCard = styled.div`
   width: 100%;
   min-height: 100px;
   padding: 10px;
-  background: ${({ theme }) => theme.gray};
 
   display: flex;
   align-items: center;
