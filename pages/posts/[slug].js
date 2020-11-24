@@ -12,6 +12,7 @@ import DisqusComments from '../../components/UI/Disqus'
 import FeaturedPosts from '../../components/posts/FeaturedPosts'
 import { Article } from '../../components/index'
 import { ScrollToTopButton } from '../../components/index'
+import Link from 'next/link'
 
 const StyledPageContainer = styled.div`
   display: grid;
@@ -46,7 +47,7 @@ export const Published = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 30px;
+
   div {
     margin: 0 5px;
     font-family: 'Oswald';
@@ -55,6 +56,31 @@ export const Published = styled.div`
     &:nth-child(2) {
       color: ${({ theme }) => theme.accent};
     }
+  }
+`
+
+export const Tags = styled.div`
+  max-width: 100%;
+  height: 50px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+`
+
+export const Tag = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 5px;
+
+  span {
+    color: ${({ theme }) => theme.accent};
+  }
+
+  p {
+    font-family: 'Oswald-Bold';
   }
 `
 
@@ -127,6 +153,20 @@ const PostPage = ({ post, featured, errors }) => {
           <div>|</div>
           <div>{moment(post.published_at).format('DD-MM-YYYY')}</div>
         </Published>
+        <Tags>
+          {post.tags &&
+            post.tags.length > 0 &&
+            post.tags.map((tag) => (
+              <Link href={`/tags/${tag.slug}?page=1`}>
+                <a>
+                  <Tag>
+                    <span>#</span>
+                    <p>{tag.name}</p>
+                  </Tag>
+                </a>
+              </Link>
+            ))}
+        </Tags>
       </ArticleHeader>
       <StyledPageContainer>
         <ArticleWrapper>
@@ -147,7 +187,7 @@ const PostPage = ({ post, featured, errors }) => {
 
 export async function getServerSideProps({ params }) {
   const res1 = await fetch(
-    `${process.env.API}/posts/slug/${params.slug}?key=${process.env.API_KEY}&include=authors`
+    `${process.env.API}/posts/slug/${params.slug}?key=${process.env.API_KEY}&include=authors,tags`
   )
   const data1 = await res1.json()
 
