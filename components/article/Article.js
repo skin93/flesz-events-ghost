@@ -1,26 +1,26 @@
 import {
-  ArticleTitle,
   ArticleImg,
   ArticleExcerpt,
   BorderBottom,
   ArticleContent
 } from './Article.styled'
 
-const Article = ({ data }) => {
+const Article = ({ post }) => {
   return (
-    <div>
+    <>
       <ArticleImg
         style={{
-          backgroundImage: `url(${data.feature_image})`
+          backgroundImage: `url(${post.feature_image})`
         }}
       ></ArticleImg>
 
-      <ArticleExcerpt>{data.excerpt}</ArticleExcerpt>
+      <ArticleExcerpt>{post.excerpt}</ArticleExcerpt>
       <BorderBottom />
-      <ArticleContent dangerouslySetInnerHTML={{ __html: data.html }} />
+      <ArticleContent dangerouslySetInnerHTML={{ __html: post.html }} />
       <BorderBottom />
-    </div>
+    </>
   )
 }
 
 export default Article
+import moment from 'moment'

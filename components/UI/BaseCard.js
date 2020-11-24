@@ -88,6 +88,7 @@ export const CardTitle = styled.p`
 
 export const Published = styled.small`
   font-weight: bold;
+  font-family: 'Oswald';
   color: ${({ theme }) => theme.light};
   padding-left: 15px;
   margin-top: 10px;

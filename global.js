@@ -61,6 +61,29 @@ strong {
   font-family: 'Montserrat-Bold', sans-serif;
 }
 
+ol, ul {
+  li {
+    list-style: disc;
+    margin: 10px 0;
+    font-size: 1.2rem;
+    &::marker {
+      color: ${({ theme }) => theme.accent};
+
+    }
+  }
+}
+
+blockquote {
+  max-width: 80%;
+text-align: center;
+margin: 20px auto;
+padding: 20px;
+background-color: ${({ theme }) => theme.gray};
+font-family: 'Montserrat-Bold';
+font-style: italic;
+}
+
+
 .kg-card.kg-embed-card {
 
   margin: 30px auto;

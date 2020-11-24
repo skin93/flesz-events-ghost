@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { device } from '../../constants/device'
+import moment from 'moment'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowUp } from '@fortawesome/free-solid-svg-icons'
@@ -25,14 +26,35 @@ const StyledPageContainer = styled.div`
 
 const ArticleWrapper = styled.div``
 
-export const ArticleTitle = styled.h1`
+export const ArticleHeader = styled.div`
   text-align: center;
   width: 100%;
-  font-size: 2rem;
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 0;
+  }
   color: ${({ theme }) => theme.light};
 
   @media ${device.laptopL} {
-    font-size: 4rem;
+    h1 {
+      font-size: 4rem;
+    }
+  }
+`
+
+export const Published = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+  div {
+    margin: 0 5px;
+    font-family: 'Oswald';
+    font-size: 1.5rem;
+
+    &:nth-child(2) {
+      color: ${({ theme }) => theme.accent};
+    }
   }
 `
 
@@ -98,10 +120,17 @@ const PostPage = ({ post, featured, errors }) => {
         description={post.excerpt}
         image={post.feature_image}
       />
-      <ArticleTitle>{post.title}</ArticleTitle>
+      <ArticleHeader>
+        <h1> {post.title}</h1>
+        <Published>
+          <div>{post.primary_author.name}</div>
+          <div>|</div>
+          <div>{moment(post.published_at).format('DD-MM-YYYY')}</div>
+        </Published>
+      </ArticleHeader>
       <StyledPageContainer>
         <ArticleWrapper>
-          <Article data={post} />
+          <Article post={post} />
           <DisqusComments post={post} />
         </ArticleWrapper>
         <Aside>
@@ -118,7 +147,7 @@ const PostPage = ({ post, featured, errors }) => {
 
 export async function getServerSideProps({ params }) {
   const res1 = await fetch(
-    `${process.env.API}/posts/slug/${params.slug}?key=${process.env.API_KEY}`
+    `${process.env.API}/posts/slug/${params.slug}?key=${process.env.API_KEY}&include=authors`
   )
   const data1 = await res1.json()
 
