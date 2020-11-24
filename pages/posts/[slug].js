@@ -157,7 +157,7 @@ const PostPage = ({ post, featured, errors }) => {
           {post.tags &&
             post.tags.length > 0 &&
             post.tags.map((tag) => (
-              <Link href={`/tags/${tag.slug}?page=1`}>
+              <Link key={tag.id} href={`/tags/${tag.slug}?page=1`}>
                 <a>
                   <Tag>
                     <span>#</span>
