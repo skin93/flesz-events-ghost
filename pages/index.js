@@ -1,27 +1,57 @@
+import { useState, useEffect } from 'react'
 import SEO from '../components/seo/SEO'
 import Posts from '../components/posts/Posts'
-import { Pagination } from '../components/index'
+import LoadMoreButton from '../components/UI/LoadMoreButton'
 
-const IndexPage = ({ posts, meta: { pagination }, errors }) => {
+const IndexPage = ({ posts, errors }) => {
   if (errors) return <Error message='Brak wpisów' />
+
+  const postsPerPage = 6
+
+  const [postsToShow, setPostsToShow] = useState([])
+  const [next, setNext] = useState(postsPerPage)
+
+  const loopWithSlice = (start, end) => {
+    const slicedPosts = posts.slice(start, end)
+    setPostsToShow((prevPosts) => [...prevPosts, ...slicedPosts])
+  }
+
+  useEffect(() => {
+    loopWithSlice(0, postsPerPage)
+  }, [])
+
+  const handleShowMorePosts = () => {
+    loopWithSlice(next, next + postsPerPage)
+    setNext(next + postsPerPage)
+  }
 
   return (
     <>
       <SEO />
-      <section>
+      <section
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          flexDirection: 'column'
+        }}
+      >
         <h1>Ostatnie wpisy</h1>
-        <Posts posts={posts} />
-        <Pagination pagination={pagination} location='/' />
+        <Posts posts={postsToShow} />
+        <LoadMoreButton
+          disabled={next >= posts.length}
+          onClick={handleShowMorePosts}
+        >
+          Wczytaj więcej
+        </LoadMoreButton>
       </section>
     </>
   )
 }
 
-export async function getServerSideProps({ query }) {
-  const page = query.page || 1
-
+export async function getServerSideProps() {
   const res = await fetch(
-    `${process.env.API}/posts/?key=${process.env.API_KEY}&limit=6&include=tags&page=${page}`
+    `${process.env.API}/posts/?key=${process.env.API_KEY}&include=tags`
   )
   const data = await res.json()
 
