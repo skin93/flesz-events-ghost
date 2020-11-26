@@ -6,17 +6,12 @@ export const Card = styled.div`
   justify-content: flex-end;
   align-items: center;
   flex-direction: column;
-  transition: transform 0.2s ease-in-out;
-  &:hover {
-    transform: translateY(-10px);
-  }
 `
 
 export const CardImg = styled.div`
   position: relative;
   width: 100%;
   height: 200px;
-
   background: url(${(props) => props.src});
   background-repeat: no-repeat;
   background-position: center;
@@ -32,20 +27,18 @@ export const Badge = styled.div`
   position: absolute;
   top: 10px;
   left: 10px;
-  width: 50px;
+  width: auto;
   height: auto;
   text-align: center;
   padding: 5px;
   background: ${({ theme }) => theme.black};
-  z-index: 100;
 `
 
 export const BadgeName = styled.small`
   color: ${({ theme }) => theme.light};
   text-transform: uppercase;
   font-weight: bold;
-  font-size: 0.8rem;
-  margin: 0;
+  font-size: 1rem;
   font-family: 'Oswald';
 `
 
@@ -56,8 +49,6 @@ export const CardBody = styled.div`
   align-items: flex-start;
   width: 100%;
   height: 100px;
-  overflow: hidden;
-  z-index: 100;
 `
 
 export const CardTitle = styled.p`
