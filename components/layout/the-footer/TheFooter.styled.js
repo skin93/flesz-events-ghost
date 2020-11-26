@@ -25,7 +25,7 @@ export const FooterItem = styled.div`
   justify-content: center;
   align-items: center;
   flex: 1;
-  font-size: 0.7rem;
+  font-size: 1rem;
   color: rgba(219, 219, 219, 0.8);
   height: 50px;
   overflow: hidden;
