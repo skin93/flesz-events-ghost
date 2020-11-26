@@ -6,32 +6,35 @@ export const Card = styled.div`
   justify-content: flex-end;
   align-items: center;
   flex-direction: column;
+  transition: transform 0.2s ease-in-out;
+  &:hover {
+    transform: translateY(-10px);
+  }
+`
+
+export const CardImg = styled.div`
   position: relative;
-  max-width: 100%;
-  min-height: 250px;
-  margin-top: 30px;
-  margin-bottom: 30px;
+  width: 100%;
+  height: 200px;
+
   background: url(${(props) => props.src});
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   border-top-right-radius: 15px;
   overflow: hidden;
-  transition: transform 0.2s ease-in-out;
-  &:hover {
-    transform: translateY(-10px);
-  }
 
   @media ${device.tablet} {
-    margin: 30px;
+    height: 250px;
   }
 `
 export const Badge = styled.div`
   position: absolute;
-  top: 0;
-  left: 0;
-  width: auto;
+  top: 10px;
+  left: 10px;
+  width: 50px;
   height: auto;
+  text-align: center;
   padding: 5px;
   background: ${({ theme }) => theme.black};
   z-index: 100;
@@ -46,50 +49,28 @@ export const BadgeName = styled.small`
   font-family: 'Oswald';
 `
 
-export const CardOverlay = styled.div`
-  opacity: 0;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.6);
-  z-index: 99;
-  transition: opacity 0.2s ease-out;
-  &:hover {
-    opacity: 1;
-  }
-`
-
 export const CardBody = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
   align-items: flex-start;
   width: 100%;
-  min-height: auto;
-  background: rgba(0, 0, 0, 0.8);
+  height: 100px;
   overflow: hidden;
   z-index: 100;
 `
 
 export const CardTitle = styled.p`
   color: ${({ theme }) => theme.light};
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   font-weight: bold;
   font-family: 'Oswald';
   transition: border 0.2s ease-out;
   margin: 0;
-  padding-left: 10px;
-  border-left: 3px solid ${({ theme }) => theme.accent};
 `
 
 export const Published = styled.small`
   font-weight: bold;
   font-family: 'Oswald';
-  color: ${({ theme }) => theme.light};
-  padding-left: 15px;
-  margin-top: 10px;
+  color: ${({ theme }) => theme.accent};
 `

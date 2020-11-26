@@ -2,6 +2,7 @@ import Link from 'next/link'
 import React from 'react'
 import {
   Card,
+  CardImg,
   CardBody,
   CardOverlay,
   CardTitle,
@@ -15,15 +16,16 @@ const PostItem = ({ post }) => {
   return (
     <Link href={`/posts/${post.slug}`}>
       <a>
-        <Card src={post.feature_image}>
-          <Badge>
-            <BadgeName>{post.primary_tag.name}</BadgeName>
-          </Badge>
-          <CardOverlay />
+        <Card>
+          <CardImg src={post.feature_image}>
+            <Badge>
+              <BadgeName>{post.primary_tag.name}</BadgeName>
+            </Badge>
+          </CardImg>
           <CardBody>
             <CardTitle>{post.title}</CardTitle>
             <Published>
-              Dodano: {moment(post.published_at).format('DD-MM-YYYY')}
+              {moment(post.published_at).format('DD-MM-YYYY')}
             </Published>
           </CardBody>
         </Card>
