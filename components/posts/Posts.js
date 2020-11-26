@@ -5,11 +5,10 @@ import { device } from '../../constants/device'
 
 const PostsContainer = styled.div`
   display: grid;
-  gap: 5px;
-  grid-auto-flow: row dense;
+  gap: 30px;
+  grid-template-columns: repeat(1, 1fr);
 
   @media ${device.mobileS} {
-    grid-template-columns: repeat(1, 1fr);
   }
 
   @media ${device.tablet} {

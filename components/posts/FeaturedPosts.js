@@ -5,11 +5,7 @@ import { device } from '../../constants/device'
 
 const FeaturedPostsContainer = styled.div`
   display: grid;
-  gap: 15px;
-
-  @media ${device.mobileS} {
-    grid-template-columns: repeat(1, 1fr);
-  }
+  grid-template-columns: repeat(1, 1fr);
 
   @media ${device.tablet} {
     grid-template-columns: repeat(3, 1fr);
