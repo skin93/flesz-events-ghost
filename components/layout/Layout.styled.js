@@ -4,10 +4,11 @@ import { device, size } from '../../constants/device'
 export const MainContainer = styled.main`
   display: flex;
   flex-direction: column;
-  flex: 1;
+  flex: 1 1 auto;
   overflow: hidden;
   min-height: 100vh;
-  margin: 0 30px;
+  justify-content: center;
+  margin: 30px auto;
 
   @media ${device.mobileS} {
     max-width: ${size.mobileS};
@@ -25,21 +26,21 @@ export const MainContainer = styled.main`
   }
 
   @media ${device.laptop} {
-    max-width: ${size.tablet};
-    margin: 0 auto;
+    max-width: ${size.laptop};
   }
 
   @media ${device.laptopL} {
-    flex-direction: row;
     max-width: ${size.laptopL};
   }
 
   @media ${device.desktop} {
     max-width: ${size.desktop};
   }
+  justify-content: center;
+  align-items: center;
 `
 
 export const Children = styled.section`
-  padding: 15px 0;
+  padding: 0 15px;
   flex: 1;
 `

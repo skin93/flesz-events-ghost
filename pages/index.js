@@ -28,23 +28,14 @@ const IndexPage = ({ posts, errors }) => {
   return (
     <>
       <SEO />
-      <section
-        style={{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          flexDirection: 'column'
-        }}
+      <h1>Ostatnie wpisy</h1>
+      <Posts posts={postsToShow} />
+      <LoadMoreButton
+        disabled={next >= posts.length}
+        onClick={handleShowMorePosts}
       >
-        <h1>Ostatnie wpisy</h1>
-        <Posts posts={postsToShow} />
-        <LoadMoreButton
-          disabled={next >= posts.length}
-          onClick={handleShowMorePosts}
-        >
-          Wczytaj więcej
-        </LoadMoreButton>
-      </section>
+        Wczytaj więcej
+      </LoadMoreButton>
     </>
   )
 }

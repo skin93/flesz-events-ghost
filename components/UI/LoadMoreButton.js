@@ -3,7 +3,7 @@ export default styled.button`
   color: ${({ theme }) => theme.black};
   background-color: ${({ theme }) => theme.accent};
   padding: 10px 20px;
-  margin: 0 10px;
+  margin: 30px auto;
   font-family: 'Montserrat-Bold', sans-serif;
   border: none;
   border-radius: 5px;
