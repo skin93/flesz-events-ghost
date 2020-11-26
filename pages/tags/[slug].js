@@ -4,16 +4,7 @@ import SEO from '../../components/seo/SEO'
 import Posts from '../../components/posts/Posts'
 import { Pagination } from '../../components/index'
 import { Error } from '../../components/index'
-
-const PostsByTag = styled.section`
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-
-  span {
-    color: ${({ theme }) => theme.accent};
-  }
-`
+import { theme } from '../../theme'
 
 const TagPage = ({ tag, posts, meta: { pagination }, errors }) => {
   if (errors) return <Error message='Brak postów' />
@@ -21,14 +12,12 @@ const TagPage = ({ tag, posts, meta: { pagination }, errors }) => {
   return (
     <>
       <SEO title={tag.name} description={tag.description} />
-      <PostsByTag>
-        <h1>
-          <span>#</span>
-          {tag.name}
-        </h1>
-        <Posts posts={posts} />
-        <Pagination pagination={pagination} location={`/tags/${tag.slug}`} />
-      </PostsByTag>
+      <h1>
+        <span style={{ color: theme.accent }}>#</span>
+        {tag.name}
+      </h1>
+      <Posts posts={posts} />
+      <Pagination pagination={pagination} location={`/tags/${tag.slug}`} />
     </>
   )
 }
