@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react'
+import styled from 'styled-components'
+import { device } from '../../constants/device'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowUp } from '@fortawesome/free-solid-svg-icons'
@@ -7,7 +9,39 @@ import SEO from '../../components/seo/SEO'
 import FeaturedPosts from '../../components/posts/FeaturedPosts'
 import { Article } from '../../components/index'
 import { ScrollToTopButton } from '../../components/index'
-import { Aside, StyledPageContainer } from './[slug].styled'
+
+const StyledPageContainer = styled.div`
+  display: grid;
+  grid-template-columns: 1fr;
+  margin-bottom: 30px;
+
+  @media ${device.laptopL} {
+    grid-template-columns: 4fr 2fr;
+    overflow: hidden;
+  }
+`
+
+const Aside = styled.section`
+  display: flex;
+  flex-direction: column;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  margin: 0 auto;
+  overflow: hidden;
+  padding: 15px;
+  min-height: 200px;
+  max-width: 100%;
+  @media ${device.laptopL} {
+    padding-top: 200px;
+  }
+  h2 {
+    text-align: left;
+    color: ${({ theme }) => theme.light};
+    margin: 0;
+    font-size: 2rem;
+    padding: 10px;
+  }
+`
 
 const PostPage = ({ post, featured, errors }) => {
   const [showButton, setShowButton] = useState(false)
