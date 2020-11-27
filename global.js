@@ -44,7 +44,6 @@ h3,
 h4 {
   font-family: 'Oswald-Bold', sans-serif;
 }
-
 h1 {
   font-size: 4rem;
   text-align: center;
@@ -52,7 +51,6 @@ h1 {
   text-transform: uppercase;
   color: ${({ theme }) => theme.light};
 }
-
 a {
   color: inherit;
   text-decoration: none;

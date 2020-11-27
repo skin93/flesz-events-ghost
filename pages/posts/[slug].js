@@ -1,109 +1,13 @@
 import { useEffect, useState } from 'react'
-import styled from 'styled-components'
-import { device } from '../../constants/device'
-import moment from 'moment'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowUp } from '@fortawesome/free-solid-svg-icons'
 
 import SEO from '../../components/seo/SEO'
-import DisqusComments from '../../components/UI/Disqus'
-
 import FeaturedPosts from '../../components/posts/FeaturedPosts'
 import { Article } from '../../components/index'
 import { ScrollToTopButton } from '../../components/index'
-import Link from 'next/link'
-
-const StyledPageContainer = styled.div`
-  display: grid;
-  grid-template-columns: 1fr;
-  margin-bottom: 30px;
-
-  @media ${device.laptopL} {
-    grid-template-columns: 4fr 2fr;
-    overflow: hidden;
-  }
-`
-
-const ArticleWrapper = styled.div``
-
-export const ArticleHeader = styled.div`
-  text-align: center;
-  width: 100%;
-  h1 {
-    font-size: 2rem;
-    margin-bottom: 0;
-  }
-  color: ${({ theme }) => theme.light};
-
-  @media ${device.laptopL} {
-    h1 {
-      font-size: 4rem;
-    }
-  }
-`
-
-export const Published = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  div {
-    margin: 0 5px;
-    font-family: 'Oswald';
-    font-size: 1.5rem;
-
-    &:nth-child(2) {
-      color: ${({ theme }) => theme.accent};
-    }
-  }
-`
-
-export const Tags = styled.div`
-  max-width: 100%;
-  height: 50px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 30px;
-`
-
-export const Tag = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 5px;
-
-  span {
-    color: ${({ theme }) => theme.accent};
-  }
-
-  p {
-    font-family: 'Oswald-Bold';
-  }
-`
-
-const Aside = styled.section`
-  display: flex;
-  flex-direction: column;
-  margin: 0 auto;
-  overflow: hidden;
-  padding: 15px;
-  min-height: 200px;
-  max-width: 100%;
-  @media ${device.laptop} {
-    margin-left: auto;
-    border-left: 3px solid ${({ theme }) => theme.gray};
-  }
-  h2 {
-    text-align: left;
-    color: ${({ theme }) => theme.light};
-    margin: 0;
-    font-size: 2rem;
-    padding: 10px;
-  }
-`
+import { Aside, StyledPageContainer } from './[slug].styled'
 
 const PostPage = ({ post, featured, errors }) => {
   const [showButton, setShowButton] = useState(false)
@@ -147,33 +51,8 @@ const PostPage = ({ post, featured, errors }) => {
         description={post.excerpt}
         image={post.feature_image}
       />
-      <ArticleHeader>
-        <h1> {post.title}</h1>
-        <Published>
-          <div>{post.primary_author.name}</div>
-          <div>|</div>
-          <div>{moment(post.published_at).format('DD-MM-YYYY')}</div>
-        </Published>
-        <Tags>
-          {post.tags &&
-            post.tags.length > 0 &&
-            post.tags.map((tag) => (
-              <Link key={tag.id} href={`/tags/${tag.slug}?page=1`}>
-                <a>
-                  <Tag>
-                    <span>#</span>
-                    <p>{tag.name}</p>
-                  </Tag>
-                </a>
-              </Link>
-            ))}
-        </Tags>
-      </ArticleHeader>
       <StyledPageContainer>
-        <ArticleWrapper>
-          <Article post={post} />
-          <DisqusComments post={post} />
-        </ArticleWrapper>
+        <Article post={post} />
         <Aside>
           <h2>Zobacz także: </h2>
           <FeaturedPosts featured={featured} />
