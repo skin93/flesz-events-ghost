@@ -17,7 +17,7 @@ const PostItem = ({ post }) => {
     <Link href={`/posts/${post.slug}`}>
       <a>
         <Card>
-          <CardImg src={post.feature_image} />
+          <CardImg src={post.feature_image} alt={post.title} />
           <Badge>
             <BadgeName>{post.primary_tag.name}</BadgeName>
           </Badge>

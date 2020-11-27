@@ -7,15 +7,13 @@ export const ArticleHeader = styled.div`
   color: ${({ theme }) => theme.light};
 `
 
-export const ArticleImg = styled.div`
+export const ArticleImg = styled.img`
   width: 100%;
   height: 200px;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
   overflow: hidden;
   margin-top: 30px;
   border-radius: 10px;
+  object-fit: cover;
 
   @media ${device.tablet} {
     height: 500px;

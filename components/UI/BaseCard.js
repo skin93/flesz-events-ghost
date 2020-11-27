@@ -17,12 +17,9 @@ export const CardImg = styled.img`
   border-radius: 10px;
   position: relative;
   width: 100%;
-  height: 200px;
+  height: 250px;
+  object-fit: cover;
   overflow: hidden;
-
-  @media ${device.laptop} {
-    height: 300px;
-  }
 `
 export const Badge = styled.div`
   position: absolute;

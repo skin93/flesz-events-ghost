@@ -43,11 +43,7 @@ const Article = ({ post }) => {
           </TagsContainer>
         </Published>
       </ArticleHeader>
-      <ArticleImg
-        style={{
-          backgroundImage: `url(${post.feature_image})`
-        }}
-      ></ArticleImg>
+      <ArticleImg src={post.feature_image} alt={pos.title} />
       <ArticleExcerpt>{post.excerpt}</ArticleExcerpt>
       <BorderBottom />
       <ArticleContent dangerouslySetInnerHTML={{ __html: post.html }} />
