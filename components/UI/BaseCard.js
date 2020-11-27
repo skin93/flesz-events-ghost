@@ -2,25 +2,26 @@ import styled from 'styled-components'
 import { device } from '../../constants/device'
 
 export const Card = styled.div`
+  position: relative;
   display: flex;
   justify-content: flex-end;
   align-items: center;
   flex-direction: column;
+  transition: transform 0.2s ease-in-out;
+  &:hover {
+    transform: translateY(-20px);
+  }
 `
 
-export const CardImg = styled.div`
+export const CardImg = styled.img`
+  border-radius: 10px;
   position: relative;
   width: 100%;
   height: 200px;
-  background: url(${(props) => props.src});
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  border-top-right-radius: 15px;
   overflow: hidden;
 
-  @media ${device.tablet} {
-    height: 250px;
+  @media ${device.laptop} {
+    height: 300px;
   }
 `
 export const Badge = styled.div`

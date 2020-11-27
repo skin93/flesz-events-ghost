@@ -17,11 +17,10 @@ const PostItem = ({ post }) => {
     <Link href={`/posts/${post.slug}`}>
       <a>
         <Card>
-          <CardImg src={post.feature_image}>
-            <Badge>
-              <BadgeName>{post.primary_tag.name}</BadgeName>
-            </Badge>
-          </CardImg>
+          <CardImg src={post.feature_image} />
+          <Badge>
+            <BadgeName>{post.primary_tag.name}</BadgeName>
+          </Badge>
           <CardBody>
             <CardTitle>{post.title}</CardTitle>
             <Published>
