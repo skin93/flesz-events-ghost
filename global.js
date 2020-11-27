@@ -166,7 +166,7 @@ blockquote {
 
 /* width */
 ::-webkit-scrollbar {
-  width: 5px;
+  width: 10px;
 }
 
 /* Track */
@@ -177,7 +177,7 @@ blockquote {
 /* Handle */
 ::-webkit-scrollbar-thumb {
   background: ${({ theme }) => theme.accent};
-  border-radius: 10px;
+  border-radius: 50px;
 }
 
 `
