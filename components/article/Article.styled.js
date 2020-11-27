@@ -87,18 +87,14 @@ export const TagsContainer = styled.div`
   align-items: center;
 `
 
-export const ArticleTag = styled.div`
+export const ArticleTag = styled.small`
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 0 5px;
-
-  span {
-    color: ${({ theme }) => theme.accent};
-  }
-
-  p {
-    font-family: 'Oswald';
-    margin: 0;
-  }
+  padding: 0 5px;
+  background-color: ${({ theme }) => theme.accent};
+  color: ${({ theme }) => theme.black};
+  text-transform: uppercase;
+  font-weight: bold;
 `
