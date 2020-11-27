@@ -25,15 +25,13 @@ export const Badge = styled.div`
   position: absolute;
   top: 10px;
   left: 10px;
-  width: auto;
-  height: auto;
   text-align: center;
-  padding: 5px;
-  background: ${({ theme }) => theme.black};
+  padding: 0 5px;
+  background: ${({ theme }) => theme.accent};
 `
 
 export const BadgeName = styled.small`
-  color: ${({ theme }) => theme.light};
+  color: ${({ theme }) => theme.black};
   text-transform: uppercase;
   font-weight: bold;
   font-size: 1rem;
