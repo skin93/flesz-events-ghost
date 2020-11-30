@@ -23,16 +23,15 @@ const StyledPageContainer = styled.div`
 
 const Aside = styled.section`
   display: flex;
+  position: relative;
   flex-direction: column;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
-  margin: 0 auto;
+  margin: 0 30px;
   overflow: hidden;
-  padding: 15px;
-  min-height: 200px;
   max-width: 100%;
   @media ${device.laptopL} {
-    padding-top: 200px;
+    top: 200px;
   }
   h2 {
     text-align: left;
@@ -88,7 +87,7 @@ const PostPage = ({ post, featured, errors }) => {
       <StyledPageContainer>
         <Article post={post} />
         <Aside>
-          <h2>Zobacz także: </h2>
+          <h2>Zobacz także </h2>
           <FeaturedPosts featured={featured} />
         </Aside>
       </StyledPageContainer>
