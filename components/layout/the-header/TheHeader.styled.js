@@ -54,7 +54,7 @@ export const NavItem = styled.li`
   transition: color 0.2s ease-in-out;
 
   @media ${device.tablet} {
-    font-size: 1rem;
+    font-size: 0.8rem;
     margin: 0;
     padding: 15px;
   }

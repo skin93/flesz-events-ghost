@@ -4,8 +4,7 @@ import { useRouter } from 'next/router'
 import styled from 'styled-components'
 
 const StyledLink = styled.div`
-  color: ${(props) =>
-    props.active ? props.theme.accent : 'rgba(219, 219, 219, 0.8)'};
+  color: ${(props) => (props.active ? props.theme.accent : props.theme.light)};
   transition: color 0.2s ease-in;
   &:hover {
     color: ${({ theme }) => theme.accent};
