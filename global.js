@@ -45,14 +45,18 @@ h4 {
   font-family: 'Oswald-Bold', sans-serif;
 }
 h1 {
-  font-size: 4rem;
+  font-size: 3rem;
   text-align: center;
   max-width: 100%;
   text-transform: uppercase;
   color: ${({ theme }) => theme.light};
 }
+
+h3 {
+  font-size: 2rem;
+}
 a {
-  color: inherit;
+  color: ${({ theme }) => theme.accent};
   text-decoration: none;
 }
 
@@ -62,26 +66,20 @@ strong {
 
 ol, ul {
   li {
-    list-style: disc;
     margin: 10px 0;
     font-size: 1.2rem;
     &::marker {
       color: ${({ theme }) => theme.accent};
+      font-family: 'Oswald-Bold';
 
     }
   }
 }
 
-blockquote {
-  background: ${({ theme }) => theme.gray};
-  font-family: 'Montserrat-Bold';
-  font-size: 1.2rem;
-  padding: 20px 30px;
-  margin: 50px auto;
-  width: 80%;
-  max-width: 500px;
-  border: solid 2px ${({ theme }) => theme.accent};
-  box-shadow: 15px 15px 0 0 ${({ theme }) => theme.accent};
+ul {
+  li {
+    list-style: square;
+  }
 }
 
 
@@ -98,19 +96,16 @@ blockquote {
 }
 
 
-
 .kg-card.kg-embed-card iframe  {
  width: 100%;
 }
 
-
-
 .kg-card.kg-image-card {
-  margin: 0;
-  width: 100%;
+  margin: 0 auto;
+  max-width: 600px;
 }
 
-.kg-card.kg-image-card .kg-image {
+.kg-image {
   width: 100%;
 }
 
@@ -133,6 +128,11 @@ blockquote {
   padding: 20px;
   width: 100%;
   height: 100%;
+}
+
+figcaption {
+  text-align: center;
+  font-family: 'Oswald-Bold';
 }
 
 @media ${device.tablet} {

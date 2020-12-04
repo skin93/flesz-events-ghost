@@ -33,9 +33,9 @@ export const ArticleTitle = styled.h1`
 `
 
 export const ArticleExcerpt = styled.p`
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   color: ${({ theme }) => theme.light};
-  font-weight: bold;
+  font-family: 'Montserrat-Bold';
 `
 
 export const BorderBottom = styled.div`
@@ -63,11 +63,8 @@ export const Published = styled.div`
 export const ArticleContent = styled.div`
   color: ${({ theme }) => theme.light};
 
-  h2 {
+  h3 {
     font-size: 2rem;
-    @media ${device.laptopL} {
-      font-size: 3rem;
-    }
   }
 
   p {
@@ -75,6 +72,19 @@ export const ArticleContent = styled.div`
     strong {
       color: ${({ theme }) => theme.light};
     }
+  }
+
+  blockquote {
+    background: ${({ theme }) => theme.gray};
+    font-family: 'Montserrat';
+    font-size: 1.2rem;
+    padding: 20px 30px;
+    margin: 50px auto;
+    width: 80%;
+    max-width: 500px;
+    border: solid 2px ${({ theme }) => theme.accent};
+    box-shadow: 15px 15px 0 0 ${({ theme }) => theme.accent};
+    font-style: italic;
   }
 `
 

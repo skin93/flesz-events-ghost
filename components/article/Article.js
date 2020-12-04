@@ -33,7 +33,7 @@ const Article = ({ post }) => {
               ))}
           </TagsContainer>
           <div>|</div>
-          <div>{moment(post.published_at).format('DD-MM-YYYY hh:mm')}</div>
+          <div>{moment(post.published_at).format('DD-MM-YYYY')}</div>
           <div>|</div>
           {post.authors.map((author) => (
             <div>{author.name}</div>

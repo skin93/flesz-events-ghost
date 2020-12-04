@@ -30,17 +30,23 @@ const TheHeader = () => {
             <BaseLink to='newsy' label='Newsy' />
           </NavItem>
           <NavItem>
+            <BaseLink to='koncerty' label='Koncerty' />
+          </NavItem>
+          <NavItem>
+            <BaseLink to='festiwale' label='Festiwale' />
+          </NavItem>
+          {/* <NavItem>
             <BaseLink to='recenzje' label='Recenzje' />
           </NavItem>
           <NavItem>
             <BaseLink to='relacje' label='Relacje' />
-          </NavItem>
+          </NavItem> */}
           <NavItem>
             <BaseLink to='polecamy' label='Polecamy' />
           </NavItem>
-          <NavItem>
+          {/* <NavItem>
             <BaseLink to='patronat' label='Patronat' />
-          </NavItem>
+          </NavItem> */}
           <NavItem>
             <FontAwesomeIcon
               style={{ cursor: 'pointer' }}

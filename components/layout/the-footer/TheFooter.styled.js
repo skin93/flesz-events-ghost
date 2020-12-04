@@ -25,14 +25,17 @@ export const FooterItem = styled.div`
   justify-content: center;
   align-items: center;
   flex: 1;
-  font-size: 0.8rem;
-  color: rgba(219, 219, 219, 0.8);
   height: 50px;
   overflow: hidden;
   padding: 10px;
   text-transform: uppercase;
   font-weight: bold;
   transition: color 0.2s ease-in-out;
+
+  a {
+    font-size: 0.8rem;
+    color: rgba(219, 219, 219, 0.8);
+  }
 
   &:hover {
     color: ${({ theme }) => theme.light};

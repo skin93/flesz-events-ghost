@@ -33,11 +33,10 @@ const Aside = styled.section`
   @media ${device.laptopL} {
     top: 200px;
   }
-  h2 {
+  h3 {
     text-align: left;
     color: ${({ theme }) => theme.light};
     margin: 0;
-    font-size: 2rem;
     padding: 10px;
   }
 `
@@ -87,7 +86,7 @@ const PostPage = ({ post, featured, errors }) => {
       <StyledPageContainer>
         <Article post={post} />
         <Aside>
-          <h2>Zobacz także </h2>
+          <h3>Zobacz także </h3>
           <FeaturedPosts featured={featured} />
         </Aside>
       </StyledPageContainer>
