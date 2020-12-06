@@ -23,14 +23,16 @@ const StyledPageContainer = styled.div`
 
 const Aside = styled.section`
   display: flex;
-  position: relative;
   flex-direction: column;
+  align-items: center;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   margin: 0 30px;
   overflow: hidden;
   max-width: 100%;
+
   @media ${device.laptopL} {
+    position: relative;
     top: 200px;
   }
   h3 {

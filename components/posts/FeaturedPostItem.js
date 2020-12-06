@@ -17,7 +17,7 @@ const FeaturedCard = styled.div`
 
 export const FeaturedImg = styled.img`
   object-fit: cover;
-  height: 100%;
+  height: 66px;
   width: 100px;
   border-radius: 5px;
 `
@@ -28,12 +28,6 @@ export const FeatTitle = styled.h4`
   color: ${({ theme }) => theme.light};
   font-size: 1.2rem;
   transition: border 0.2s ease-out;
-  &::before {
-    content: '';
-    border-left: 3px solid ${({ theme }) => theme.accent};
-    margin-right: 10px;
-    overflow: hidden;
-  }
 `
 
 const FeaturedPostItem = ({ feat }) => {

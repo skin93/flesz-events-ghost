@@ -8,7 +8,7 @@ const FeaturedPostsContainer = styled.div`
   grid-template-columns: repeat(1, 1fr);
 
   @media ${device.tablet} {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 
   @media ${device.laptopL} {
