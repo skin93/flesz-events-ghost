@@ -65,7 +65,7 @@ const SEO = ({ title, description, image }) => {
         }
       />
       <meta property='og:image:type' content='image/png' />
-      {/* <meta property='fb:app_id' content={`${process.env.NEXT_PUBLIC_FB_ID}`} /> */}
+      <meta property='fb:app_id' content={`${process.env.NEXT_PUBLIC_FB_ID}`} />
     </Head>
   )
 }
