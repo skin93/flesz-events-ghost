@@ -67,7 +67,7 @@ strong {
 ol, ul {
   li {
     margin: 10px 0;
-    font-size: 1.2rem;
+    font-size: 1rem;
     &::marker {
       color: ${({ theme }) => theme.accent};
       font-family: 'Oswald-Bold';

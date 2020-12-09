@@ -33,7 +33,7 @@ export const ArticleTitle = styled.h1`
 `
 
 export const ArticleExcerpt = styled.p`
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: ${({ theme }) => theme.light};
   font-family: 'Montserrat-Bold';
 `
@@ -68,7 +68,7 @@ export const ArticleContent = styled.div`
   }
 
   p {
-    font-size: 1.2rem;
+    font-size: 1rem;
     strong {
       color: ${({ theme }) => theme.light};
     }
@@ -77,7 +77,7 @@ export const ArticleContent = styled.div`
   blockquote {
     background: ${({ theme }) => theme.gray};
     font-family: 'Montserrat';
-    font-size: 1.2rem;
+    font-size: 1rem;
     padding: 20px 30px;
     margin: 50px auto;
     width: 80%;
