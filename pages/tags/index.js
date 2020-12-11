@@ -17,7 +17,7 @@ const TagsPage = ({ tags, meta: { pagination }, errors }) => {
 export async function getServerSideProps({ query }) {
   const page = query.page || 1
   const res = await fetch(
-    `${process.env.API}/tags/?key=${process.env.API_KEY}&limit=all&page=${page}`
+    `${process.env.API}/tags/?key=${process.env.API_KEY}&limit=30&page=${page}`
   )
   const data = await res.json()
 
