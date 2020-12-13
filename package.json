@@ -1,5 +1,14 @@
 {
   "name": "flesz-events",
+  "author": {
+    "name": "Arkadiusz Ciesielski",
+    "email": "arkadiusz.ciesielski@poczta.onet.pl",
+    "url": "https://github.com/skin93"
+  },
+  "engines": {
+    "node": ">=12.x",
+    "npm": ">=6.9.x"
+  },
   "version": "0.1.0",
   "private": true,
   "scripts": {
