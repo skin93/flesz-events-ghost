@@ -7,8 +7,8 @@ export const GlobalStyles = createGlobalStyle`
 }
 
 @font-face {
-  font-family: 'Montserrat';
-  src: url('/fonts/Montserrat.ttf');
+  font-family: 'Montserrat-Medium';
+  src: url('/fonts/Montserrat-Medium.ttf');
   font-display: swap;
 }
 
@@ -34,7 +34,7 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Montserrat-Medium', sans-serif;
   background-color: ${({ theme }) => theme.black};
 }
 
@@ -54,6 +54,7 @@ h1 {
 
 h3 {
   font-size: 2rem;
+  color: ${({ theme }) => theme.light}
 }
 a {
   color: ${({ theme }) => theme.accent};
@@ -67,7 +68,7 @@ strong {
 ol, ul {
   li {
     margin: 10px 0;
-    font-size: 1rem;
+    font-size: 1.1rem;
     &::marker {
       color: ${({ theme }) => theme.accent};
       font-family: 'Oswald-Bold';
