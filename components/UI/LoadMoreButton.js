@@ -11,7 +11,8 @@ export default styled.button`
   transition: all 0.2s ease-in-out;
 
   &:disabled {
-    background-color: ${({ theme }) => theme.gray};
+    color: ${({ theme }) => theme.light};
+    background-color: ${({ theme }) => theme.black};
   }
 
   &:focus {
@@ -19,7 +20,7 @@ export default styled.button`
   }
 
   &:hover {
-    background-color: ${({ theme }) => theme.gray};
+    background-color: ${({ theme }) => theme.black};
     color: ${({ theme }) => theme.light};
   }
 `

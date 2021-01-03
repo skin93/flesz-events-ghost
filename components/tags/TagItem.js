@@ -14,7 +14,7 @@ const TagBody = styled.div`
   transition: background-color 0.2s ease-in-out;
 
   &:hover {
-    background-color: ${({ theme }) => theme.gray};
+    background-color: ${({ theme }) => theme.black};
   }
 `
 
