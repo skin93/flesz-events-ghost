@@ -35,7 +35,7 @@ body {
   padding: 0;
   margin: 0;
   font-family: 'Montserrat-Medium', sans-serif;
-  background-color: ${({ theme }) => theme.black};
+  background-color: ${({ theme }) => theme.gray};
 }
 
 h1,
@@ -149,6 +149,7 @@ ul {
 figcaption {
   text-align: center;
   font-family: 'Oswald-Bold';
+  color: ${({ theme }) => theme.light};
 }
 
 @media ${device.tablet} {

@@ -61,7 +61,7 @@ export const Published = styled.div`
 `
 
 export const ArticleContent = styled.div`
-  color: rgba(255, 255, 255, 0.75);
+  color: rgba(238, 238, 238, 0.75);
 
   h3 {
     font-size: 2rem;
