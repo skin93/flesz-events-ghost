@@ -30,15 +30,15 @@ export const FooterItem = styled.div`
   padding: 10px;
   text-transform: uppercase;
   font-weight: bold;
-  transition: color 0.2s ease-in-out;
 
   a {
     font-size: 0.8rem;
     color: rgba(219, 219, 219, 0.8);
-  }
+    transition: color 0.2s ease-in-out;
 
-  &:hover {
-    color: ${({ theme }) => theme.light};
+    &:hover {
+      color: ${({ theme }) => theme.light};
+    }
   }
 `
 
