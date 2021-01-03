@@ -63,6 +63,7 @@ a {
 
 strong {
   font-family: 'Montserrat-Bold', sans-serif;
+  color: ${({ theme }) => theme.light};
 }
 
 ol, ul {
@@ -81,6 +82,11 @@ ul {
   li {
     list-style: square;
   }
+}
+
+.black-nav {
+  transition: background-color 0.2s ease-in-out;
+  background-color: ${({ theme }) => theme.black} !important
 }
 
 .iframe-container {
