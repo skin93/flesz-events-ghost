@@ -3,7 +3,8 @@ import { device } from '../../../constants/device'
 
 export const Header = styled.header`
   width: 100%;
-  background-color: ${({ theme }) => theme.gray};
+  transition: background-color 0.2s ease-in-out;
+  background-color: transparent;
   position: sticky;
   top: 0;
   left: 0;

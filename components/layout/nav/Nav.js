@@ -7,6 +7,15 @@ const Nav = ({ open, setOpen, children, ...props }) => {
       window.addEventListener('click', (e) =>
         e.target.nodeName == 'A' ? setOpen(false) : null
       )
+
+      const header = document.querySelector('header')
+      window.addEventListener('scroll', () => {
+        if (window.pageYOffset >= 50) {
+          header.classList.add('black-nav')
+        } else {
+          header.classList.remove('black-nav')
+        }
+      })
     }
   }, [])
   return (
