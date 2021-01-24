@@ -78,13 +78,14 @@ export const ArticleContent = styled.div`
     background: ${({ theme }) => theme.gray};
     color: rgba(255, 255, 255, 0.9);
     font-family: 'Montserrat-Medium';
-    font-size: 1.1rem;
+    font-size: 1.5rem;
     padding: 20px 30px;
     margin: 50px auto;
+    line-height: 3rem;
     width: 80%;
-    max-width: 500px;
-    border: solid 2px ${({ theme }) => theme.accent};
-    box-shadow: 15px 15px 0 0 ${({ theme }) => theme.accent};
+    border-left: 3px solid ${({ theme }) => theme.accent};
+    /* max-width: 500px; */
+    /* box-shadow: 15px 15px 0 0 ${({ theme }) => theme.accent}; */
     font-style: italic;
   }
 `
