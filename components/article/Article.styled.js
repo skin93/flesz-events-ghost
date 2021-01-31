@@ -23,20 +23,23 @@ export const ArticleImg = styled.img`
 export const ArticleTitle = styled.h1`
   text-align: center;
   width: 100%;
-  font-size: 3rem;
+  font-size: 2rem;
   margin-bottom: 0;
   color: ${({ theme }) => theme.light};
 
-  @media ${device.laptopL} {
+  @media ${device.tablet} {
     font-size: 3rem;
-    text-align: left;
   }
 `
 
 export const ArticleExcerpt = styled.p`
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   color: ${({ theme }) => theme.light};
   font-family: 'Montserrat-Bold';
+
+  @media ${device.tablet} {
+    font-size: 1.5rem;
+  }
 `
 
 export const BorderBottom = styled.div`
@@ -49,18 +52,21 @@ export const Published = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-
-  @media ${device.laptopL} {
-    justify-content: flex-start;
-  }
+  border-bottom: 3px solid gray;
 
   div {
     margin: 0 5px;
     font-family: 'Oswald';
-    font-size: 1rem;
+    font-size: 0.8rem;
 
     &:nth-child(even) {
       color: ${({ theme }) => theme.accent};
+    }
+  }
+
+  @media ${device.tablet} {
+    div {
+      font-size: 1rem;
     }
   }
 `
@@ -69,13 +75,22 @@ export const ArticleContent = styled.div`
   color: rgba(238, 238, 238, 0.75);
 
   h3 {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
 
   p {
-    font-size: 1.2rem;
+    font-size: 1rem;
     strong {
       color: ${({ theme }) => theme.light};
+    }
+  }
+
+  @media ${device.tablet} {
+    h3 {
+      font-size: 2rem;
+    }
+    p {
+      font-size: 1.3rem;
     }
   }
 
@@ -83,15 +98,17 @@ export const ArticleContent = styled.div`
     background: ${({ theme }) => theme.gray};
     color: rgba(255, 255, 255, 0.9);
     font-family: 'Montserrat-Medium';
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     padding: 20px 30px;
     margin: 50px auto;
     line-height: 3rem;
     width: 80%;
     border-left: 3px solid ${({ theme }) => theme.accent};
-    /* max-width: 500px; */
-    /* box-shadow: 15px 15px 0 0 ${({ theme }) => theme.accent}; */
     font-style: italic;
+
+    @media ${device.tablet} {
+      font-size: 1.5rem;
+    }
   }
 `
 

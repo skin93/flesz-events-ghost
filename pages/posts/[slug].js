@@ -2,12 +2,22 @@ import { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { device } from '../../constants/device'
 
+import Link from 'next/link'
+import moment from 'moment'
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowUp } from '@fortawesome/free-solid-svg-icons'
 
 import SEO from '../../components/seo/SEO'
 import FeaturedPosts from '../../components/posts/FeaturedPosts'
 import { Article } from '../../components/index'
+import {
+  ArticleTitle,
+  Published,
+  TagsContainer,
+  ArticleTag,
+  ArticleHeader
+} from '../../components/article/Article.styled'
 import { ScrollToTopButton } from '../../components/index'
 
 const StyledPageContainer = styled.div`
@@ -27,14 +37,9 @@ const Aside = styled.section`
   align-items: center;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
-  margin: 0 30px;
+  margin: 30px;
   overflow: hidden;
   max-width: 100%;
-
-  @media ${device.laptopL} {
-    position: relative;
-    top: 200px;
-  }
   h3 {
     text-align: left;
     color: ${({ theme }) => theme.light};
@@ -85,6 +90,28 @@ const PostPage = ({ post, featured, errors }) => {
         description={post.excerpt}
         image={post.feature_image}
       />
+      <ArticleHeader>
+        <ArticleTitle>{post.title}</ArticleTitle>
+        <Published>
+          <TagsContainer>
+            {post.tags &&
+              post.tags.length > 0 &&
+              post.tags.map((tag) => (
+                <Link key={tag.id} href={`/tags/${tag.slug}?page=1`}>
+                  <a>
+                    <ArticleTag>{tag.name}</ArticleTag>
+                  </a>
+                </Link>
+              ))}
+          </TagsContainer>
+          <div>|</div>
+          <div>{moment(post.published_at).format('DD-MM-YYYY')}</div>
+          <div>|</div>
+          {post.authors.map((author) => (
+            <div>{author.name}</div>
+          ))}
+        </Published>
+      </ArticleHeader>
       <StyledPageContainer>
         <Article post={post} />
         <Aside>
