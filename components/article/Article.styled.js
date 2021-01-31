@@ -21,19 +21,20 @@ export const ArticleImg = styled.img`
 `
 
 export const ArticleTitle = styled.h1`
-  text-align: left;
+  text-align: center;
   width: 100%;
-  font-size: 2rem;
+  font-size: 3rem;
   margin-bottom: 0;
   color: ${({ theme }) => theme.light};
 
   @media ${device.laptopL} {
     font-size: 3rem;
+    text-align: left;
   }
 `
 
 export const ArticleExcerpt = styled.p`
-  font-size: 1.1rem;
+  font-size: 1.5rem;
   color: ${({ theme }) => theme.light};
   font-family: 'Montserrat-Bold';
 `
@@ -46,8 +47,12 @@ export const BorderBottom = styled.div`
 
 export const Published = styled.div`
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
+
+  @media ${device.laptopL} {
+    justify-content: flex-start;
+  }
 
   div {
     margin: 0 5px;
@@ -68,7 +73,7 @@ export const ArticleContent = styled.div`
   }
 
   p {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     strong {
       color: ${({ theme }) => theme.light};
     }
