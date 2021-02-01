@@ -90,7 +90,7 @@ export const ArticleContent = styled.div`
       font-size: 2rem;
     }
     p {
-      font-size: 1.3rem;
+      font-size: 1.2rem;
     }
   }
 

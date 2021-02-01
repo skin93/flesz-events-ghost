@@ -69,13 +69,21 @@ strong {
 ol, ul {
   li {
     margin: 10px 0;
-    font-size: 1.1rem;
+    font-size: 1rem;
     &::marker {
       color: ${({ theme }) => theme.accent};
       font-family: 'Oswald-Bold';
 
     }
   }
+}
+
+@media ${device.tablet}{
+  ol, ul {
+  li {
+    font-size: 1.2rem;
+  }
+}
 }
 
 ul {
