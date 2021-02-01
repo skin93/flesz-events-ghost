@@ -2,6 +2,8 @@ import styled from 'styled-components'
 import { device } from '../../constants/device'
 
 export const Card = styled.div`
+  height: 100%;
+  width: 100%;
   position: relative;
   display: flex;
   justify-content: flex-end;
@@ -17,7 +19,7 @@ export const CardImg = styled.img`
   border-radius: 10px;
   position: relative;
   width: 100%;
-  height: 250px;
+  height: 75%;
   object-fit: cover;
   overflow: hidden;
 `
@@ -44,7 +46,7 @@ export const CardBody = styled.div`
   justify-content: center;
   align-items: flex-start;
   width: 100%;
-  height: 100px;
+  height: 25%;
 `
 
 export const CardTitle = styled.p`
