@@ -38,7 +38,7 @@ const SEO = ({ title, description, image }) => {
         }
       />
 
-      <meta property='og:type' content='webiste' />
+      <meta property='og:type' content='website' />
       <meta
         property='og:url'
         content={`${process.env.NEXT_PUBLIC_APP_DOMAIN}${router.asPath}`}
