@@ -9,8 +9,8 @@ export const GlobalStyles = createGlobalStyle`
 }
 
 @font-face {
-  font-family: 'Roboto-Regular';
-  src: url('/fonts/Roboto-Regular.ttf');
+  font-family: 'Lato-Regular';
+  src: url('/fonts/Lato-Regular.ttf');
   font-display: swap;
 }
 
@@ -19,7 +19,7 @@ body {
   padding: 0;
   margin: 0;
   background-color: ${({ theme }) => theme.background};
-  font-family: 'Roboto-Regular', sans-serif;
+  font-family: 'Lato-Regular', sans-serif;
 }
 h1 {
   text-align: center;

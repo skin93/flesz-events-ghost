@@ -5,8 +5,7 @@ import styled from 'styled-components'
 
 const StyledLink = styled.div`
   a {
-    color: ${(props) =>
-      props.active ? props.theme.light : 'rgb(156, 156, 156)'};
+    color: ${(props) => (props.active ? props.theme.light : props.theme.muted)};
     transition: color 0.2s ease-in;
     &:hover {
       color: white;

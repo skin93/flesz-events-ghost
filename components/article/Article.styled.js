@@ -53,7 +53,7 @@ export const PublishedDate = styled.div``
 export const PublishedAuthors = styled.div``
 
 export const ArticleContent = styled.div`
-  color: rgba(238, 238, 238, 0.75);
+  color: ${({ theme }) => theme.muted};
 
   p {
     line-height: 2rem;
