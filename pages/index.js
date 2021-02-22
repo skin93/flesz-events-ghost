@@ -6,7 +6,7 @@ import LoadMoreButton from '../components/UI/LoadMoreButton'
 const IndexPage = ({ posts, errors }) => {
   if (errors) return <Error message='Brak wpisów' />
 
-  const postsPerPage = 6
+  const postsPerPage = 9
 
   const [postsToShow, setPostsToShow] = useState([])
   const [next, setNext] = useState(postsPerPage)
