@@ -110,7 +110,7 @@ const PostPage = ({ post, featured, errors }) => {
             {moment(post.published_at).format('DD-MM-YYYY')}
           </PublishedDate>
           {post.authors.map((author) => (
-            <PublishedAuthors>{author.name}</PublishedAuthors>
+            <PublishedAuthors key={author.name}>{author.name}</PublishedAuthors>
           ))}
         </PublishedContainer>
       </ArticleHeader>
