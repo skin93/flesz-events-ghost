@@ -29,7 +29,7 @@ export const ArticleExcerpt = styled.p`
 `
 
 export const BorderBottom = styled.div`
-  background-color: ${({ theme }) => theme.accent};
+  background-color: ${({ theme }) => theme.muted};
   height: 3px;
   width: 100%;
   margin: 30px 0;
