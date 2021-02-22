@@ -32,6 +32,7 @@ h1 {
 h2 {
   color: ${({ theme }) => theme.light}
 }
+
 a {
   color: ${({ theme }) => theme.accent};
   text-decoration: none;
@@ -39,6 +40,10 @@ a {
 
 strong {
   color: ${({ theme }) => theme.light};
+}
+
+ul, ol {
+  margin: 30px;
 }
 
 ol, ul {
@@ -53,8 +58,12 @@ ol, ul {
 
 ul {
   li {
-    list-style: square;
+    list-style: square
   }
+}
+
+p, li, blockquote {
+  font-size: 1.2rem;
 }
 
 .black-nav {
@@ -66,7 +75,9 @@ ul {
   position: relative;
   overflow: hidden;
   width: 100%;
-  padding-top: 56.25%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
+  /* height: auto; */
+  padding-top: 56.25%;
+  margin: 30px 0;
 
   iframe {
   position: absolute;
