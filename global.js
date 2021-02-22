@@ -3,30 +3,14 @@ import { device } from './constants/device'
 
 export const GlobalStyles = createGlobalStyle`
 * {
+  margin: 0;
+  padding:0;
   box-sizing: border-box;
 }
 
 @font-face {
-  font-family: 'Montserrat-Medium';
-  src: url('/fonts/Montserrat-Medium.ttf');
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Montserrat-Bold';
-  src: url('/fonts/Montserrat-Bold.ttf');
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Oswald';
-  src: url('/fonts/Oswald.ttf');
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Oswald-Bold';
-  src: url('/fonts/Oswald-Bold.ttf');
+  font-family: 'Roboto-Regular';
+  src: url('/fonts/Roboto-Regular.ttf');
   font-display: swap;
 }
 
@@ -34,26 +18,18 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: 'Montserrat-Medium', sans-serif;
-  background-color: ${({ theme }) => theme.gray};
-}
-
-h1,
-h2,
-h3,
-h4 {
-  font-family: 'Oswald-Bold', sans-serif;
+  background-color: ${({ theme }) => theme.background};
+  font-family: 'Roboto-Regular', sans-serif;
 }
 h1 {
-  font-size: 3rem;
   text-align: center;
   max-width: 100%;
+  margin: 30px 0;
   text-transform: uppercase;
   color: ${({ theme }) => theme.light};
 }
 
-h3 {
-  font-size: 2rem;
+h2 {
   color: ${({ theme }) => theme.light}
 }
 a {
@@ -62,28 +38,17 @@ a {
 }
 
 strong {
-  font-family: 'Montserrat-Bold', sans-serif;
   color: ${({ theme }) => theme.light};
 }
 
 ol, ul {
   li {
     margin: 10px 0;
-    font-size: 1rem;
     &::marker {
       color: ${({ theme }) => theme.accent};
-      font-family: 'Oswald-Bold';
 
     }
   }
-}
-
-@media ${device.tablet}{
-  ol, ul {
-  li {
-    font-size: 1.2rem;
-  }
-}
 }
 
 ul {
@@ -94,7 +59,7 @@ ul {
 
 .black-nav {
   transition: background-color 0.2s ease-in-out;
-  background-color: ${({ theme }) => theme.black} !important
+  background-color: black;
 }
 
 .iframe-container {
@@ -162,7 +127,6 @@ ul {
 
 figcaption {
   text-align: center;
-  font-family: 'Oswald-Bold';
   color: ${({ theme }) => theme.light};
 }
 

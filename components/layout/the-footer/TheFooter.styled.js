@@ -3,7 +3,7 @@ import { device } from '../../../constants/device'
 
 export const Footer = styled.footer`
   width: 100%;
-  background-color: ${({ theme }) => theme.gray};
+  background-color: ${({ theme }) => theme.background};
   min-height: 7vh;
 `
 

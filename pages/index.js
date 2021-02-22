@@ -24,7 +24,6 @@ const IndexPage = ({ posts, errors }) => {
     loopWithSlice(next, next + postsPerPage)
     setNext(next + postsPerPage)
   }
-
   return (
     <>
       <SEO />

@@ -4,7 +4,6 @@ export default styled.button`
   background-color: ${({ theme }) => theme.accent};
   padding: 10px 20px;
   margin: 30px auto;
-  font-family: 'Montserrat-Bold', sans-serif;
   border: none;
   border-radius: 5px;
   cursor: pointer;

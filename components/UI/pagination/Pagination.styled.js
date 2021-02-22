@@ -18,7 +18,6 @@ export const Button = styled.button`
   background-color: ${({ theme }) => theme.accent};
   padding: 10px 20px;
   margin: 0 10px;
-  font-family: 'Montserrat-Bold', sans-serif;
   border: 1px solid ${({ theme }) => theme.accent};
   border-radius: 5px;
   cursor: pointer;
