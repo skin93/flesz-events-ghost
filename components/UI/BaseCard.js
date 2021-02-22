@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { device } from '../../constants/device'
 
 export const Card = styled.div`
-  height: 100%;
+  height: 250px;
   width: 100%;
   position: relative;
   display: flex;
@@ -10,16 +10,31 @@ export const Card = styled.div`
   align-items: center;
   flex-direction: column;
   transition: transform 0.2s ease-in-out;
+`
+
+export const ImgOverlay = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease-in-out;
+
   &:hover {
-    transform: translateY(-20px);
+    opacity: 1;
   }
 `
 
 export const CardImg = styled.img`
+  position: relative;
   border-radius: 10px;
   position: relative;
   width: 100%;
-  height: 75%;
+  height: 100%;
   object-fit: cover;
   overflow: hidden;
 `
@@ -37,29 +52,29 @@ export const BadgeName = styled.small`
   text-transform: uppercase;
   font-weight: bold;
   font-size: 1rem;
-  font-family: 'Oswald';
 `
 
 export const CardBody = styled.div`
+  position: absolute;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: flex-start;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 5px;
   width: 100%;
-  height: 25%;
+  height: auto;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
 `
 
 export const CardTitle = styled.p`
   color: ${({ theme }) => theme.light};
-  font-size: 1.5rem;
   font-weight: bold;
-  font-family: 'Oswald';
-  transition: border 0.2s ease-out;
-  margin: 0;
+  font-size: calc(1rem + 0.2vw);
 `
 
 export const Published = styled.small`
   font-weight: bold;
-  font-family: 'Oswald';
   color: ${({ theme }) => theme.accent};
 `
