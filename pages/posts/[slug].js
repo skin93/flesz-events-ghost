@@ -13,7 +13,9 @@ import FeaturedPosts from '../../components/posts/FeaturedPosts'
 import { Article } from '../../components/index'
 import {
   ArticleTitle,
-  Published,
+  PublishedContainer,
+  PublishedDate,
+  PublishedAuthors,
   TagsContainer,
   ArticleTag,
   ArticleHeader
@@ -84,7 +86,7 @@ const PostPage = ({ post, featured, errors }) => {
   if (errors) return <Error message='Something went wrong' />
 
   return (
-    <>
+    <article style={{ padding: '0 30px' }}>
       <SEO
         title={post.title}
         description={post.excerpt}
@@ -92,7 +94,7 @@ const PostPage = ({ post, featured, errors }) => {
       />
       <ArticleHeader>
         <ArticleTitle>{post.title}</ArticleTitle>
-        <Published>
+        <PublishedContainer>
           <TagsContainer>
             {post.tags &&
               post.tags.length > 0 &&
@@ -104,13 +106,13 @@ const PostPage = ({ post, featured, errors }) => {
                 </Link>
               ))}
           </TagsContainer>
-          <div>|</div>
-          <div>{moment(post.published_at).format('DD-MM-YYYY')}</div>
-          <div>|</div>
+          <PublishedDate>
+            {moment(post.published_at).format('DD-MM-YYYY')}
+          </PublishedDate>
           {post.authors.map((author) => (
-            <div>{author.name}</div>
+            <PublishedAuthors>{author.name}</PublishedAuthors>
           ))}
-        </Published>
+        </PublishedContainer>
       </ArticleHeader>
       <StyledPageContainer>
         <Article post={post} />
@@ -122,7 +124,7 @@ const PostPage = ({ post, featured, errors }) => {
       <ScrollToTopButton id='scrollButton' showButton={showButton}>
         <FontAwesomeIcon color='#212121' size='sm' icon={faArrowUp} />
       </ScrollToTopButton>
-    </>
+    </article>
   )
 }
 

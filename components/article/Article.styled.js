@@ -9,113 +9,74 @@ export const ArticleHeader = styled.div`
 
 export const ArticleImg = styled.img`
   width: 100%;
-  height: 200px;
-  overflow: hidden;
-  margin-top: 30px;
+  margin: 30px 0;
   border-radius: 10px;
   object-fit: cover;
-
-  @media ${device.tablet} {
-    height: 500px;
-  }
+  object-position: center;
 `
 
 export const ArticleTitle = styled.h1`
-  text-align: center;
+  text-align: left;
   width: 100%;
-  font-size: 2rem;
   margin-bottom: 0;
+  font-size: calc(1rem + 1.5vw);
   color: ${({ theme }) => theme.light};
-
-  @media ${device.tablet} {
-    font-size: 3rem;
-  }
 `
 
 export const ArticleExcerpt = styled.p`
-  font-size: 1.2rem;
   color: ${({ theme }) => theme.light};
-  font-family: 'Montserrat-Bold';
-
-  @media ${device.tablet} {
-    font-size: 1.5rem;
-  }
+  font-weight: bold;
 `
 
 export const BorderBottom = styled.div`
   background-color: ${({ theme }) => theme.accent};
   height: 3px;
   width: 100%;
+  margin: 30px 0;
 `
 
-export const Published = styled.div`
+export const PublishedContainer = styled.div`
   display: flex;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: flex-start;
   align-items: center;
-  border-bottom: 3px solid gray;
+  border-bottom: 3px solid rgb(156, 156, 156);
 
   div {
     margin: 0 5px;
-    font-family: 'Oswald';
-    font-size: 0.8rem;
-
-    &:nth-child(even) {
-      color: ${({ theme }) => theme.accent};
-    }
-  }
-
-  @media ${device.tablet} {
-    div {
-      font-size: 1rem;
-    }
+    font-size: calc(0.7rem + 0.2vw);
   }
 `
+
+export const PublishedDate = styled.div``
+
+export const PublishedAuthors = styled.div``
 
 export const ArticleContent = styled.div`
   color: rgba(238, 238, 238, 0.75);
 
-  h3 {
-    font-size: 1.5rem;
-  }
-
   p {
-    font-size: 1rem;
+    line-height: 2rem;
+    margin: 30px 0;
     strong {
       color: ${({ theme }) => theme.light};
     }
   }
 
-  @media ${device.tablet} {
-    h3 {
-      font-size: 2rem;
-    }
-    p {
-      font-size: 1.2rem;
-    }
-  }
-
   blockquote {
-    background: ${({ theme }) => theme.gray};
+    background: ${({ theme }) => theme.background};
     color: rgba(255, 255, 255, 0.9);
-    font-family: 'Montserrat-Medium';
-    font-size: 1.2rem;
     padding: 20px 30px;
     margin: 50px auto;
     line-height: 3rem;
     width: 80%;
     border-left: 3px solid ${({ theme }) => theme.accent};
     font-style: italic;
-
-    @media ${device.tablet} {
-      font-size: 1.5rem;
-    }
   }
 `
 
 export const TagsContainer = styled.div`
-  max-width: 100%;
   height: 50px;
-  margin: 0 auto;
   display: flex;
   justify-content: flex-start;
   align-items: center;
