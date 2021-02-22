@@ -30,7 +30,7 @@ export async function getServerSideProps({ query, params }) {
   const data1 = await res1.json()
 
   const res2 = await fetch(
-    `${process.env.API}/posts/?key=${process.env.API_KEY}&limit=6&include=tags&page=${page}&filter=tags:['${params.slug}']&order=published_at%20desc`
+    `${process.env.API}/posts/?key=${process.env.API_KEY}&limit=9&include=tags&page=${page}&filter=tags:['${params.slug}']&order=published_at%20desc`
   )
   const data2 = await res2.json()
 
