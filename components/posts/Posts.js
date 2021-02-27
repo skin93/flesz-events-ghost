@@ -6,6 +6,8 @@ const PostsContainer = styled.div`
   display: grid;
   gap: 30px;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  justify-content: center;
+  align-items: center;
 `
 
 const Posts = ({ posts }) => {
