@@ -5,17 +5,8 @@ import TagItem from './TagItem'
 
 const TagsContainer = styled.div`
   display: grid;
-  gap: 5px;
-  justify-items: center;
-  align-items: center;
-
-  @media ${device.mobileS} {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  @media ${device.tablet} {
-    grid-template-columns: repeat(3, 1fr);
-  }
+  gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 `
 
 const Tags = ({ tags }) => {

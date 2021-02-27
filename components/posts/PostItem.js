@@ -4,11 +4,9 @@ import {
   Card,
   CardImg,
   CardBody,
-  CardOverlay,
   CardTitle,
   Published,
   Badge,
-  BadgeName,
   ImgOverlay
 } from '../UI/BaseCard'
 import moment from 'moment'
@@ -20,9 +18,7 @@ const PostItem = ({ post }) => {
         <Card>
           <CardImg src={post.feature_image} alt={post.title} />
           <ImgOverlay />
-          <Badge>
-            <BadgeName>{post.primary_tag.name}</BadgeName>
-          </Badge>
+          <Badge>{post.primary_tag.name}</Badge>
           <CardBody>
             <CardTitle>{post.title}</CardTitle>
             <Published>

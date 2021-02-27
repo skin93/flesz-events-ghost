@@ -5,11 +5,11 @@ import styled from 'styled-components'
 const TagBody = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  /* justify-content: center; */
+  /* align-items: center; */
+  /* text-align: center; */
   margin: 0 auto;
-  max-width: 100%;
-  padding: 15px;
+  padding: 5px;
   border-radius: 5px;
   transition: background-color 0.2s ease-in-out;
 
@@ -22,7 +22,6 @@ const TagName = styled.h2`
   color: ${({ theme }) => theme.light};
   font-weight: bold;
   text-transform: uppercase;
-  font-size: 1.5rem;
   margin: 0;
 `
 

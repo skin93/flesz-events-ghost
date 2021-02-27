@@ -18,8 +18,8 @@ export const ArticleImg = styled.img`
 export const ArticleTitle = styled.h1`
   text-align: left;
   width: 100%;
-  margin-bottom: 0;
-  font-size: calc(1rem + 1.5vw);
+  margin: 0;
+  font-size: calc(1rem + 1vw);
   color: ${({ theme }) => theme.light};
 `
 
@@ -83,11 +83,9 @@ export const TagsContainer = styled.div`
 `
 
 export const ArticleTag = styled.small`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 5px;
-  padding: 0 5px;
+  text-align: center;
+  margin-right: 5px;
+  padding: 2px 5px;
   background-color: ${({ theme }) => theme.accent};
   color: ${({ theme }) => theme.black};
   text-transform: uppercase;

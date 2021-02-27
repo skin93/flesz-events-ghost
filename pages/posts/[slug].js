@@ -86,7 +86,7 @@ const PostPage = ({ post, featured, errors }) => {
   if (errors) return <Error message='Something went wrong' />
 
   return (
-    <article style={{ padding: '0 30px' }}>
+    <article style={{ padding: '30px' }}>
       <SEO
         title={post.title}
         description={post.excerpt}

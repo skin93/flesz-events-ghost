@@ -107,7 +107,7 @@ p, li, blockquote {
 }
 
 .kg-card.kg-image-card {
-  margin: 0 auto;
+  margin: 30px auto;
   max-width: 600px;
 }
 
