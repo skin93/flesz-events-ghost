@@ -43,6 +43,7 @@ export const NavItem = styled.li`
   margin: 30px 0;
   text-transform: uppercase;
   font-weight: bold;
+  font-size: 1rem;
 
   @media ${device.tablet} {
     margin: 0;
