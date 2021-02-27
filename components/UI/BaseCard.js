@@ -38,20 +38,17 @@ export const CardImg = styled.img`
   object-fit: cover;
   overflow: hidden;
 `
-export const Badge = styled.div`
+export const Badge = styled.small`
   position: absolute;
   top: 10px;
   left: 10px;
   text-align: center;
-  padding: 0 5px;
-  background: ${({ theme }) => theme.accent};
-`
-
-export const BadgeName = styled.small`
+  /* margin-right: 5px; */
+  padding: 2px 5px;
+  background-color: ${({ theme }) => theme.accent};
   color: ${({ theme }) => theme.black};
   text-transform: uppercase;
   font-weight: bold;
-  font-size: 1rem;
 `
 
 export const CardBody = styled.div`
