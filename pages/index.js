@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import SEO from '../components/seo/SEO'
 import Posts from '../components/posts/Posts'
-import LoadMoreButton from '../components/UI/LoadMoreButton'
+import { LoadMoreButton } from '../components'
 
 const IndexPage = ({ posts, errors }) => {
   if (errors) return <Error message='Brak wpisów' />
