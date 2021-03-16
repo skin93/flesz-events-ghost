@@ -5,9 +5,8 @@ import styled from 'styled-components'
 const TagBody = styled.div`
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
-  /* align-items: center; */
-  /* text-align: center; */
+  justify-content: center;
+  align-items: center;
   margin: 0 auto;
   padding: 5px;
   border-radius: 5px;
@@ -18,10 +17,8 @@ const TagBody = styled.div`
   }
 `
 
-const TagName = styled.h2`
+const TagName = styled.h3`
   color: ${({ theme }) => theme.light};
-  font-weight: bold;
-  text-transform: uppercase;
   margin: 0;
 `
 
