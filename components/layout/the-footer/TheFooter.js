@@ -5,16 +5,6 @@ const TheFooter = () => {
   return (
     <Footer>
       <FooterContent>
-        {/* <FooterItem>
-          <Link href={'/about'}>
-            <a>O Nas</a>
-          </Link>
-        </FooterItem>
-        <FooterItem>
-          <Link href={'/contact'}>
-            <a>Kontakt</a>
-          </Link>
-        </FooterItem> */}
         <FooterItem>
           <Link href={'/tags'}>
             <a>Tagi </a>

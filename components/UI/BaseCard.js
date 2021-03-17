@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import { device } from '../../constants/device'
 
 export const Card = styled.div`
   height: 250px;
@@ -43,7 +42,6 @@ export const Badge = styled.small`
   top: 10px;
   left: 10px;
   text-align: center;
-  /* margin-right: 5px; */
   padding: 2px 5px;
   background-color: ${({ theme }) => theme.accent};
   color: ${({ theme }) => theme.black};

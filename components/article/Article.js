@@ -1,19 +1,9 @@
 import {
-  ArticleHeader,
   ArticleImg,
   ArticleExcerpt,
   BorderBottom,
-  ArticleContent,
-  ArticleTitle,
-  Published,
-  TagsContainer,
-  ArticleTag
+  ArticleContent
 } from './Article.styled'
-
-import DisqusComments from '../UI/Disqus'
-
-import moment from 'moment'
-import Link from 'next/link'
 
 const Article = ({ post }) => {
   return (
@@ -23,7 +13,6 @@ const Article = ({ post }) => {
       <BorderBottom />
       <ArticleContent dangerouslySetInnerHTML={{ __html: post.html }} />
       <BorderBottom />
-      <DisqusComments post={post} />
     </section>
   )
 }

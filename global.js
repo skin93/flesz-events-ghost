@@ -75,7 +75,6 @@ p, li, blockquote {
   position: relative;
   overflow: hidden;
   width: 100%;
-  /* height: auto; */
   padding-top: 56.25%;
   margin: 30px 0;
 
