@@ -1,9 +1,7 @@
-import styled from 'styled-components'
-
-import SEO from '../../components/seo/SEO'
-import Posts from '../../components/posts/Posts'
-import { Pagination } from '../../components/index'
-import { Error } from '../../components/index'
+import SEO from '../../components/SEO'
+import Posts from '../../components/Posts'
+import Pagination from '../../components/UI/Pagination'
+import Error from '../../components/Error'
 import { theme } from '../../theme'
 
 const TagPage = ({ tag, posts, meta: { pagination }, errors }) => {

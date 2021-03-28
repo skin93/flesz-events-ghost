@@ -2,7 +2,7 @@ import { GlobalStyles } from '../global'
 import { ThemeProvider } from 'styled-components'
 import Router from 'next/router'
 
-import { Layout } from '../components/index'
+import Layout from '../components/Layout'
 import { theme } from '../theme'
 
 import * as gtag from '../lib/gtag'

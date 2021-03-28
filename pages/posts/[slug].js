@@ -8,9 +8,9 @@ import moment from 'moment'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowUp } from '@fortawesome/free-solid-svg-icons'
 
-import SEO from '../../components/seo/SEO'
-import FeaturedPosts from '../../components/posts/FeaturedPosts'
-import { Article } from '../../components/index'
+import SEO from '../../components/SEO'
+import FeaturedPosts from '../../components/FeaturedPosts'
+import Article from '../../components/Article'
 import {
   ArticleTitle,
   PublishedContainer,
@@ -19,8 +19,8 @@ import {
   TagsContainer,
   ArticleTag,
   ArticleHeader
-} from '../../components/article/Article.styled'
-import { ScrollToTopButton } from '../../components/index'
+} from '../../components/Article/Article.styled'
+import { ScrollToTopButton } from '../../components/UI/ScrollToTopButton/ScrollToTopButton.styled'
 
 const StyledPageContainer = styled.div`
   display: grid;

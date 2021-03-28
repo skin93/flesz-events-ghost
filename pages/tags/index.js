@@ -1,6 +1,7 @@
-import SEO from '../../components/seo/SEO'
-import Tags from '../../components/tags/Tags'
-import { Error, Pagination } from '../../components/index'
+import SEO from '../../components/SEO'
+import Tags from '../../components/Tags'
+import Error from '../../components/Error'
+import Pagination from '../../components/UI/Pagination'
 
 const TagsPage = ({ tags, meta: { pagination }, errors }) => {
   if (errors) return <Error message='Brak tagów' />
