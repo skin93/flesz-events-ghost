@@ -1,5 +1,6 @@
 import styled from 'styled-components'
-import SEO from '../../components/seo/SEO'
+
+import SEO from '../../components/SEO'
 
 const InfoStyled = styled.section`
   display: flex;

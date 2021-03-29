@@ -2,6 +2,7 @@ import SEO from '../../components/SEO'
 import Posts from '../../components/Posts'
 import Pagination from '../../components/UI/Pagination'
 import Error from '../../components/Error'
+
 import { theme } from '../../theme'
 
 const TagPage = ({ tag, posts, meta: { pagination }, errors }) => {

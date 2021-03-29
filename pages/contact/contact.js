@@ -1,6 +1,8 @@
 import React from 'react'
+
 import styled from 'styled-components'
-import SEO from '../../components/seo/SEO'
+
+import SEO from '../../components/SEO'
 
 const StyledContact = styled.section`
   display: flex;

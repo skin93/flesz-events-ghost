@@ -1,12 +1,14 @@
 import { useEffect, useState } from 'react'
-import styled from 'styled-components'
-import { device } from '../../constants/device'
 
 import Link from 'next/link'
+
 import moment from 'moment'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowUp } from '@fortawesome/free-solid-svg-icons'
+
+import styled from 'styled-components'
+import { device } from '../../constants/device'
 
 import SEO from '../../components/SEO'
 import FeaturedPosts from '../../components/FeaturedPosts'

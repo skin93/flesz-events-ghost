@@ -1,11 +1,13 @@
-import { GlobalStyles } from '../global'
-import { ThemeProvider } from 'styled-components'
 import Router from 'next/router'
 
-import Layout from '../components/Layout'
+import * as gtag from '../lib/gtag'
+
+import { ThemeProvider } from 'styled-components'
+
+import { GlobalStyles } from '../global'
 import { theme } from '../theme'
 
-import * as gtag from '../lib/gtag'
+import Layout from '../components/Layout'
 
 Router.events.on('routeChangeComplete', (url) => gtag.pageview(url))
 

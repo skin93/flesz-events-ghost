@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+
 import SEO from '../components/SEO'
 import Posts from '../components/Posts'
 import { LoadMoreButton } from '../components/UI/LoadMoreButton/LoadMoreButton.styled'
